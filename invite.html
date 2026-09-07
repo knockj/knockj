@@ -1,0 +1,1227 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bright Hope Worship IN Busan | 참가 안내</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700&family=Noto+Serif+JP:wght@600;700&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Caveat:wght@700&display=swap">
+<style>
+  :root{
+    --bg:#F4F9FC; --surface:#FFFFFF; --surface-2:#E9F1F9;
+    --ink:#1E2B45; --muted:#5D6B85; --line:#DCE6F0;
+    --accent:#4F7FD6; --accent-ink:#2E4E8F; --accent-soft:#E1EAFB;
+    --sea:#3FAEDB; --sea-soft:#DFF1FA; --sea-ink:#1F6A8C;
+    --good:#5FA968; --good-soft:#E5F3E5;
+    --warn:#C9784A;
+    --fest:#9B7FD1; --fest-soft:#EFE8FA; --fest-ink:#6B4FA8;
+    --sunset-1:#FCE49A; --sunset-2:#F6B387; --sunset-3:#F0A0AE;
+    --shadow: 0 1px 2px rgba(30,43,69,.06), 0 8px 24px -12px rgba(30,43,69,.18);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0F1729; --surface:#182238; --surface-2:#1F2C46;
+      --ink:#EAEEF6; --muted:#9BA8C4; --line:#2C3A56;
+      --accent:#7FA6EA; --accent-ink:#DCE7FB; --accent-soft:#233457;
+      --sea:#5EC2EE; --sea-soft:#173548; --sea-ink:#BDE9FB;
+      --good:#7FC17F; --good-soft:#1B3324;
+      --warn:#E39A6E;
+      --fest:#B9A0E8; --fest-soft:#2C2350; --fest-ink:#D9CBF5;
+      --sunset-1:#7A6432; --sunset-2:#8A5A3F; --sunset-3:#8A4A57;
+      --shadow: 0 1px 2px rgba(0,0,0,.35), 0 10px 30px -14px rgba(0,0,0,.65);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0F1729; --surface:#182238; --surface-2:#1F2C46;
+    --ink:#EAEEF6; --muted:#9BA8C4; --line:#2C3A56;
+    --accent:#7FA6EA; --accent-ink:#DCE7FB; --accent-soft:#233457;
+    --sea:#5EC2EE; --sea-soft:#173548; --sea-ink:#BDE9FB;
+    --good:#7FC17F; --good-soft:#1B3324;
+    --warn:#E39A6E;
+    --fest:#B9A0E8; --fest-soft:#2C2350; --fest-ink:#D9CBF5;
+    --sunset-1:#7A6432; --sunset-2:#8A5A3F; --sunset-3:#8A4A57;
+    --shadow: 0 1px 2px rgba(0,0,0,.35), 0 10px 30px -14px rgba(0,0,0,.65);
+  }
+
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  html { color-scheme: light dark; }
+  body{ background: var(--bg); color: var(--ink); font-family:"IBM Plex Sans KR","Noto Sans JP","Noto Sans KR",-apple-system,sans-serif; line-height:1.6; }
+  .wrap{ max-width: 960px; margin:0 auto; padding: 28px 24px 80px; }
+
+  h1,h2,h3{ font-family:"Noto Serif KR","Noto Serif JP","IBM Plex Sans KR",serif; text-wrap:balance; margin:0; }
+  h1{ font-size:1.7rem; font-weight:700; letter-spacing:-0.01em; }
+  h2{ font-size:1.15rem; font-weight:700; }
+  h3{ font-size:.92rem; font-weight:700; }
+  p{ margin:0; }
+  .script{ font-family:"Caveat","Noto Serif KR",cursive; font-weight:700; color:var(--accent); font-size:1.15em; }
+
+  /* ---- Hero banner (echoes the official poster) ---- */
+  .hero{
+    position:relative; height:108px; border-radius:16px; overflow:hidden; margin-bottom:22px;
+    background: linear-gradient(115deg, #8FC6EE 0%, #BFE0F5 42%, var(--sunset-1) 78%, var(--sunset-2) 100%);
+    box-shadow: var(--shadow);
+  }
+  .hero .glow{ position:absolute; right:-30px; top:-40px; width:170px; height:170px; border-radius:50%;
+    background: radial-gradient(circle, rgba(255,255,255,.85), var(--sunset-1) 55%, transparent 75%); }
+  .hero svg{ position:absolute; left:0; right:0; bottom:0; width:100%; height:60%; }
+  .hero-brand{
+    position:relative; z-index:2; display:flex; align-items:center; gap:10px; height:100%; padding:0 18px;
+    color:#fff; font-weight:700; font-size:.82rem; letter-spacing:.03em; text-shadow: 0 1px 3px rgba(0,0,0,.25);
+  }
+  .hero-brand .logo-mark{ height:34px; width:34px; flex-shrink:0; display:block; filter: drop-shadow(0 1px 3px rgba(0,0,0,.3)); }
+
+  header{ padding-bottom:22px; border-bottom:1px solid var(--line); margin-bottom:26px; }
+  .lang-switch{
+    display:inline-flex; border:1px solid rgba(255,255,255,.7); border-radius:999px; padding:3px;
+    background:rgba(255,255,255,.85); backdrop-filter: blur(3px); box-shadow:var(--shadow); flex-shrink:0;
+    position:absolute; top:10px; right:10px; z-index:4;
+  }
+  .lang-switch button{
+    border:none; background:transparent; padding:5px 12px; border-radius:999px; font-size:.76rem; font-weight:700;
+    color:var(--accent-ink); cursor:pointer; font-family:inherit;
+  }
+  .lang-switch button[aria-pressed="true"]{ background:var(--accent); color:#fff; }
+
+  header .en{ color:var(--muted); font-size:.95rem; margin-top:4px; }
+  header .lead{ color:var(--muted); margin-top:12px; max-width:62ch; font-size:.92rem; }
+
+  .stats{ margin-top:18px; display:flex; flex-wrap:wrap; gap:10px; }
+  .stat{ background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:10px 14px; box-shadow:var(--shadow); }
+  .stat .k{ font-size:.66rem; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; }
+  .stat .v{ font-size:.95rem; font-weight:700; margin-top:2px; font-variant-numeric:tabular-nums; color:var(--accent-ink); }
+
+  section{ margin-bottom:38px; }
+  .section-head{ display:flex; align-items:baseline; gap:9px; margin-bottom:6px; }
+  .section-head .num{ font-family:"IBM Plex Mono",monospace; color:var(--sea-ink); font-weight:600; font-size:.78rem; }
+  .section-sub{ color:var(--muted); font-size:.83rem; margin: 0 0 14px; }
+
+  /* ---- Month calendars ---- */
+  .cal-row-sep{ margin-bottom:14px; }
+  .cal-row{ display:grid; grid-template-columns: repeat(3,1fr); gap:14px; align-items:start; }
+  @media (max-width:820px){ .cal-row{ grid-template-columns:1fr; } }
+  .cal{ background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:14px; box-shadow:var(--shadow); }
+  .cal-title{ font-weight:700; font-size:.88rem; margin-bottom:8px; color:var(--accent-ink); }
+  .cal.cal-large{ padding:20px; }
+  .cal.cal-large .cal-title{ font-size:1.1rem; margin-bottom:12px; }
+  .cal.cal-large .cal-grid{ gap:7px; }
+  .cal.cal-large .cal-dow{ font-size:.8rem; padding-bottom:5px; }
+  .cal.cal-large .cal-day{ font-size:.85rem; padding:7px 6px; }
+  .cal.cal-large .cal-day .d{ font-size:.98rem; }
+  .cal.cal-large .cal-day .tag{ font-size:.74rem; }
+  .cal.cal-large .cal-day[data-key]::after{ font-size:.74rem; }
+  .cal-grid{ display:grid; grid-template-columns: repeat(7,1fr); gap:4px; }
+  .cal-dow{ text-align:center; font-size:.64rem; color:var(--muted); padding-bottom:3px; }
+  .cal-day{
+    aspect-ratio: 1 / 0.92; border-radius:7px; padding:4px 4px; font-size:.66rem; background:var(--surface-2);
+    display:flex; flex-direction:column; gap:1px; color:var(--muted); overflow:hidden;
+    border:1.5px solid transparent; text-align:left; font-family:inherit; width:100%;
+  }
+  .cal-day.blank{ background:transparent; }
+  .cal-day .d{ font-weight:700; font-variant-numeric:tabular-nums; color:var(--ink); font-size:.72rem; }
+  .cal-day .tag{
+    font-size:.58rem; line-height:1.18; font-weight:600;
+    display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+  }
+  .cal-day[data-key]{ cursor:pointer; -webkit-tap-highlight-color:transparent; position:relative; }
+  .cal-day[data-key]:hover, .cal-day[data-key]:focus-visible{ border-color: var(--accent); outline:none; transform: translateY(-1px); }
+  .cal-day[data-key]:active{ transform: translateY(0); }
+  .cal-day[data-key]::after{
+    content:"+"; position:absolute; right:3px; bottom:2px; font-size:.6rem; font-weight:800; opacity:.4; line-height:1;
+  }
+  .cal-day.mark-onsite{ background: var(--accent-soft); }
+  .cal-day.mark-onsite .tag{ color: var(--accent-ink); }
+  .cal-day.mark-online{ background: var(--sea-soft); }
+  .cal-day.mark-online .tag{ color: var(--sea-ink); }
+  .cal-day.mark-today{ background: var(--surface-2); box-shadow: inset 0 0 0 2px var(--accent); }
+  .cal-day.mark-today .tag{ color: var(--accent-ink); }
+  .cal-day.mark-arrive{ background: var(--sea-soft); }
+  .cal-day.mark-arrive .tag{ color: var(--sea-ink); }
+  .cal-day.mark-event{ background: linear-gradient(150deg, var(--sunset-1), var(--sunset-2) 55%, var(--sunset-3)); box-shadow: inset 0 0 0 2px var(--accent); }
+  .cal-day.mark-event .d, .cal-day.mark-event .tag{ color:#5A2E1A; }
+  .cal-day.mark-fellow{ background: var(--good-soft); }
+  .cal-day.mark-fellow .tag{ color: var(--good); }
+  .cal-day.mark-depart{ background: var(--sea-soft); }
+  .cal-day.mark-depart .tag{ color: var(--sea-ink); }
+  .cal-day.mark-fest{ background: var(--fest-soft); }
+  .cal-day.mark-fest .tag{ color: var(--fest-ink); }
+
+  .cal-legend{ display:flex; flex-wrap:wrap; gap:14px; margin-top:14px; font-size:.78rem; color:var(--muted); }
+  .cal-legend span{ display:inline-flex; align-items:center; gap:6px; }
+  .dot{ width:9px; height:9px; border-radius:50%; display:inline-block; }
+  .dot.today{ background:var(--surface-2); box-shadow: inset 0 0 0 2px var(--accent); }
+  .dot.onsite{ background:var(--accent); }
+  .dot.online{ background:var(--sea); }
+  .dot.event{ background: linear-gradient(135deg, var(--sunset-2), var(--sunset-3)); }
+  .dot.fellow{ background:var(--good); }
+  .dot.fest{ background:var(--fest); }
+
+  /* ---- 4-day agenda ---- */
+  .agenda{ display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+  @media (max-width:720px){ .agenda{ grid-template-columns:1fr 1fr; } }
+  .day-col{ background:var(--surface); border:1px solid var(--line); border-radius:14px; overflow:hidden; box-shadow:var(--shadow); display:flex; flex-direction:column; }
+  .day-head{ padding:10px 12px; font-weight:700; font-size:.85rem; color:#fff; }
+  .day-head .sub{ font-weight:500; font-size:.7rem; opacity:.9; }
+  .day-col.arrive .day-head{ background: var(--sea); }
+  .day-col.event .day-head{ background: linear-gradient(120deg, var(--sunset-2), var(--sunset-3)); color:#5A2E1A; }
+  .day-col.event .day-head .sub{ opacity:.75; }
+  .day-col.fellow .day-head{ background:var(--good); }
+  .day-col.depart .day-head{ background:var(--sea); }
+  .day-body{ padding:10px 12px; display:flex; flex-direction:column; gap:9px; flex:1; }
+  .ev{ border-left:3px solid var(--line); padding-left:9px; }
+  .ev .t{ font-family:"IBM Plex Mono",monospace; font-size:.7rem; color:var(--muted); font-variant-numeric:tabular-nums; }
+  .ev .t .tbd{ color:var(--warn); }
+  .ev .d{ font-size:.8rem; margin-top:1px; }
+  .ev.hi{ border-left-color: var(--accent); }
+  .ev.hi .d{ font-weight:700; }
+
+  /* ---- Checklist ---- */
+  .progress-bar{ display:flex; align-items:center; gap:10px; margin-bottom:16px; background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:10px 14px; box-shadow:var(--shadow); }
+  .progress-track{ flex:1; height:8px; border-radius:99px; background:var(--surface-2); overflow:hidden; }
+  .progress-fill{ height:100%; background:var(--accent); width:0%; transition:width .2s; }
+  .progress-label{ font-size:.78rem; color:var(--muted); white-space:nowrap; font-variant-numeric:tabular-nums; }
+
+  .cat-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  @media (max-width:720px){ .cat-grid{ grid-template-columns:1fr; } }
+  .cat{ background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow); }
+  .cat-head{ display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:8px; }
+  .cat-head .owner{ font-size:.66rem; color:var(--muted); white-space:nowrap; }
+  ul.tasks{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:6px; }
+  ul.tasks li{ display:flex; align-items:flex-start; gap:8px; }
+  ul.tasks li input[type=checkbox]{ margin-top:3px; width:16px; height:16px; accent-color:var(--accent); flex-shrink:0; cursor:pointer; }
+  ul.tasks li label{ font-size:.84rem; cursor:pointer; }
+  ul.tasks li.checked label{ color:var(--muted); text-decoration:line-through; text-decoration-color:var(--line); }
+
+  .venue{ display:flex; flex-wrap:wrap; gap:18px; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow); font-size:.87rem; }
+  .venue dt{ font-size:.66rem; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; }
+  .venue dd{ margin:2px 0 0; font-weight:600; }
+
+  footer{ margin-top:46px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:.78rem; }
+
+  /* ---- Day detail modal ---- */
+  .modal-backdrop{
+    position:fixed; inset:0; background:rgba(15,23,41,.5); display:flex; align-items:center; justify-content:center;
+    padding:20px; z-index:100;
+  }
+  .modal-backdrop[hidden]{ display:none; }
+  .modal-card{
+    position:relative; background:var(--surface); border-radius:16px; padding:22px 22px 20px; max-width:360px; width:100%;
+    box-shadow: 0 20px 50px -18px rgba(0,0,0,.5); animation: modal-pop .16s ease-out;
+  }
+  @keyframes modal-pop{ from{ opacity:0; transform:scale(.96) translateY(4px); } to{ opacity:1; transform:none; } }
+  .modal-close{
+    position:absolute; top:10px; right:10px; border:none; background:var(--surface-2); color:var(--muted);
+    width:28px; height:28px; border-radius:50%; font-size:.85rem; cursor:pointer; line-height:1;
+  }
+  .modal-pill{
+    display:inline-flex; align-items:center; font-size:.7rem; font-weight:700; padding:4px 10px; border-radius:999px;
+    background:var(--accent-soft); color:var(--accent-ink); margin-bottom:10px;
+  }
+  .modal-date{ font-size:.78rem; color:var(--muted); font-variant-numeric:tabular-nums; margin-bottom:2px; }
+  .modal-card h3{ font-size:1.05rem; margin-bottom:10px; padding-right:20px; }
+  .modal-detail{ font-size:.88rem; color:var(--ink); line-height:1.65; }
+  .modal-meet-link{
+    display:inline-flex; align-items:center; gap:6px; margin-top:12px; padding:8px 16px;
+    background:var(--accent); color:#fff; border-radius:999px; font-size:.82rem; font-weight:700;
+    text-decoration:none; font-family:inherit;
+  }
+  .modal-meet-link:hover{ background:var(--accent-ink); }
+  .modal-meet-link[hidden]{ display:none; }
+
+  /* ---- Q&A / Comments ---- */
+  .qa-board{ display:flex; flex-direction:column; gap:12px; }
+  .qa-form{
+    background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:12px 14px;
+    box-shadow:var(--shadow); display:flex; flex-direction:column; gap:8px;
+  }
+  .qa-form-row{ display:flex; gap:8px; }
+  .qa-form-row input[type=text]{ flex:1; min-width:0; }
+  .qa-form input, .qa-form select, .qa-form textarea{
+    font-family:inherit; font-size:.85rem; padding:8px 10px; border:1px solid var(--line); border-radius:8px;
+    background:var(--bg); color:var(--ink);
+  }
+  .qa-form textarea{ resize:vertical; min-height:44px; }
+  .qa-form select{ flex-shrink:0; max-width:132px; }
+  .qa-submit{
+    align-self:flex-end; background:var(--accent); color:#fff; border:none; border-radius:999px; padding:8px 18px;
+    font-size:.82rem; font-weight:700; cursor:pointer; font-family:inherit;
+  }
+  .qa-submit:disabled{ opacity:.5; cursor:default; }
+  .qa-status{ font-size:.78rem; color:var(--warn); min-height:1em; }
+  .qa-list{ display:flex; flex-direction:column; gap:9px; max-height:340px; overflow-y:auto; padding-right:2px; }
+  .qa-list.small{ max-height:180px; margin-bottom:2px; }
+  .qa-item{ background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:9px 12px; box-shadow:var(--shadow); }
+  .qa-item-head{ display:flex; align-items:center; gap:8px; margin-bottom:4px; flex-wrap:wrap; }
+  .qa-name{ font-weight:700; font-size:.8rem; }
+  .qa-team-badge{ font-size:.6rem; font-weight:700; padding:2px 8px; border-radius:999px; white-space:nowrap; }
+  .qa-team-badge.team-wn{ background:var(--accent-soft); color:var(--accent-ink); }
+  .qa-team-badge.team-bh{ background:var(--sea-soft); color:var(--sea-ink); }
+  .qa-team-badge.team-etc{ background:var(--surface-2); color:var(--muted); }
+  .qa-time{ font-size:.66rem; color:var(--muted); margin-left:auto; font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .qa-text{ font-size:.83rem; line-height:1.5; white-space:pre-wrap; word-break:break-word; }
+  .qa-reply{ margin-top:8px; padding:8px 10px; background:var(--accent-soft); border-radius:8px; }
+  .qa-reply-label{ font-size:.62rem; font-weight:700; color:var(--accent-ink); margin-bottom:2px; }
+  .qa-reply-text{ font-size:.8rem; line-height:1.5; color:var(--ink); white-space:pre-wrap; word-break:break-word; }
+  .qa-empty{ font-size:.8rem; color:var(--muted); padding:8px 2px; }
+  .qa-unavailable{ font-size:.8rem; color:var(--muted); background:var(--surface-2); border-radius:10px; padding:12px 14px; line-height:1.5; }
+  .modal-qa{ margin-top:16px; padding-top:14px; border-top:1px solid var(--line); }
+  .modal-qa-title{ font-size:.78rem; font-weight:700; color:var(--accent-ink); margin-bottom:8px; }
+
+  /* ---- Shared panel (vision / invite / prayer / testimony) ---- */
+  .panel{ background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:18px 20px; box-shadow:var(--shadow); }
+
+  /* ---- Vision section ---- */
+  .vision-quote{ font-family:"Noto Serif KR","Noto Serif JP",serif; font-size:1.22rem; font-weight:700; line-height:1.55; color:var(--accent-ink); margin-bottom:10px; }
+  .vision-sub{ color:var(--muted); font-size:.87rem; line-height:1.75; }
+  .flow3{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:18px; }
+  @media (max-width:720px){ .flow3{ grid-template-columns:1fr; } }
+  .flow3 .f{ background:var(--surface-2); border-radius:10px; padding:13px 14px; }
+  .flow3 .f .icon{ font-size:1.2rem; }
+  .flow3 .f h4{ font-size:.86rem; font-weight:700; margin:7px 0 4px; color:var(--accent-ink); }
+  .flow3 .f p{ font-size:.78rem; color:var(--muted); line-height:1.55; }
+  .partners{ display:flex; flex-wrap:wrap; gap:16px; margin-top:18px; padding-top:14px; border-top:1px solid var(--line); font-size:.78rem; color:var(--muted); line-height:1.5; }
+  .partners .label{ font-size:.66rem; font-weight:700; letter-spacing:.05em; color:var(--muted); text-transform:uppercase; flex:0 0 100%; }
+  .partners b{ color:var(--ink); }
+
+  /* ---- Public invite section ---- */
+  .invite-audience{ display:flex; flex-wrap:wrap; gap:8px; margin:14px 0; }
+  .invite-audience span{ background:var(--accent-soft); color:var(--accent-ink); font-size:.76rem; font-weight:600; padding:6px 12px; border-radius:999px; }
+  .invite-flow{ display:flex; gap:12px; align-items:baseline; margin:14px 0; padding:11px 13px; background:var(--surface-2); border-radius:10px; }
+  .invite-flow .time{ font-family:"IBM Plex Mono",monospace; font-size:.76rem; color:var(--sea-ink); font-weight:700; flex-shrink:0; }
+  .invite-flow .d{ font-size:.84rem; line-height:1.55; }
+  .invite-cta{ display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; }
+  .invite-cta a{ display:inline-flex; align-items:center; gap:6px; padding:9px 18px; border-radius:999px; font-size:.82rem; font-weight:700; background:var(--accent); color:#fff; }
+  .invite-cta a.ghost{ background:var(--surface-2); color:var(--accent-ink); }
+
+  /* ---- Next milestone callout ---- */
+  .next-milestone{ display:flex; align-items:center; gap:10px; background:var(--accent-soft); color:var(--accent-ink); border-radius:10px; padding:10px 14px; margin-bottom:14px; font-size:.82rem; font-weight:600; flex-wrap:wrap; }
+  .next-milestone .chip{ font-family:"IBM Plex Mono",monospace; background:var(--accent); color:#fff; padding:3px 9px; border-radius:999px; font-size:.72rem; flex-shrink:0; }
+
+  /* ---- Prayer section ---- */
+  .prayer-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  @media (max-width:720px){ .prayer-grid{ grid-template-columns:1fr; } }
+  .prayer-card{ display:flex; gap:12px; align-items:flex-start; }
+  .prayer-card .icon{ font-size:1.2rem; width:38px; height:38px; border-radius:11px; background:var(--good-soft); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .prayer-card .body{ flex:1; min-width:0; }
+  .prayer-card h3{ font-size:.86rem; }
+  .prayer-card p{ font-size:.8rem; color:var(--muted); line-height:1.55; margin-top:3px; }
+  .prayer-card .row{ display:flex; align-items:center; gap:10px; margin-top:10px; flex-wrap:wrap; }
+  .prayer-count{ font-family:"IBM Plex Mono",monospace; font-size:.72rem; color:var(--good); }
+  .prayer-btn{ border:1px solid var(--line); background:var(--surface); border-radius:999px; padding:6px 12px; font-size:.74rem; font-weight:700; color:var(--ink); cursor:pointer; font-family:inherit; }
+  .prayer-btn.done{ background:var(--good-soft); color:var(--good); border-color:transparent; cursor:default; }
+
+  /* ---- Testimony section ---- */
+  .testimony-grid{ display:grid; grid-template-columns:1fr 1.15fr; gap:14px; align-items:start; }
+  @media (max-width:820px){ .testimony-grid{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="glow"></div>
+    <svg viewBox="0 0 800 90" preserveAspectRatio="none">
+      <path d="M0,80 L800,80" stroke="rgba(255,255,255,.55)" stroke-width="2"/>
+      <path d="M40,80 Q190,22 340,80" stroke="rgba(255,255,255,.6)" stroke-width="2" fill="none"/>
+      <path d="M420,80 Q570,22 720,80" stroke="rgba(255,255,255,.6)" stroke-width="2" fill="none"/>
+      <rect x="187" y="14" width="6" height="68" fill="rgba(255,255,255,.85)"/>
+      <rect x="567" y="14" width="6" height="68" fill="rgba(255,255,255,.85)"/>
+      <path d="M0,90 L0,88 Q120,78 260,88 T520,88 T800,86 L800,90 Z" fill="rgba(95,169,104,.55)"/>
+    </svg>
+    <div class="lang-switch" role="group" aria-label="language toggle">
+      <button id="btn-ko" onclick="applyLang('ko')" aria-pressed="false">한국어</button>
+      <button id="btn-ja" onclick="applyLang('ja')" aria-pressed="true">日本語</button>
+    </div>
+    <div class="hero-brand"><img class="logo-mark" src="data:image/png;base64,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" alt="Worship Nations"> WORSHIP NATIONS × BRIGHT HOPE</div>
+  </div>
+
+  <header>
+    <h1 data-i18n="h1">부산 일본어 찬양집회 준비 플랜</h1>
+    <div class="en">Bright Hope Worship <span class="script">in Busan</span></div>
+    <p class="lead" data-i18n="lead">후쿠오카 사역자·청소년 찬양팀 21명을 부산으로 초청하는 한일 연합 찬양집회. 9월부터 11월까지의 전체 준비 일정입니다.</p>
+    <div class="stats">
+      <div class="stat"><div class="k" data-i18n="stat1k">집회일</div><div class="v" data-i18n="stat1v">11.7(토) 15:00–19:00</div></div>
+      <div class="stat"><div class="k" data-i18n="stat2k">장소</div><div class="v" data-i18n="stat2v">부산 영주교회 본당</div></div>
+      <div class="stat"><div class="k" data-i18n="stat3k">방문 인원</div><div class="v" data-i18n="stat3v">21명 · 3박4일</div></div>
+      <div class="stat"><div class="k" data-i18n="stat4k">D-DAY</div><div class="v" id="stat-dday">D-61</div></div>
+    </div>
+  </header>
+
+  <section id="vision-section">
+    <div class="section-head"><span class="num">00</span><h2 data-i18n="visionTitle">VISION · 우리가 이 집회를 준비하는 이유</h2></div>
+    <div class="panel">
+      <p class="vision-quote" data-i18n="visionQuote">“일본의 청소년들이 한국의 뜨거운 찬양 열기를 경험하고, 한국의 사역팀들은 일본 선교에 대한 새로운 마음을 품는 소중한 기회가 될 것입니다.”</p>
+      <p class="vision-sub" data-i18n="visionSub">부산의 모든 청소년, 청년들, 찬양팀과 선교 단체가 예수 그리스도 안에서 하나 되어 일본 땅을 향한 하나님의 마음을 노래하는 집회입니다.</p>
+      <div class="flow3">
+        <div class="f"><div class="icon">🤝</div><h4 data-i18n="flow1Title">MEET</h4><p data-i18n="flow1Body">후쿠오카 사역자·청소년 찬양팀 21명과 부산의 찬양팀·청소년·청년이 만나 서로를 알고 친구가 됩니다.</p></div>
+        <div class="f"><div class="icon">🎵</div><h4 data-i18n="flow2Title">WORSHIP</h4><p data-i18n="flow2Body">언어와 문화를 넘어 함께 찬양하며 예배합니다 — 후쿠오카 Blessing Hill Festival에서 시작된 흐름이 부산으로 이어집니다.</p></div>
+        <div class="f"><div class="icon">🌱</div><h4 data-i18n="flow3Title">MISSION</h4><p data-i18n="flow3Body">부산의 찬양팀과 선교 단체가 일본을 향한 하나님의 마음을 새롭게 품고, 다음 세대를 위한 선교적 관계로 나아갑니다.</p></div>
+      </div>
+      <div class="partners">
+        <span class="label" data-i18n="partnersLabel">함께하는 사역 단체</span>
+        <span><b>워십네이션스</b> <span data-i18n="partner1">— 후쿠오카 사역자·청소년 찬양팀 파송</span></span>
+        <span><b>브라이트호프</b> <span data-i18n="partner2">— 부산 현지 초청·협력</span></span>
+        <span><b>일본선교연구소</b> <span data-i18n="partner3">— 한일 선교 협력 주최</span></span>
+      </div>
+    </div>
+  </section>
+
+  <section id="public-section" data-public-only>
+    <div class="section-head"><span class="num">01</span><h2 data-i18n="publicTitle">참가 안내 · 함께 예배할 분들을 초청합니다</h2></div>
+    <div class="section-sub" data-i18n="publicSub">한국의 뜨거운 찬양을 일본의 청소년들과 나누고, 부산의 사역팀은 일본 선교를 향한 새로운 마음을 품는 시간입니다.</div>
+    <div class="panel">
+      <div class="invite-audience">
+        <span data-i18n="aud1">부산 지역 찬양팀</span>
+        <span data-i18n="aud2">청소년부 · 청년부</span>
+        <span data-i18n="aud3">선교 단체</span>
+        <span data-i18n="aud4">일본 선교에 관심 있는 모든 분</span>
+      </div>
+      <div class="invite-flow">
+        <span class="time">11.7(토) 15:00–19:00</span>
+        <span class="d" data-i18n="publicFlow">부산 영주교회 본당에서 진행되는 한일 연합 찬양과 예배, 그리고 이어지는 교류와 나눔의 시간입니다.</span>
+      </div>
+      <div class="invite-cta">
+        <a href="#qa-section" data-i18n="ctaContact">질문·참가 문의하기</a>
+        <a class="ghost" href="#venue-section" data-i18n="ctaVenue">장소·오시는 길 보기</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="prayer-section">
+    <div class="section-head"><span class="num">02</span><h2 data-i18n="prayerTitle">함께 기도해요</h2></div>
+    <div class="section-sub" data-i18n="prayerSub">행정 준비만큼 영적 준비도 중요합니다. 아래 기도 제목으로 함께해주세요 — 버튼을 누르면 모두에게 실시간으로 공유됩니다.</div>
+    <div class="prayer-grid" id="prayer-grid"></div>
+  </section>
+
+  
+
+  
+
+  
+
+  <section id="venue-section">
+    <div class="section-head"><span class="num">03</span><h2 data-i18n="sec4title">장소</h2></div>
+    <div class="venue">
+      <div><dt data-i18n="v1k">장소</dt><dd data-i18n="v1v">부산 영주교회 본당</dd></div>
+      <div><dt data-i18n="v2k">주소</dt><dd>부산광역시 중구 대영로 226번안길 6</dd></div>
+      <div><dt data-i18n="v3k">주차</dt><dd data-i18n="v3v">봉래초등학교 주차장 (주말 무료)</dd></div>
+      <div><dt data-i18n="v4k">주최</dt><dd data-i18n="v4v">일본선교연구소·워십네이션스·브라이트호프</dd></div>
+    </div>
+  </section>
+
+  <section id="qa-section">
+    <div class="section-head"><span class="num">04</span><h2 data-i18n="sec5title">질문 및 코멘트</h2></div>
+    <div class="section-sub" data-i18n="sec5sub">워십네이션스·브라이트호프 팀 누구나 질문이나 의견을 남길 수 있는 공식 소통 공간입니다. 특정 날짜에 대한 질문은 캘린더에서 해당 날짜를 클릭해 남겨주세요.</div>
+    <div class="qa-board" id="qa-board-general">
+      <form class="qa-form" id="qa-form-general" onsubmit="return submitComment(event,'general')">
+        <div class="qa-form-row">
+          <input type="text" id="qa-name-general" data-i18n-ph="qaNamePh" placeholder="이름" maxlength="30" required>
+          <select id="qa-team-general">
+            <option value="wn" data-i18n="teamWN">워십네이션스</option>
+            <option value="bh" data-i18n="teamBH">브라이트호프</option>
+            <option value="etc" data-i18n="teamEtc">기타</option>
+          </select>
+        </div>
+        <textarea id="qa-text-general" data-i18n-ph="qaTextPh" placeholder="질문이나 의견을 남겨주세요" maxlength="500" required rows="2"></textarea>
+        <button type="submit" class="qa-submit" data-i18n="qaSubmit">남기기</button>
+      </form>
+      <div class="qa-status" id="qa-status-general"></div>
+      <div class="qa-list" id="qa-list-general"></div>
+    </div>
+  </section>
+
+  <section id="testimony-section">
+    <div class="section-head"><span class="num">05</span><h2 data-i18n="testimonyTitle">간증·나눔</h2></div>
+    <div class="section-sub" data-i18n="testimonySub">집회가 끝난 뒤에도 이 공간은 계속됩니다. 하나님께서 하신 일과 만남의 열매를 나눠주세요 — 이 만남이 일회성 행사가 아니라 다음 세대를 위한 선교적 관계의 시작이 되기를 소망합니다.</div>
+    <div class="testimony-grid">
+      <div class="qa-board">
+        <form class="qa-form" id="testimony-form" onsubmit="return submitTestimony(event)">
+          <div class="qa-form-row">
+            <input type="text" id="testimony-name" data-i18n-ph="qaNamePh" placeholder="이름" maxlength="30" required>
+            <select id="testimony-team">
+              <option value="wn" data-i18n="teamWN">워십네이션스</option>
+              <option value="bh" data-i18n="teamBH">브라이트호프</option>
+              <option value="etc" data-i18n="teamEtc">기타</option>
+            </select>
+          </div>
+          <textarea id="testimony-text" data-i18n-ph="testimonyTextPh" placeholder="오늘 하나님께서 하신 일을 나눠주세요" maxlength="800" required rows="3"></textarea>
+          <button type="submit" class="qa-submit" data-i18n="testimonySubmit">나누기</button>
+        </form>
+        <div class="qa-status" id="testimony-status"></div>
+      </div>
+      <div class="qa-list" id="testimony-list"></div>
+    </div>
+  </section>
+
+  <footer data-i18n="footer">Worship Nations × Bright Hope · 작성 기준일 2026.09.07 — 협조 공문(2026.08.18) 기반, 세부 일정은 두 팀 협의에 따라 계속 업데이트됩니다.</footer>
+</div>
+
+<div class="modal-backdrop" id="day-modal" hidden onclick="if(event.target===this)closeDayModal()">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title-text">
+    <button class="modal-close" onclick="closeDayModal()" aria-label="Close">✕</button>
+    <span class="modal-pill" id="modal-pill"></span>
+    <div class="modal-date" id="modal-date"></div>
+    <h3 id="modal-title-text"></h3>
+    <p class="modal-detail" id="modal-detail-text"></p>
+    <a class="modal-meet-link" id="modal-meet-link" href="#" target="_blank" rel="noopener" hidden data-i18n="qaMeetJoin">💻 Google Meet로 참여하기</a>
+
+    <div class="modal-qa" id="qa-board-modal">
+      <div class="modal-qa-title" data-i18n="qaModalTitle">이 일정에 대한 질문·코멘트</div>
+      <div class="qa-list small" id="qa-list-modal"></div>
+      <form class="qa-form" id="qa-form-modal" onsubmit="return submitComment(event,'modal')">
+        <div class="qa-form-row">
+          <input type="text" id="qa-name-modal" data-i18n-ph="qaNamePh" placeholder="이름" maxlength="30" required>
+          <select id="qa-team-modal">
+            <option value="wn" data-i18n="teamWN">워십네이션스</option>
+            <option value="bh" data-i18n="teamBH">브라이트호프</option>
+            <option value="etc" data-i18n="teamEtc">기타</option>
+          </select>
+        </div>
+        <textarea id="qa-text-modal" data-i18n-ph="qaTextPh" placeholder="질문이나 의견을 남겨주세요" maxlength="500" required rows="2"></textarea>
+        <button type="submit" class="qa-submit" data-i18n="qaSubmit">남기기</button>
+      </form>
+      <div class="qa-status" id="qa-status-modal"></div>
+    </div>
+  </div>
+</div>
+<!--
+  깃허브 등 claude.ai 밖에 배포할 때만 사용되는 Firebase 연동 부분입니다.
+  claude.ai 아티팩트에서는 Claude의 자체 공유 저장소(db 기능)를 우선 사용하므로 아래 값은 무시됩니다.
+  아래 FIREBASE_CONFIG는 brighthope-busan Firebase 프로젝트의 설정 값입니다.
+  (Firestore 보안 규칙 설정은 FIREBASE_SETUP.md 3단계를 반드시 확인해주세요.)
+-->
+<script src="https://www.gstatic.com/firebasejs/12.18.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore-compat.js"></script>
+<script>
+  window.FIREBASE_CONFIG = {
+    apiKey: "AIzaSyD_Lgg4s2pCd1MELxMoxzwHXC6tYs-n1Z8",
+    authDomain: "brighthope-busan.firebaseapp.com",
+    projectId: "brighthope-busan",
+    storageBucket: "brighthope-busan.firebasestorage.app",
+    messagingSenderId: "758750632091",
+    appId: "1:758750632091:web:7204c0e51189eae5504e3e",
+    measurementId: "G-FTX9QW2MQM"
+  };
+</script>
+<script>
+(function(){
+  var DICT = {
+    ko: {
+      h1: "부산 일본어 찬양집회 준비 플랜",
+      lead: "후쿠오카 사역자·청소년 찬양팀 21명을 부산으로 초청하는 한일 연합 찬양집회. 9월부터 11월까지의 전체 준비 일정입니다.",
+      stat1k: "집회일", stat1v: "11.7(토) 15:00–19:00",
+      stat2k: "장소", stat2v: "부산 영주교회 본당",
+      stat3k: "방문 인원", stat3v: "21명 · 3박4일", stat4k: "D-DAY",
+      visionTitle: "VISION · 우리가 이 집회를 준비하는 이유",
+      visionQuote: "“일본의 청소년들이 한국의 뜨거운 찬양 열기를 경험하고, 한국의 사역팀들은 일본 선교에 대한 새로운 마음을 품는 소중한 기회가 될 것입니다.”",
+      visionSub: "부산의 모든 청소년, 청년들, 찬양팀과 선교 단체가 예수 그리스도 안에서 하나 되어 일본 땅을 향한 하나님의 마음을 노래하는 집회입니다.",
+      flow1Title: "MEET", flow1Body: "후쿠오카 사역자·청소년 찬양팀 21명과 부산의 찬양팀·청소년·청년이 만나 서로를 알고 친구가 됩니다.",
+      flow2Title: "WORSHIP", flow2Body: "언어와 문화를 넘어 함께 찬양하며 예배합니다 — 후쿠오카 Blessing Hill Festival에서 시작된 흐름이 부산으로 이어집니다.",
+      flow3Title: "MISSION", flow3Body: "부산의 찬양팀과 선교 단체가 일본을 향한 하나님의 마음을 새롭게 품고, 다음 세대를 위한 선교적 관계로 나아갑니다.",
+      partnersLabel: "함께하는 사역 단체", partner1: "— 후쿠오카 사역자·청소년 찬양팀 파송", partner2: "— 부산 현지 초청·협력", partner3: "— 한일 선교 협력 주최",
+      publicTitle: "참가 안내 · 함께 예배할 분들을 초청합니다",
+      publicSub: "한국의 뜨거운 찬양을 일본의 청소년들과 나누고, 부산의 사역팀은 일본 선교를 향한 새로운 마음을 품는 시간입니다.",
+      aud1: "부산 지역 찬양팀", aud2: "청소년부 · 청년부", aud3: "선교 단체", aud4: "일본 선교에 관심 있는 모든 분",
+      publicFlow: "부산 영주교회 본당에서 진행되는 한일 연합 찬양과 예배, 그리고 이어지는 교류와 나눔의 시간입니다.",
+      ctaContact: "질문·참가 문의하기", ctaVenue: "장소·오시는 길 보기",
+      prayerTitle: "함께 기도해요",
+      prayerSub: "행정 준비만큼 영적 준비도 중요합니다. 아래 기도 제목으로 함께해주세요 — 버튼을 누르면 모두에게 실시간으로 공유됩니다.",
+      prayerBtn: "🙏 기도했어요", prayerBtnDone: "🙏 함께 기도했습니다",
+      p1Title: "한일 다음 세대가 하나님을 인격적으로 만나도록", p1Body: "한국과 일본의 청소년들이 이번 만남 속에서 각자 하나님의 임재를 실제로 경험하게 해주세요.",
+      p2Title: "경쟁이 아니라 하나 됨을 경험하도록", p2Body: "준비하는 워십네이션스·브라이트호프 팀이 서로 존중하며 한 팀으로 세워지게 해주세요.",
+      p3Title: "부산 사역팀에 일본 선교의 새 마음이 부어지도록", p3Body: "이 집회를 통해 부산의 찬양팀과 선교 단체들이 일본을 향한 하나님의 마음을 새롭게 품게 해주세요.",
+      p4Title: "이동과 준비 전 과정의 안전을 위해", p4Body: "9월부터 11월까지, 그리고 후쿠오카팀의 3박4일 방문 기간 동안 모든 이동과 건강을 지켜주세요.",
+      p5Title: "이 만남이 관계의 시작이 되도록", p5Body: "집회 이후에도 한일 다음 세대의 교제와 선교적 연결이 계속 이어지게 해주세요.",
+      nextMilestoneLabel: "다음 준비 일정", nextMilestoneToday: "오늘", nextMilestoneDone: "모든 준비 일정이 지나갔습니다.",
+      testimonyTitle: "간증·나눔",
+      testimonySub: "집회가 끝난 뒤에도 이 공간은 계속됩니다. 하나님께서 하신 일과 만남의 열매를 나눠주세요 — 이 만남이 일회성 행사가 아니라 다음 세대를 위한 선교적 관계의 시작이 되기를 소망합니다.",
+      testimonyTextPh: "오늘 하나님께서 하신 일을 나눠주세요", testimonySubmit: "나누기", testimonySending: "전송 중…",
+      testimonyEmpty: "아직 등록된 간증이 없습니다. 첫 이야기를 나눠보세요.", testimonyError: "전송에 실패했습니다. 잠시 후 다시 시도해주세요.",
+      sec1title: "준비 캘린더 (9월 – 11월)",
+      sec1sub: "확정되지 않은 준비 일정은 수요일(현장모임) · 목요일(온라인 가능)로 배정했습니다.",
+      monthSep: "2026년 9월", monthOct: "2026년 10월", monthNov: "2026년 11월",
+      m_sep7: "오늘·착수",
+      m_sep4: "✅ 공문 발송", m_sep9: "💻 킥오프 미팅", m_sep10: "💻 모집 시작", m_sep17: "💻 항공·숙소 조율", m_sep23: "📍 라인업 확정",
+      m_sep26: "🎪 고스펠 페스타",
+      m_oct1: "💻 항공권·숙소 확정", m_oct7: "📍 홍보·리허설 협의", m_oct14: "📍 큐시트·최종 점검",
+      m_nov6: "후쿠오카팀 도착", m_nov7: "집회 15–19시", m_nov8: "주일예배·교류", m_nov9: "출국",
+      m_nov24: "🎪 후쿠오카 유스 아티스트 페스티벌",
+      leg_today: "오늘", leg_onsite: "현장모임 (수)", leg_online: "온라인 가능 (목)", leg_event: "집회 당일", leg_fellow: "교류·연합예배", leg_fest: "외부 행사",
+      sec2title: "11월 방문 4일 상세 일정",
+      sec2sub: "시간이 미정인 항목은 브라이트호프와 항공편·일정 협의 후 확정됩니다.",
+      d1h: "11.6 금", d1s: "도착일", d2h: "11.7 토", d2s: "집회 당일", d3h: "11.8 일", d3s: "교류일", d4h: "11.9 월", d4s: "출국일",
+      tbd: "미정", morning: "오전", afternoon: "오후", evening: "저녁",
+      a1: "김해공항 도착 · 픽업", a2: "숙소 체크인", a3: "환영 식사 · 상견례",
+      a4: "음향 세팅 · 리허설", a5: "Bright Hope Worship IN Busan (영주교회 본당)", a6: "참가팀 교제 식사",
+      a7: "부산 지역 교회 주일예배 참여 (제안)", a8: "자유 교제 · 부산 시내 (선택)",
+      a9: "숙소 체크아웃", a10: "김해공항 이동 · 출국",
+      sec3title: "준비 체크리스트",
+      cat1: "팀 소통 체계", own1: "워십네이션스",
+      cat2: "부산 팀 모집", own2: "워십네이션스·영주교회",
+      cat3: "프로그램·찬양", own3: "공동",
+      cat4: "이동·숙박·식사", own4: "브라이트호프→워십네이션스",
+      cat5: "현장 운영·장비", own5: "워십네이션스",
+      cat6: "홍보", own6: "워십네이션스",
+      cat7: "재정", own7: "워십네이션스",
+      cat8: "안전·행정", own8: "공동",
+      cat9: "사후", own9: "워십네이션스",
+      c1: "공식 소통 채널 개설", c2: "정기 화상미팅 주기 확정", c3: "역할 분담표 작성", c4: "일본어 통역 담당자 지정",
+      c5: "협조 공문 발송", c6: "참가 신청서 양식 제작", c7: "참가 신청 접수", c8: "최종 라인업 확정",
+      c9: "큐시트 설계", c10: "세트리스트 확정 (키 공유)", c11: "일본어 가사/통역 준비", c12: "리허설 시간 협의",
+      c13: "항공편 확정", c14: "공항 픽업·샌딩 차량 섭외", c15: "숙소 확보 (3박)", c16: "체류 기간 식사 계획",
+      c17: "음향·악기 사양 확인", c18: "무대 비품·현수막 준비", c19: "촬영 담당자 섭외", c20: "현장 통역 방식 결정",
+      c21: "주보 광고·포스터 제작", c22: "SNS 홍보 게시",
+      c23: "예산안 수립", c24: "후원 모금 계획 (필요 시)", c25: "정산 담당자 지정",
+      c26: "명단·여권정보 취합", c27: "여행자보험 확인", c28: "비상 대응 계획",
+      c29: "감사 인사·후기 공유", c30: "차기 사역과 연결점 정리",
+      sec4title: "장소",
+      v1k: "장소", v1v: "부산 영주교회 본당", v2k: "주소", v3k: "주차", v3v: "봉래초등학교 주차장 (주말 무료)",
+      v4k: "주최", v4v: "일본선교연구소·워십네이션스·브라이트호프",
+      sec5title: "질문 및 코멘트",
+      sec5sub: "워십네이션스·브라이트호프 팀 누구나 질문이나 의견을 남길 수 있는 공식 소통 공간입니다. 특정 날짜에 대한 질문은 캘린더에서 해당 날짜를 클릭해 남겨주세요.",
+      qaNamePh: "이름", qaTextPh: "질문이나 의견을 남겨주세요",
+      qaSubmit: "남기기", qaSending: "전송 중…",
+      teamWN: "워십네이션스", teamBH: "브라이트호프", teamEtc: "기타",
+      qaEmpty: "아직 등록된 코멘트가 없습니다. 첫 코멘트를 남겨보세요.",
+      qaError: "전송에 실패했습니다. 잠시 후 다시 시도해주세요.",
+      qaModalTitle: "이 일정에 대한 질문·코멘트",
+      qaUnavailable: "질문·코멘트 기능을 사용하려면 연동 설정이 필요합니다. claude.ai 아티팩트 페이지에서는 별도 설정 없이 바로 이용할 수 있습니다. 깃허브 등에 배포한 사본이라면 FIREBASE_SETUP.md 안내에 따라 Firebase 연동을 설정해주세요.",
+      qaReplyLabel: "운영팀 답변",
+      qaMeetJoin: "💻 Google Meet로 참여하기",
+      footer: "Worship Nations × Bright Hope · 작성 기준일 2026.09.07 — 협조 공문(2026.08.18) 기반, 세부 일정은 두 팀 협의에 따라 계속 업데이트됩니다.",
+      progress: function(done,total){ return done + " / " + total + " 완료"; }
+    },
+    ja: {
+      h1: "釜山日本語賛美集会 準備プラン",
+      lead: "福岡の宣教師・青少年賛美チーム21名を釜山に迎える、日韓合同賛美集会。9月から11月までの準備スケジュール全体です。",
+      stat1k: "集会日", stat1v: "11/7(土) 15:00–19:00",
+      stat2k: "会場", stat2v: "釜山ヨンジュ教会 本堂",
+      stat3k: "訪問人数", stat3v: "21名 · 3泊4日", stat4k: "D-DAY",
+      visionTitle: "VISION · この集会を準備する理由",
+      visionQuote: "「日本の青少年たちが韓国の熱い賛美を体験し、韓国のミニストリーチームは日本宣教への新しい心を抱く、貴重な機会になるでしょう。」",
+      visionSub: "釜山のすべての青少年、青年、賛美チームと宣教団体がキリストにあって一つとなり、日本の地への神様の心を歌う集会です。",
+      flow1Title: "MEET", flow1Body: "福岡の宣教師・青少年賛美チーム21名と釜山の賛美チーム・青少年・青年が出会い、お互いを知り友となります。",
+      flow2Title: "WORSHIP", flow2Body: "言葉と文化を越えて共に賛美し礼拝します — 福岡のBlessing Hill Festivalから始まった流れが釜山へつながります。",
+      flow3Title: "MISSION", flow3Body: "釜山の賛美チームと宣教団体が日本への神様の心を新たに抱き、次世代のための宣教的な関係へ進みます。",
+      partnersLabel: "共に歩むミニストリー", partner1: "— 福岡の宣教師・青少年賛美チームを派遣", partner2: "— 釜山現地の招待・協力", partner3: "— 日韓宣教協力の主催",
+      publicTitle: "参加案内 · 共に礼拝する方々を招待します",
+      publicSub: "韓国の熱い賛美を日本の青少年と分かち合い、釜山のミニストリーチームが日本宣教への新しい心を抱く時間です。",
+      aud1: "釜山地域の賛美チーム", aud2: "青少年部 · 青年部", aud3: "宣教団体", aud4: "日本宣教に関心のあるすべての方",
+      publicFlow: "釜山ヨンジュ教会本堂で行われる日韓合同賛美と礼拝、そして続く交流と分かち合いの時間です。",
+      ctaContact: "質問・参加のお問い合わせ", ctaVenue: "会場・アクセスを見る",
+      prayerTitle: "共に祈りましょう",
+      prayerSub: "行政的な準備と同じくらい霊的な準備も大切です。下の祈りの課題で共にしてください — ボタンを押すとみんなにリアルタイムで共有されます。",
+      prayerBtn: "🙏 祈りました", prayerBtnDone: "🙏 共に祈りました",
+      p1Title: "日韓の次世代が神様に人格的に出会うように", p1Body: "韓国と日本の青少年たちが、この出会いの中で神様の臨在をそれぞれ実際に経験できますように。",
+      p2Title: "競争ではなく一つとなることを経験するように", p2Body: "準備するワーシップネイションズ・ブライトホープのチームが互いを尊重し、一つのチームとして建てられますように。",
+      p3Title: "釜山のミニストリーチームに日本宣教への新しい心が注がれるように", p3Body: "この集会を通じて、釜山の賛美チームと宣教団体が日本への神様の心を新たに抱きますように。",
+      p4Title: "移動と準備の全過程の安全のために", p4Body: "9月から11月まで、そして福岡チームの3泊4日の訪問期間中、すべての移動と健康が守られますように。",
+      p5Title: "この出会いが関係の始まりとなるように", p5Body: "集会後も日韓次世代の交流と宣教的なつながりが続いていきますように。",
+      nextMilestoneLabel: "次の準備日程", nextMilestoneToday: "本日", nextMilestoneDone: "すべての準備日程が過ぎました。",
+      testimonyTitle: "証し・シェア",
+      testimonySub: "集会が終わった後もこの場所は続きます。神様がしてくださったことと出会いの実りを分かち合ってください — この出会いが一度きりの行事ではなく、次世代のための宣教的な関係の始まりとなることを願います。",
+      testimonyTextPh: "今日、神様がしてくださったことを分かち合ってください", testimonySubmit: "シェアする", testimonySending: "送信中…",
+      testimonyEmpty: "まだ証しはありません。最初のストーリーを分かち合ってみましょう。", testimonyError: "送信に失敗しました。しばらくしてから再度お試しください。",
+      sec1title: "準備カレンダー(9月 – 11月)",
+      sec1sub: "未定の準備日程は、水曜日(現場会議)・木曜日(オンライン可)に割り当てました。",
+      monthSep: "2026年9月", monthOct: "2026年10月", monthNov: "2026年11月",
+      m_sep7: "本日·開始",
+      m_sep4: "✅ 公文発送", m_sep9: "💻 キックオフミーティング", m_sep10: "💻 募集開始", m_sep17: "💻 航空便·宿泊調整", m_sep23: "📍 ラインアップ確定",
+      m_sep26: "🎪 ゴスペルフェスタ",
+      m_oct1: "💻 航空券·宿泊確定", m_oct7: "📍 広報·リハーサル協議", m_oct14: "📍 キューシート·最終確認",
+      m_nov6: "福岡チーム到着", m_nov7: "集会 15–19時", m_nov8: "主日礼拝·交流", m_nov9: "出国",
+      m_nov24: "🎪 福岡ユースアーティストフェスティバル",
+      leg_today: "本日", leg_onsite: "現場会議(水)", leg_online: "オンライン可(木)", leg_event: "集会当日", leg_fellow: "交流·合同礼拝", leg_fest: "外部イベント",
+      sec2title: "11月訪問 4日間 詳細スケジュール",
+      sec2sub: "時間が未定の項目は、ブライトホープとの航空便·日程協議後に確定します。",
+      d1h: "11/6 金", d1s: "到着日", d2h: "11/7 土", d2s: "集会当日", d3h: "11/8 日", d3s: "交流日", d4h: "11/9 月", d4s: "出国日",
+      tbd: "未定", morning: "午前", afternoon: "午後", evening: "夕方",
+      a1: "金海空港到着 · 出迎え", a2: "宿泊先チェックイン", a3: "歓迎食事会 · 顔合わせ",
+      a4: "音響セッティング · リハーサル", a5: "Bright Hope Worship IN Busan(ヨンジュ教会 本堂)", a6: "参加チーム交流食事会",
+      a7: "釜山地域教会 主日礼拝参加(提案)", a8: "自由交流 · 釜山市内観光(任意)",
+      a9: "宿泊先チェックアウト", a10: "金海空港移動 · 出国",
+      sec3title: "準備チェックリスト",
+      cat1: "チーム連携体制", own1: "ワーシップネイションズ",
+      cat2: "釜山チーム募集", own2: "ワーシップネイションズ·ヨンジュ教会",
+      cat3: "プログラム·賛美", own3: "共同",
+      cat4: "移動·宿泊·食事", own4: "ブライトホープ→ワーシップネイションズ",
+      cat5: "現場運営·機材", own5: "ワーシップネイションズ",
+      cat6: "広報", own6: "ワーシップネイションズ",
+      cat7: "財政", own7: "ワーシップネイションズ",
+      cat8: "安全·行政", own8: "共同",
+      cat9: "事後対応", own9: "ワーシップネイションズ",
+      c1: "公式連絡チャンネルの開設", c2: "定例オンライン会議の頻度確定", c3: "役割分担表の作成", c4: "日本語通訳担当者の指定",
+      c5: "協力公文の発送", c6: "参加申込書フォームの作成", c7: "参加申込みの受付", c8: "最終ラインアップの確定",
+      c9: "キューシートの設計", c10: "セットリスト確定(キー共有)", c11: "日本語歌詞·通訳の準備", c12: "リハーサル時間の調整",
+      c13: "航空便の確定", c14: "空港送迎車両の手配", c15: "宿泊先の確保(3泊)", c16: "滞在期間中の食事計画",
+      c17: "音響·楽器仕様の確認", c18: "ステージ備品·横断幕の準備", c19: "撮影担当者の手配", c20: "現場通訳方式の決定",
+      c21: "週報広告·ポスター制作", c22: "SNS広報投稿",
+      c23: "予算案の策定", c24: "支援金募金計画(必要時)", c25: "精算担当者の指定",
+      c26: "名簿·パスポート情報の取りまとめ", c27: "海外旅行保険の確認", c28: "緊急時対応計画",
+      c29: "感謝の挨拶·報告の共有", c30: "次期ミニストリーとの接続点整理",
+      sec4title: "会場",
+      v1k: "会場", v1v: "釜山ヨンジュ教会 本堂", v2k: "住所", v3k: "駐車場", v3v: "ポンネ小学校駐車場(週末無料)",
+      v4k: "主催", v4v: "日本宣教研究所·ワーシップネイションズ·ブライトホープ",
+      sec5title: "質問・コメント",
+      sec5sub: "ワーシップネイションズ・ブライトホープ、どちらのチームでも質問やご意見を残せる公式連絡の場です。特定の日程についての質問は、カレンダーでその日をクリックして残してください。",
+      qaNamePh: "お名前", qaTextPh: "質問やご意見をお書きください",
+      qaSubmit: "送信", qaSending: "送信中…",
+      teamWN: "ワーシップネイションズ", teamBH: "ブライトホープ", teamEtc: "その他",
+      qaEmpty: "まだコメントはありません。最初のコメントを残してみましょう。",
+      qaError: "送信に失敗しました。しばらくしてから再度お試しください。",
+      qaModalTitle: "この日程についての質問・コメント",
+      qaUnavailable: "質問・コメント機能を使うには連携設定が必要です。claude.aiのアーティファクトページでは追加設定なしでそのままご利用いただけます。GitHubなどに公開したコピーの場合は、FIREBASE_SETUP.mdの案内に従ってFirebase連携を設定してください。",
+      qaReplyLabel: "運営チームからの返信",
+      qaMeetJoin: "💻 Google Meetで参加",
+      footer: "Worship Nations × Bright Hope · 作成基準日 2026.09.07 — 協力公文(2026.08.18)に基づく。詳細スケジュールは両チームの協議により随時更新されます。",
+      progress: function(done,total){ return done + " / " + total + " 完了"; }
+    }
+  };
+
+  var DETAIL = {
+    ko: {
+      m_sep7: "부산집회 준비 시작. 워십네이션스와 브라이트호프 간 공식 소통 채널을 열고 9~11월 전체 일정을 공유합니다.",
+      m_sep4: "9/4(금) 영주교회 등 관련 교회에 협조 공문 발송 완료. 부산 팀 모집 계획을 공지했습니다.",
+      m_sep9: "워십네이션스 부산집회 킥오프 미팅 (9:00, Google Meet). 아래 참여 버튼으로 바로 접속할 수 있습니다.",
+      m_sep10: "부산 측 참가 인원(찬양팀·스태프) 모집을 시작합니다.",
+      m_sep17: "후쿠오카팀 항공편 옵션과 부산 체류 기간 숙소 후보를 조율합니다.",
+      m_sep23: "현장 모임을 통해 부산 측 참가 라인업(찬양팀 구성)을 확정합니다.",
+      m_sep26: "카시마 에이블홀(鹿島エイブルホール) 13:00–16:00. 브라이트호프(BH)가 참가하며, 블레싱힐 미니스트리(BM)가 음향 장비 제공 및 현장 지원을 담당합니다. (워십네이션스 준비 일정과는 별도의 외부 행사입니다.)",
+      m_oct1: "후쿠오카팀 항공권 예매와 숙소 예약을 완료합니다.",
+      m_oct7: "현장 모임에서 집회 홍보물 제작과 리허설 일정을 협의합니다.",
+      m_oct14: "찬양 큐시트, 음향·현장 운영 계획을 최종 점검합니다.",
+      m_nov6: "후쿠오카 사역자·청소년 찬양팀 21명이 김해공항으로 도착, 숙소 체크인 후 환영 식사를 갖습니다.",
+      m_nov7: "Bright Hope Worship IN Busan — 부산 영주교회 본당에서 오후 3시부터 7시까지 진행되는 한일 연합 찬양집회 당일입니다.",
+      m_nov8: "부산 지역 교회 주일예배 참여를 제안하고, 이후 양 팀이 자유롭게 교제하는 시간을 갖습니다.",
+      m_nov9: "숙소 체크아웃 후 김해공항으로 이동, 후쿠오카팀이 출국합니다.",
+      m_nov24: "후쿠오카 시민회관(福岡市民会館). 브라이트호프(BH)가 참가하며, 블레싱힐 미니스트리(BM)가 음향 장비 제공 및 오퍼레이션 지원을 담당합니다. (워십네이션스 준비 일정과는 별도의 외부 행사입니다.)"
+    },
+    ja: {
+      m_sep7: "釜山集会の準備開始。ワーシップネイションズとブライトホープ間の公式連絡チャンネルを開設し、9〜11月の全体スケジュールを共有します。",
+      m_sep4: "9/4(金)ヨンジュ教会など関係教会への協力公文発送完了。釜山チームの募集計画を告知しました。",
+      m_sep9: "ワーシップネイションズ 釜山集会キックオフミーティング(9:00、Google Meet)。下の参加ボタンからそのまま入室できます。",
+      m_sep10: "釜山側の参加者(賛美チーム・スタッフ)の募集を開始します。",
+      m_sep17: "福岡チームの航空便オプションと釜山滞在中の宿泊候補を調整します。",
+      m_sep23: "現場会議を通じて釜山側の参加ラインアップ(賛美チーム構成)を確定します。",
+      m_sep26: "鹿島エイブルホール 13:00–16:00。ブライトホープ(BH)が参加し、ブレッシングヒル・ミニストリー(BM)が音響機材の提供と現場サポートを担当します。(ワーシップネイションズの準備スケジュールとは別の外部イベントです。)",
+      m_oct1: "福岡チームの航空券予約と宿泊先の予約を完了します。",
+      m_oct7: "現場会議で集会の広報物制作とリハーサル日程を協議します。",
+      m_oct14: "賛美キューシート、音響・現場運営計画を最終確認します。",
+      m_nov6: "福岡の宣教師・青少年賛美チーム21名が金海空港に到着、宿泊先チェックイン後に歓迎食事会を行います。",
+      m_nov7: "Bright Hope Worship IN Busan — 釜山ヨンジュ教会本堂にて午後3時から7時まで行われる日韓合同賛美集会の当日です。",
+      m_nov8: "釜山地域教会の主日礼拝参加を提案し、その後両チームが自由に交流する時間を持ちます。",
+      m_nov9: "宿泊先チェックアウト後、金海空港へ移動し福岡チームが出国します。",
+      m_nov24: "福岡市民会館。ブライトホープ(BH)が参加し、ブレッシングヒル・ミニストリー(BM)が音響機材の提供とオペレーションサポートを担当します。(ワーシップネイションズの準備スケジュールとは別の外部イベントです。)"
+    }
+  };
+  var MEET_LINK = {
+    m_sep9: "https://meet.google.com/zqy-fkyw-jfo"
+  };
+
+  var CAT_LABEL = {
+    ko: { today:"오늘", onsite:"📍 현장모임", online:"💻 온라인 가능", event:"🎤 집회 당일", arrive:"✈️ 도착", fellow:"🤝 교류·연합예배", depart:"✈️ 출국", fest:"🎪 외부 행사" },
+    ja: { today:"本日", onsite:"📍 現場会議", online:"💻 オンライン可", event:"🎤 集会当日", arrive:"✈️ 到着", fellow:"🤝 交流·合同礼拝", depart:"✈️ 出国", fest:"🎪 外部イベント" }
+  };
+
+  var PRAYER_ITEMS = ['p1','p2','p3','p4','p5'];
+  var PRAYER_ICON = { p1:'🙏', p2:'🤝', p3:'🔥', p4:'🛡️', p5:'🌱' };
+
+  var currentLang = 'ko';
+  var boxes = document.querySelectorAll('ul.tasks input[type=checkbox]');
+  var fill = document.getElementById('pfill');
+  var label = document.getElementById('plabel');
+  var dowKo = ['일','월','화','수','목','금','토'];
+  var dowJa = ['日','月','火','水','木','金','土'];
+  var dateFmt = {
+    ko: function(m,d,dow){ return m + "월 " + d + "일 (" + dow + ")"; },
+    ja: function(m,d,dow){ return m + "月" + d + "日(" + dow + ")"; }
+  };
+
+  /* ---- Q&A / Comments (shared db capability) ---- */
+  var db = null;
+  var currentModalKey = null;
+  var modalQaUnsub = null;
+  var lastGeneralDocs = null;
+  var lastModalDocs = null;
+  var prayerCounts = {};
+  var lastTestimonyDocs = null;
+
+  function teamLabel(team){
+    var t = DICT[currentLang];
+    if (team === 'wn') return t.teamWN;
+    if (team === 'bh') return t.teamBH;
+    return t.teamEtc;
+  }
+  function formatTs(ts){
+    try {
+      var d = new Date(ts);
+      var locale = currentLang === 'ja' ? 'ja-JP' : 'ko-KR';
+      return d.toLocaleString(locale, { month:'numeric', day:'numeric', hour:'2-digit', minute:'2-digit' });
+    } catch(e){ return ''; }
+  }
+  function renderCommentList(containerId, docs){
+    var container = document.getElementById(containerId);
+    if (!container) return;
+    container.innerHTML = '';
+    if (!docs || !docs.length) {
+      var empty = document.createElement('div');
+      empty.className = 'qa-empty';
+      empty.textContent = DICT[currentLang].qaEmpty;
+      container.appendChild(empty);
+      return;
+    }
+    docs.forEach(function(snap){
+      var d = snap.data();
+      if (!d) return;
+      var item = document.createElement('div');
+      item.className = 'qa-item';
+      var head = document.createElement('div');
+      head.className = 'qa-item-head';
+      var nameSpan = document.createElement('span');
+      nameSpan.className = 'qa-name';
+      nameSpan.textContent = String(d.name || '').slice(0, 60);
+      var teamSpan = document.createElement('span');
+      var teamKey = (d.team === 'wn' || d.team === 'bh') ? d.team : 'etc';
+      teamSpan.className = 'qa-team-badge team-' + teamKey;
+      teamSpan.textContent = teamLabel(d.team);
+      var timeSpan = document.createElement('span');
+      timeSpan.className = 'qa-time';
+      timeSpan.textContent = formatTs(d.ts);
+      head.appendChild(nameSpan);
+      head.appendChild(teamSpan);
+      head.appendChild(timeSpan);
+      var textDiv = document.createElement('div');
+      textDiv.className = 'qa-text';
+      textDiv.textContent = String(d.text || '').slice(0, 1000);
+      item.appendChild(head);
+      item.appendChild(textDiv);
+      if (d.reply) {
+        var replyBox = document.createElement('div');
+        replyBox.className = 'qa-reply';
+        var replyLabel = document.createElement('div');
+        replyLabel.className = 'qa-reply-label';
+        replyLabel.textContent = DICT[currentLang].qaReplyLabel;
+        var replyText = document.createElement('div');
+        replyText.className = 'qa-reply-text';
+        replyText.textContent = String(d.reply).slice(0, 1000);
+        replyBox.appendChild(replyLabel);
+        replyBox.appendChild(replyText);
+        item.appendChild(replyBox);
+      }
+      container.appendChild(item);
+    });
+  }
+  function renderQaUnavailable(){
+    ['general','modal'].forEach(function(suffix){
+      var board = document.getElementById('qa-board-' + suffix);
+      if (!board) return;
+      var form = document.getElementById('qa-form-' + suffix);
+      var status = document.getElementById('qa-status-' + suffix);
+      var list = document.getElementById('qa-list-' + suffix);
+      if (form) form.hidden = true;
+      if (status) status.hidden = true;
+      if (list) list.innerHTML = '';
+      var msg = board.querySelector('.qa-unavailable');
+      if (!msg) {
+        msg = document.createElement('div');
+        msg.className = 'qa-unavailable';
+        msg.setAttribute('data-i18n', 'qaUnavailable');
+        board.insertBefore(msg, board.firstChild);
+      }
+      msg.textContent = DICT[currentLang].qaUnavailable;
+    });
+  }
+  function subscribeGeneral(){
+    try {
+      db.collection('comments').where('scope', '==', 'general').orderBy('ts', 'asc').limit(200).onSnapshot(
+        function(snap){
+          lastGeneralDocs = snap.docs;
+          renderCommentList('qa-list-general', lastGeneralDocs);
+        },
+        function(){
+          var list = document.getElementById('qa-list-general');
+          if (list) {
+            list.innerHTML = '';
+            var e = document.createElement('div');
+            e.className = 'qa-empty';
+            e.textContent = DICT[currentLang].qaError;
+            list.appendChild(e);
+          }
+        }
+      );
+    } catch(e){}
+  }
+  window.submitComment = function(ev, scope){
+    ev.preventDefault();
+    if (!db) return false;
+    var suffix = scope === 'modal' ? 'modal' : 'general';
+    var nameEl = document.getElementById('qa-name-' + suffix);
+    var teamEl = document.getElementById('qa-team-' + suffix);
+    var textEl = document.getElementById('qa-text-' + suffix);
+    var statusEl = document.getElementById('qa-status-' + suffix);
+    var btn = ev.target.querySelector('.qa-submit');
+    var name = (nameEl.value || '').trim();
+    var text = (textEl.value || '').trim();
+    var team = teamEl.value;
+    if (!name || !text) return false;
+    var actualScope = scope === 'modal' ? currentModalKey : 'general';
+    if (!actualScope) return false;
+    btn.disabled = true;
+    var prevLabel = btn.textContent;
+    btn.textContent = DICT[currentLang].qaSending;
+    if (statusEl) statusEl.textContent = '';
+    db.collection('comments').add({
+      scope: actualScope, name: name.slice(0, 30), team: team, text: text.slice(0, 500), ts: Date.now()
+    }).then(function(){
+      textEl.value = '';
+      try {
+        localStorage.setItem('brighthope-busan-qa-name', name);
+        localStorage.setItem('brighthope-busan-qa-team', team);
+      } catch(e){}
+    }).catch(function(){
+      if (statusEl) statusEl.textContent = DICT[currentLang].qaError;
+    }).then(function(){
+      btn.disabled = false;
+      btn.textContent = prevLabel;
+    });
+    return false;
+  };
+
+  /* ---- Prayer wall (shared, real-time counts via db) ---- */
+  function renderPrayerGrid(){
+    var root = document.getElementById('prayer-grid');
+    if (!root) return;
+    var t = DICT[currentLang];
+    var prayedHere = {};
+    try {
+      PRAYER_ITEMS.forEach(function(id){ prayedHere[id] = localStorage.getItem('brighthope-busan-prayed-' + id) === '1'; });
+    } catch(e){}
+    root.innerHTML = '';
+    PRAYER_ITEMS.forEach(function(id){
+      var card = document.createElement('div');
+      card.className = 'panel prayer-card';
+      var count = prayerCounts[id] || 0;
+      var done = !!prayedHere[id];
+      card.innerHTML =
+        '<div class="icon">' + PRAYER_ICON[id] + '</div>' +
+        '<div class="body">' +
+          '<h3>' + (t[id + 'Title'] || '') + '</h3>' +
+          '<p>' + (t[id + 'Body'] || '') + '</p>' +
+          '<div class="row">' +
+            '<span class="prayer-count" data-prayer-count="' + id + '">🙏 ' + count + '</span>' +
+            '<button type="button" class="prayer-btn' + (done ? ' done' : '') + '" data-prayer-btn="' + id + '"' + (done ? ' disabled' : '') + '>' +
+              (done ? t.prayerBtnDone : t.prayerBtn) +
+            '</button>' +
+          '</div>' +
+        '</div>';
+      root.appendChild(card);
+    });
+    root.querySelectorAll('[data-prayer-btn]').forEach(function(btn){
+      btn.addEventListener('click', function(){ window.prayFor(btn.getAttribute('data-prayer-btn')); });
+    });
+  }
+  function updatePrayerCounts(){
+    PRAYER_ITEMS.forEach(function(id){
+      var el = document.querySelector('[data-prayer-count="' + id + '"]');
+      if (el) el.textContent = '🙏 ' + (prayerCounts[id] || 0);
+    });
+  }
+  function subscribePrayers(){
+    try {
+      db.collection('prayers').limit(3000).onSnapshot(function(snap){
+        var counts = {};
+        snap.docs.forEach(function(snapDoc){
+          var d = snapDoc.data();
+          if (d && d.item) { counts[d.item] = (counts[d.item] || 0) + 1; }
+        });
+        prayerCounts = counts;
+        updatePrayerCounts();
+      }, function(){});
+    } catch(e){}
+  }
+  window.prayFor = function(id){
+    if (!db) return;
+    var key = 'brighthope-busan-prayed-' + id;
+    try { if (localStorage.getItem(key) === '1') return; } catch(e){}
+    var btn = document.querySelector('[data-prayer-btn="' + id + '"]');
+    if (btn) { btn.disabled = true; btn.classList.add('done'); btn.textContent = DICT[currentLang].prayerBtnDone; }
+    db.collection('prayers').add({ item: id, ts: Date.now() }).then(function(){
+      try { localStorage.setItem(key, '1'); } catch(e){}
+    }).catch(function(){
+      if (btn) { btn.disabled = false; btn.classList.remove('done'); btn.textContent = DICT[currentLang].prayerBtn; }
+    });
+  };
+
+  /* ---- Testimony wall (shared, real-time via db) ---- */
+  function renderTestimonyList(docs){
+    var container = document.getElementById('testimony-list');
+    if (!container) return;
+    container.innerHTML = '';
+    if (!docs || !docs.length) {
+      var empty = document.createElement('div');
+      empty.className = 'qa-empty';
+      empty.textContent = DICT[currentLang].testimonyEmpty;
+      container.appendChild(empty);
+      return;
+    }
+    docs.forEach(function(snap){
+      var d = snap.data();
+      if (!d) return;
+      var item = document.createElement('div');
+      item.className = 'qa-item';
+      var head = document.createElement('div');
+      head.className = 'qa-item-head';
+      var nameSpan = document.createElement('span');
+      nameSpan.className = 'qa-name';
+      nameSpan.textContent = String(d.name || '').slice(0, 60);
+      var teamSpan = document.createElement('span');
+      var teamKey = (d.team === 'wn' || d.team === 'bh') ? d.team : 'etc';
+      teamSpan.className = 'qa-team-badge team-' + teamKey;
+      teamSpan.textContent = teamLabel(d.team);
+      var timeSpan = document.createElement('span');
+      timeSpan.className = 'qa-time';
+      timeSpan.textContent = formatTs(d.ts);
+      head.appendChild(nameSpan);
+      head.appendChild(teamSpan);
+      head.appendChild(timeSpan);
+      var textDiv = document.createElement('div');
+      textDiv.className = 'qa-text';
+      textDiv.textContent = String(d.text || '').slice(0, 1200);
+      item.appendChild(head);
+      item.appendChild(textDiv);
+      container.appendChild(item);
+    });
+  }
+  function subscribeTestimonies(){
+    try {
+      db.collection('testimonies').orderBy('ts', 'desc').limit(200).onSnapshot(
+        function(snap){ lastTestimonyDocs = snap.docs; renderTestimonyList(lastTestimonyDocs); },
+        function(){}
+      );
+    } catch(e){}
+  }
+  window.submitTestimony = function(ev){
+    ev.preventDefault();
+    if (!db) return false;
+    var nameEl = document.getElementById('testimony-name');
+    var teamEl = document.getElementById('testimony-team');
+    var textEl = document.getElementById('testimony-text');
+    var statusEl = document.getElementById('testimony-status');
+    var btn = ev.target.querySelector('.qa-submit');
+    var name = (nameEl.value || '').trim();
+    var text = (textEl.value || '').trim();
+    var team = teamEl.value;
+    if (!name || !text) return false;
+    btn.disabled = true;
+    var prevLabel = btn.textContent;
+    btn.textContent = DICT[currentLang].testimonySending;
+    if (statusEl) statusEl.textContent = '';
+    db.collection('testimonies').add({
+      name: name.slice(0, 30), team: team, text: text.slice(0, 800), ts: Date.now()
+    }).then(function(){
+      textEl.value = '';
+    }).catch(function(){
+      if (statusEl) statusEl.textContent = DICT[currentLang].testimonyError;
+    }).then(function(){
+      btn.disabled = false;
+      btn.textContent = prevLabel;
+    });
+    return false;
+  };
+
+  function tryFirebaseFallback(done){
+    try {
+      var cfg = window.FIREBASE_CONFIG;
+      var hasRealConfig = cfg && cfg.apiKey && cfg.apiKey.indexOf('YOUR_') !== 0 && cfg.projectId && cfg.projectId.indexOf('YOUR_') !== 0;
+      if (typeof firebase !== 'undefined' && hasRealConfig) {
+        if (!firebase.apps || !firebase.apps.length) { firebase.initializeApp(cfg); }
+        done(firebase.firestore());
+      } else {
+        done(null);
+      }
+    } catch(e){ done(null); }
+  }
+  (function initDb(){
+    function done(resolved){
+      db = resolved || null;
+      if (db) { subscribeGeneral(); subscribePrayers(); subscribeTestimonies(); }
+      else {
+        renderQaUnavailable();
+        var tList = document.getElementById('testimony-list');
+        var tForm = document.getElementById('testimony-form');
+        var tStatus = document.getElementById('testimony-status');
+        if (tForm) tForm.hidden = true;
+        if (tStatus) tStatus.hidden = true;
+        if (tList) {
+          tList.innerHTML = '';
+          var msg = document.createElement('div');
+          msg.className = 'qa-unavailable';
+          msg.setAttribute('data-i18n', 'qaUnavailable');
+          msg.textContent = DICT[currentLang].qaUnavailable;
+          tList.appendChild(msg);
+        }
+      }
+    }
+    try {
+      if (window.claude && typeof window.claude.use === 'function') {
+        window.claude.use('db').then(function(resolved){
+          if (resolved) { done(resolved); } else { tryFirebaseFallback(done); }
+        }, function(){ tryFirebaseFallback(done); });
+      } else {
+        tryFirebaseFallback(done);
+      }
+    } catch(e){ tryFirebaseFallback(done); }
+  })();
+  try {
+    var savedQaName = localStorage.getItem('brighthope-busan-qa-name');
+    var savedQaTeam = localStorage.getItem('brighthope-busan-qa-team');
+    ['general','modal'].forEach(function(suffix){
+      if (savedQaName) { var n = document.getElementById('qa-name-' + suffix); if (n) n.value = savedQaName; }
+      if (savedQaTeam) { var t = document.getElementById('qa-team-' + suffix); if (t) t.value = savedQaTeam; }
+    });
+  } catch(e){}
+
+  window.openDayModal = function(cell){
+    var key = cell.getAttribute('data-key');
+    var cat = cell.getAttribute('data-cat');
+    var month = parseInt(cell.getAttribute('data-month'), 10);
+    var day = parseInt(cell.getAttribute('data-day'), 10);
+    var dowArr = currentLang === 'ja' ? dowJa : dowKo;
+    var dowStr = dowArr[new Date(2026, month - 1, day).getDay()];
+    document.getElementById('modal-pill').textContent = (CAT_LABEL[currentLang] && CAT_LABEL[currentLang][cat]) || '';
+    document.getElementById('modal-date').textContent = dateFmt[currentLang](month, day, dowStr);
+    document.getElementById('modal-title-text').textContent = (DICT[currentLang] && DICT[currentLang][key]) || '';
+    document.getElementById('modal-detail-text').textContent = (DETAIL[currentLang] && DETAIL[currentLang][key]) || '';
+
+    var meetBtn = document.getElementById('modal-meet-link');
+    if (meetBtn) {
+      var meetUrl = MEET_LINK[key];
+      if (meetUrl) { meetBtn.href = meetUrl; meetBtn.hidden = false; }
+      else { meetBtn.hidden = true; }
+    }
+
+    currentModalKey = key;
+    if (modalQaUnsub) { modalQaUnsub(); modalQaUnsub = null; }
+    lastModalDocs = null;
+    if (db) {
+      var modalList = document.getElementById('qa-list-modal');
+      if (modalList) modalList.innerHTML = '';
+      try {
+        modalQaUnsub = db.collection('comments').where('scope', '==', key).orderBy('ts', 'asc').limit(100).onSnapshot(
+          function(snap){ lastModalDocs = snap.docs; renderCommentList('qa-list-modal', lastModalDocs); },
+          function(){}
+        );
+      } catch(e){}
+    }
+
+    var modal = document.getElementById('day-modal');
+    modal.hidden = false;
+    modal.querySelector('.modal-close').focus();
+  };
+  window.closeDayModal = function(){
+    document.getElementById('day-modal').hidden = true;
+    if (modalQaUnsub) { modalQaUnsub(); modalQaUnsub = null; }
+    currentModalKey = null;
+    lastModalDocs = null;
+  };
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') { closeDayModal(); }
+  });
+
+  function updateProgress(){
+    var total = boxes.length, done = 0;
+    boxes.forEach(function(cb){ if (cb.checked) done++; });
+    fill.style.width = (total ? (done/total*100) : 0) + '%';
+    label.textContent = DICT[currentLang].progress(done, total);
+  }
+
+  window.applyLang = function(lang){
+    currentLang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      if (DICT[lang][key] !== undefined) {
+        if (el.querySelector('.tbd')) { el.querySelector('.tbd').textContent = DICT[lang][key]; }
+        else { el.textContent = DICT[lang][key]; }
+      }
+    });
+    document.querySelectorAll('[data-i18n-ph]').forEach(function(el){
+      var key = el.getAttribute('data-i18n-ph');
+      if (DICT[lang][key] !== undefined) { el.setAttribute('placeholder', DICT[lang][key]); }
+    });
+    var dow = lang === 'ja' ? dowJa : dowKo;
+    ['cal-sep','cal-oct','cal-nov'].forEach(function(id){
+      document.querySelectorAll('#' + id + ' .cal-dow').forEach(function(el,i){ el.textContent = dow[i]; });
+    });
+    document.getElementById('btn-ko').setAttribute('aria-pressed', lang === 'ko');
+    document.getElementById('btn-ja').setAttribute('aria-pressed', lang === 'ja');
+    try { localStorage.setItem('brighthope-busan-lang', lang); } catch(e){}
+    updateProgress();
+    if (lastGeneralDocs !== null) { renderCommentList('qa-list-general', lastGeneralDocs); }
+    if (currentModalKey && lastModalDocs !== null) { renderCommentList('qa-list-modal', lastModalDocs); }
+    if (lastTestimonyDocs !== null) { renderTestimonyList(lastTestimonyDocs); }
+    renderPrayerGrid();
+    renderNextMilestone();
+  };
+
+  /* ---- D-day counter ---- */
+  function renderDday(){
+    var el = document.getElementById('stat-dday');
+    if (!el) return;
+    var target = new Date('2026-11-07T15:00:00+09:00').getTime();
+    var now = Date.now();
+    var diff = target - now;
+    if (diff <= 0 && diff > -4 * 3600 * 1000) { el.textContent = DICT[currentLang].nextMilestoneToday || 'D-DAY'; return; }
+    if (diff <= 0) { el.textContent = 'D+' + Math.floor(-diff / 86400000); return; }
+    el.textContent = 'D-' + Math.ceil(diff / 86400000);
+  }
+
+  /* ---- Auto "next milestone" callout for the calendar section ---- */
+  function renderNextMilestone(){
+    var el = document.getElementById('next-milestone');
+    if (!el) return;
+    var cells = document.querySelectorAll('.cal-day[data-key]');
+    var now = new Date();
+    var todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+    var best = null;
+    cells.forEach(function(cell){
+      var cat = cell.getAttribute('data-cat');
+      if (cat === 'today') return;
+      var month = parseInt(cell.getAttribute('data-month'), 10);
+      var day = parseInt(cell.getAttribute('data-day'), 10);
+      var t = new Date(2026, month - 1, day).getTime();
+      if (t < todayStart) return;
+      if (best === null || t < best.t) { best = { t: t, month: month, day: day, key: cell.getAttribute('data-key') }; }
+    });
+    if (!best) {
+      el.hidden = true;
+      return;
+    }
+    var daysLeft = Math.round((best.t - todayStart) / 86400000);
+    var chip = daysLeft === 0 ? (DICT[currentLang].nextMilestoneToday || '') : ('D-' + daysLeft);
+    var label = DICT[currentLang][best.key] || '';
+    el.innerHTML = '<span class="chip">' + chip + '</span><span>' + (DICT[currentLang].nextMilestoneLabel || '') + ': ' + label + '</span>';
+    el.hidden = false;
+  }
+
+  try {
+    var KEY = 'brighthope-busan-checklist';
+    var saved = JSON.parse(localStorage.getItem(KEY) || '{}');
+    boxes.forEach(function(cb){
+      if (saved[cb.id]) { cb.checked = true; cb.closest('li').classList.add('checked'); }
+      cb.addEventListener('change', function(){
+        cb.closest('li').classList.toggle('checked', cb.checked);
+        var state = JSON.parse(localStorage.getItem(KEY) || '{}');
+        state[cb.id] = cb.checked;
+        localStorage.setItem(KEY, JSON.stringify(state));
+        updateProgress();
+      });
+    });
+  } catch(e) { /* localStorage unavailable — checklist still usable */ }
+
+  var startLang = 'ja';
+  try { startLang = localStorage.getItem('brighthope-busan-lang') || 'ja'; } catch(e){}
+  applyLang(startLang);
+  renderDday();
+})();
+</script>
+</body>
+</html>
