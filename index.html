@@ -41,6 +41,7 @@
   }
 
   * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
   html { color-scheme: light dark; }
   body{ background: var(--bg); color: var(--ink); font-family:"IBM Plex Sans KR","Noto Sans JP","Noto Sans KR",-apple-system,sans-serif; line-height:1.6; }
   .wrap{ max-width: 960px; margin:0 auto; padding: 28px 24px 80px; }
@@ -204,6 +205,42 @@
   .modal-date{ font-size:.78rem; color:var(--muted); font-variant-numeric:tabular-nums; margin-bottom:2px; }
   .modal-card h3{ font-size:1.05rem; margin-bottom:10px; padding-right:20px; }
   .modal-detail{ font-size:.88rem; color:var(--ink); line-height:1.65; }
+
+  /* ---- Q&A / Comments ---- */
+  .qa-board{ display:flex; flex-direction:column; gap:12px; }
+  .qa-form{
+    background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:12px 14px;
+    box-shadow:var(--shadow); display:flex; flex-direction:column; gap:8px;
+  }
+  .qa-form-row{ display:flex; gap:8px; }
+  .qa-form-row input[type=text]{ flex:1; min-width:0; }
+  .qa-form input, .qa-form select, .qa-form textarea{
+    font-family:inherit; font-size:.85rem; padding:8px 10px; border:1px solid var(--line); border-radius:8px;
+    background:var(--bg); color:var(--ink);
+  }
+  .qa-form textarea{ resize:vertical; min-height:44px; }
+  .qa-form select{ flex-shrink:0; max-width:132px; }
+  .qa-submit{
+    align-self:flex-end; background:var(--accent); color:#fff; border:none; border-radius:999px; padding:8px 18px;
+    font-size:.82rem; font-weight:700; cursor:pointer; font-family:inherit;
+  }
+  .qa-submit:disabled{ opacity:.5; cursor:default; }
+  .qa-status{ font-size:.78rem; color:var(--warn); min-height:1em; }
+  .qa-list{ display:flex; flex-direction:column; gap:9px; max-height:340px; overflow-y:auto; padding-right:2px; }
+  .qa-list.small{ max-height:180px; margin-bottom:2px; }
+  .qa-item{ background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:9px 12px; box-shadow:var(--shadow); }
+  .qa-item-head{ display:flex; align-items:center; gap:8px; margin-bottom:4px; flex-wrap:wrap; }
+  .qa-name{ font-weight:700; font-size:.8rem; }
+  .qa-team-badge{ font-size:.6rem; font-weight:700; padding:2px 8px; border-radius:999px; white-space:nowrap; }
+  .qa-team-badge.team-wn{ background:var(--accent-soft); color:var(--accent-ink); }
+  .qa-team-badge.team-bh{ background:var(--sea-soft); color:var(--sea-ink); }
+  .qa-team-badge.team-etc{ background:var(--surface-2); color:var(--muted); }
+  .qa-time{ font-size:.66rem; color:var(--muted); margin-left:auto; font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .qa-text{ font-size:.83rem; line-height:1.5; white-space:pre-wrap; word-break:break-word; }
+  .qa-empty{ font-size:.8rem; color:var(--muted); padding:8px 2px; }
+  .qa-unavailable{ font-size:.8rem; color:var(--muted); background:var(--surface-2); border-radius:10px; padding:12px 14px; line-height:1.5; }
+  .modal-qa{ margin-top:16px; padding-top:14px; border-top:1px solid var(--line); }
+  .modal-qa-title{ font-size:.78rem; font-weight:700; color:var(--accent-ink); margin-bottom:8px; }
 </style>
 </head>
 <body>
@@ -441,6 +478,27 @@
     </div>
   </section>
 
+  <section id="qa-section">
+    <div class="section-head"><span class="num">05</span><h2 data-i18n="sec5title">질문 및 코멘트</h2></div>
+    <div class="section-sub" data-i18n="sec5sub">워십네이션스·브라이트호프 팀 누구나 질문이나 의견을 남길 수 있는 공식 소통 공간입니다. 특정 날짜에 대한 질문은 캘린더에서 해당 날짜를 클릭해 남겨주세요.</div>
+    <div class="qa-board" id="qa-board-general">
+      <form class="qa-form" id="qa-form-general" onsubmit="return submitComment(event,'general')">
+        <div class="qa-form-row">
+          <input type="text" id="qa-name-general" data-i18n-ph="qaNamePh" placeholder="이름" maxlength="30" required>
+          <select id="qa-team-general">
+            <option value="wn" data-i18n="teamWN">워십네이션스</option>
+            <option value="bh" data-i18n="teamBH">브라이트호프</option>
+            <option value="etc" data-i18n="teamEtc">기타</option>
+          </select>
+        </div>
+        <textarea id="qa-text-general" data-i18n-ph="qaTextPh" placeholder="질문이나 의견을 남겨주세요" maxlength="500" required rows="2"></textarea>
+        <button type="submit" class="qa-submit" data-i18n="qaSubmit">남기기</button>
+      </form>
+      <div class="qa-status" id="qa-status-general"></div>
+      <div class="qa-list" id="qa-list-general"></div>
+    </div>
+  </section>
+
   <footer data-i18n="footer">Worship Nations × Bright Hope · 작성 기준일 2026.09.07 — 협조 공문(2026.08.18) 기반, 세부 일정은 두 팀 협의에 따라 계속 업데이트됩니다.</footer>
 </div>
 
@@ -451,9 +509,45 @@
     <div class="modal-date" id="modal-date"></div>
     <h3 id="modal-title-text"></h3>
     <p class="modal-detail" id="modal-detail-text"></p>
+
+    <div class="modal-qa" id="qa-board-modal">
+      <div class="modal-qa-title" data-i18n="qaModalTitle">이 일정에 대한 질문·코멘트</div>
+      <div class="qa-list small" id="qa-list-modal"></div>
+      <form class="qa-form" id="qa-form-modal" onsubmit="return submitComment(event,'modal')">
+        <div class="qa-form-row">
+          <input type="text" id="qa-name-modal" data-i18n-ph="qaNamePh" placeholder="이름" maxlength="30" required>
+          <select id="qa-team-modal">
+            <option value="wn" data-i18n="teamWN">워십네이션스</option>
+            <option value="bh" data-i18n="teamBH">브라이트호프</option>
+            <option value="etc" data-i18n="teamEtc">기타</option>
+          </select>
+        </div>
+        <textarea id="qa-text-modal" data-i18n-ph="qaTextPh" placeholder="질문이나 의견을 남겨주세요" maxlength="500" required rows="2"></textarea>
+        <button type="submit" class="qa-submit" data-i18n="qaSubmit">남기기</button>
+      </form>
+      <div class="qa-status" id="qa-status-modal"></div>
+    </div>
   </div>
 </div>
-
+<!--
+  깃허브 등 claude.ai 밖에 배포할 때만 사용되는 Firebase 연동 부분입니다.
+  claude.ai 아티팩트에서는 Claude의 자체 공유 저장소(db 기능)를 우선 사용하므로 아래 값은 무시됩니다.
+  아래 FIREBASE_CONFIG는 brighthope-busan Firebase 프로젝트의 설정 값입니다.
+  (Firestore 보안 규칙 설정은 FIREBASE_SETUP.md 3단계를 반드시 확인해주세요.)
+-->
+<script src="https://www.gstatic.com/firebasejs/12.18.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore-compat.js"></script>
+<script>
+  window.FIREBASE_CONFIG = {
+    apiKey: "AIzaSyD_Lgg4s2pCd1MELxMoxzwHXC6tYs-n1Z8",
+    authDomain: "brighthope-busan.firebaseapp.com",
+    projectId: "brighthope-busan",
+    storageBucket: "brighthope-busan.firebasestorage.app",
+    messagingSenderId: "758750632091",
+    appId: "1:758750632091:web:7204c0e51189eae5504e3e",
+    measurementId: "G-FTX9QW2MQM"
+  };
+</script>
 <script>
 (function(){
   var DICT = {
@@ -501,6 +595,15 @@
       sec4title: "장소",
       v1k: "장소", v1v: "부산 영주교회 본당", v2k: "주소", v3k: "주차", v3v: "봉래초등학교 주차장 (주말 무료)",
       v4k: "주최", v4v: "일본선교연구소·워십네이션스·브라이트호프",
+      sec5title: "질문 및 코멘트",
+      sec5sub: "워십네이션스·브라이트호프 팀 누구나 질문이나 의견을 남길 수 있는 공식 소통 공간입니다. 특정 날짜에 대한 질문은 캘린더에서 해당 날짜를 클릭해 남겨주세요.",
+      qaNamePh: "이름", qaTextPh: "질문이나 의견을 남겨주세요",
+      qaSubmit: "남기기", qaSending: "전송 중…",
+      teamWN: "워십네이션스", teamBH: "브라이트호프", teamEtc: "기타",
+      qaEmpty: "아직 등록된 코멘트가 없습니다. 첫 코멘트를 남겨보세요.",
+      qaError: "전송에 실패했습니다. 잠시 후 다시 시도해주세요.",
+      qaModalTitle: "이 일정에 대한 질문·코멘트",
+      qaUnavailable: "질문·코멘트 기능을 사용하려면 연동 설정이 필요합니다. claude.ai 아티팩트 페이지에서는 별도 설정 없이 바로 이용할 수 있습니다. 깃허브 등에 배포한 사본이라면 FIREBASE_SETUP.md 안내에 따라 Firebase 연동을 설정해주세요.",
       footer: "Worship Nations × Bright Hope · 작성 기준일 2026.09.07 — 협조 공문(2026.08.18) 기반, 세부 일정은 두 팀 협의에 따라 계속 업데이트됩니다.",
       progress: function(done,total){ return done + " / " + total + " 완료"; }
     },
@@ -548,6 +651,15 @@
       sec4title: "会場",
       v1k: "会場", v1v: "釜山ヨンジュ教会 本堂", v2k: "住所", v3k: "駐車場", v3v: "ポンネ小学校駐車場(週末無料)",
       v4k: "主催", v4v: "日本宣教研究所·ワーシップネイションズ·ブライトホープ",
+      sec5title: "質問・コメント",
+      sec5sub: "ワーシップネイションズ・ブライトホープ、どちらのチームでも質問やご意見を残せる公式連絡の場です。特定の日程についての質問は、カレンダーでその日をクリックして残してください。",
+      qaNamePh: "お名前", qaTextPh: "質問やご意見をお書きください",
+      qaSubmit: "送信", qaSending: "送信中…",
+      teamWN: "ワーシップネイションズ", teamBH: "ブライトホープ", teamEtc: "その他",
+      qaEmpty: "まだコメントはありません。最初のコメントを残してみましょう。",
+      qaError: "送信に失敗しました。しばらくしてから再度お試しください。",
+      qaModalTitle: "この日程についての質問・コメント",
+      qaUnavailable: "質問・コメント機能を使うには連携設定が必要です。claude.aiのアーティファクトページでは追加設定なしでそのままご利用いただけます。GitHubなどに公開したコピーの場合は、FIREBASE_SETUP.mdの案内に従ってFirebase連携を設定してください。",
       footer: "Worship Nations × Bright Hope · 作成基準日 2026.09.07 — 協力公文(2026.08.18)に基づく。詳細スケジュールは両チームの協議により随時更新されます。",
       progress: function(done,total){ return done + " / " + total + " 完了"; }
     }
@@ -599,6 +711,177 @@
     ja: function(m,d,dow){ return m + "月" + d + "日(" + dow + ")"; }
   };
 
+  /* ---- Q&A / Comments (shared db capability) ---- */
+  var db = null;
+  var currentModalKey = null;
+  var modalQaUnsub = null;
+  var lastGeneralDocs = null;
+  var lastModalDocs = null;
+
+  function teamLabel(team){
+    var t = DICT[currentLang];
+    if (team === 'wn') return t.teamWN;
+    if (team === 'bh') return t.teamBH;
+    return t.teamEtc;
+  }
+  function formatTs(ts){
+    try {
+      var d = new Date(ts);
+      var locale = currentLang === 'ja' ? 'ja-JP' : 'ko-KR';
+      return d.toLocaleString(locale, { month:'numeric', day:'numeric', hour:'2-digit', minute:'2-digit' });
+    } catch(e){ return ''; }
+  }
+  function renderCommentList(containerId, docs){
+    var container = document.getElementById(containerId);
+    if (!container) return;
+    container.innerHTML = '';
+    if (!docs || !docs.length) {
+      var empty = document.createElement('div');
+      empty.className = 'qa-empty';
+      empty.textContent = DICT[currentLang].qaEmpty;
+      container.appendChild(empty);
+      return;
+    }
+    docs.forEach(function(snap){
+      var d = snap.data();
+      if (!d) return;
+      var item = document.createElement('div');
+      item.className = 'qa-item';
+      var head = document.createElement('div');
+      head.className = 'qa-item-head';
+      var nameSpan = document.createElement('span');
+      nameSpan.className = 'qa-name';
+      nameSpan.textContent = String(d.name || '').slice(0, 60);
+      var teamSpan = document.createElement('span');
+      var teamKey = (d.team === 'wn' || d.team === 'bh') ? d.team : 'etc';
+      teamSpan.className = 'qa-team-badge team-' + teamKey;
+      teamSpan.textContent = teamLabel(d.team);
+      var timeSpan = document.createElement('span');
+      timeSpan.className = 'qa-time';
+      timeSpan.textContent = formatTs(d.ts);
+      head.appendChild(nameSpan);
+      head.appendChild(teamSpan);
+      head.appendChild(timeSpan);
+      var textDiv = document.createElement('div');
+      textDiv.className = 'qa-text';
+      textDiv.textContent = String(d.text || '').slice(0, 1000);
+      item.appendChild(head);
+      item.appendChild(textDiv);
+      container.appendChild(item);
+    });
+  }
+  function renderQaUnavailable(){
+    ['general','modal'].forEach(function(suffix){
+      var board = document.getElementById('qa-board-' + suffix);
+      if (!board) return;
+      var form = document.getElementById('qa-form-' + suffix);
+      var status = document.getElementById('qa-status-' + suffix);
+      var list = document.getElementById('qa-list-' + suffix);
+      if (form) form.hidden = true;
+      if (status) status.hidden = true;
+      if (list) list.innerHTML = '';
+      var msg = board.querySelector('.qa-unavailable');
+      if (!msg) {
+        msg = document.createElement('div');
+        msg.className = 'qa-unavailable';
+        msg.setAttribute('data-i18n', 'qaUnavailable');
+        board.insertBefore(msg, board.firstChild);
+      }
+      msg.textContent = DICT[currentLang].qaUnavailable;
+    });
+  }
+  function subscribeGeneral(){
+    try {
+      db.collection('comments').where('scope', '==', 'general').orderBy('ts', 'asc').limit(200).onSnapshot(
+        function(snap){
+          lastGeneralDocs = snap.docs;
+          renderCommentList('qa-list-general', lastGeneralDocs);
+        },
+        function(){
+          var list = document.getElementById('qa-list-general');
+          if (list) {
+            list.innerHTML = '';
+            var e = document.createElement('div');
+            e.className = 'qa-empty';
+            e.textContent = DICT[currentLang].qaError;
+            list.appendChild(e);
+          }
+        }
+      );
+    } catch(e){}
+  }
+  window.submitComment = function(ev, scope){
+    ev.preventDefault();
+    if (!db) return false;
+    var suffix = scope === 'modal' ? 'modal' : 'general';
+    var nameEl = document.getElementById('qa-name-' + suffix);
+    var teamEl = document.getElementById('qa-team-' + suffix);
+    var textEl = document.getElementById('qa-text-' + suffix);
+    var statusEl = document.getElementById('qa-status-' + suffix);
+    var btn = ev.target.querySelector('.qa-submit');
+    var name = (nameEl.value || '').trim();
+    var text = (textEl.value || '').trim();
+    var team = teamEl.value;
+    if (!name || !text) return false;
+    var actualScope = scope === 'modal' ? currentModalKey : 'general';
+    if (!actualScope) return false;
+    btn.disabled = true;
+    var prevLabel = btn.textContent;
+    btn.textContent = DICT[currentLang].qaSending;
+    if (statusEl) statusEl.textContent = '';
+    db.collection('comments').add({
+      scope: actualScope, name: name.slice(0, 30), team: team, text: text.slice(0, 500), ts: Date.now()
+    }).then(function(){
+      textEl.value = '';
+      try {
+        localStorage.setItem('brighthope-busan-qa-name', name);
+        localStorage.setItem('brighthope-busan-qa-team', team);
+      } catch(e){}
+    }).catch(function(){
+      if (statusEl) statusEl.textContent = DICT[currentLang].qaError;
+    }).then(function(){
+      btn.disabled = false;
+      btn.textContent = prevLabel;
+    });
+    return false;
+  };
+  function tryFirebaseFallback(done){
+    try {
+      var cfg = window.FIREBASE_CONFIG;
+      var hasRealConfig = cfg && cfg.apiKey && cfg.apiKey.indexOf('YOUR_') !== 0 && cfg.projectId && cfg.projectId.indexOf('YOUR_') !== 0;
+      if (typeof firebase !== 'undefined' && hasRealConfig) {
+        if (!firebase.apps || !firebase.apps.length) { firebase.initializeApp(cfg); }
+        done(firebase.firestore());
+      } else {
+        done(null);
+      }
+    } catch(e){ done(null); }
+  }
+  (function initDb(){
+    function done(resolved){
+      db = resolved || null;
+      if (db) { subscribeGeneral(); }
+      else { renderQaUnavailable(); }
+    }
+    try {
+      if (window.claude && typeof window.claude.use === 'function') {
+        window.claude.use('db').then(function(resolved){
+          if (resolved) { done(resolved); } else { tryFirebaseFallback(done); }
+        }, function(){ tryFirebaseFallback(done); });
+      } else {
+        tryFirebaseFallback(done);
+      }
+    } catch(e){ tryFirebaseFallback(done); }
+  })();
+  try {
+    var savedQaName = localStorage.getItem('brighthope-busan-qa-name');
+    var savedQaTeam = localStorage.getItem('brighthope-busan-qa-team');
+    ['general','modal'].forEach(function(suffix){
+      if (savedQaName) { var n = document.getElementById('qa-name-' + suffix); if (n) n.value = savedQaName; }
+      if (savedQaTeam) { var t = document.getElementById('qa-team-' + suffix); if (t) t.value = savedQaTeam; }
+    });
+  } catch(e){}
+
   window.openDayModal = function(cell){
     var key = cell.getAttribute('data-key');
     var cat = cell.getAttribute('data-cat');
@@ -610,12 +893,30 @@
     document.getElementById('modal-date').textContent = dateFmt[currentLang](month, day, dowStr);
     document.getElementById('modal-title-text').textContent = (DICT[currentLang] && DICT[currentLang][key]) || '';
     document.getElementById('modal-detail-text').textContent = (DETAIL[currentLang] && DETAIL[currentLang][key]) || '';
+
+    currentModalKey = key;
+    if (modalQaUnsub) { modalQaUnsub(); modalQaUnsub = null; }
+    lastModalDocs = null;
+    if (db) {
+      var modalList = document.getElementById('qa-list-modal');
+      if (modalList) modalList.innerHTML = '';
+      try {
+        modalQaUnsub = db.collection('comments').where('scope', '==', key).orderBy('ts', 'asc').limit(100).onSnapshot(
+          function(snap){ lastModalDocs = snap.docs; renderCommentList('qa-list-modal', lastModalDocs); },
+          function(){}
+        );
+      } catch(e){}
+    }
+
     var modal = document.getElementById('day-modal');
     modal.hidden = false;
     modal.querySelector('.modal-close').focus();
   };
   window.closeDayModal = function(){
     document.getElementById('day-modal').hidden = true;
+    if (modalQaUnsub) { modalQaUnsub(); modalQaUnsub = null; }
+    currentModalKey = null;
+    lastModalDocs = null;
   };
   document.addEventListener('keydown', function(e){
     if (e.key === 'Escape') { closeDayModal(); }
@@ -637,6 +938,10 @@
         else { el.textContent = DICT[lang][key]; }
       }
     });
+    document.querySelectorAll('[data-i18n-ph]').forEach(function(el){
+      var key = el.getAttribute('data-i18n-ph');
+      if (DICT[lang][key] !== undefined) { el.setAttribute('placeholder', DICT[lang][key]); }
+    });
     var dow = lang === 'ja' ? dowJa : dowKo;
     ['cal-sep','cal-oct','cal-nov'].forEach(function(id){
       document.querySelectorAll('#' + id + ' .cal-dow').forEach(function(el,i){ el.textContent = dow[i]; });
@@ -645,6 +950,8 @@
     document.getElementById('btn-ja').setAttribute('aria-pressed', lang === 'ja');
     try { localStorage.setItem('brighthope-busan-lang', lang); } catch(e){}
     updateProgress();
+    if (lastGeneralDocs !== null) { renderCommentList('qa-list-general', lastGeneralDocs); }
+    if (currentModalKey && lastModalDocs !== null) { renderCommentList('qa-list-modal', lastModalDocs); }
   };
 
   try {
