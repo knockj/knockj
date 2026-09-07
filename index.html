@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bright Hope Busan 준비 플랜</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700&family=Noto+Serif+JP:wght@600;700&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Caveat:wght@700&display=swap">
+<style>
+  :root{
+    --bg:#F4F9FC; --surface:#FFFFFF; --surface-2:#E9F1F9;
+    --ink:#1E2B45; --muted:#5D6B85; --line:#DCE6F0;
+    --accent:#4F7FD6; --accent-ink:#2E4E8F; --accent-soft:#E1EAFB;
+    --sea:#3FAEDB; --sea-soft:#DFF1FA; --sea-ink:#1F6A8C;
+    --good:#5FA968; --good-soft:#E5F3E5;
+    --warn:#C9784A;
+    --sunset-1:#FCE49A; --sunset-2:#F6B387; --sunset-3:#F0A0AE;
+    --shadow: 0 1px 2px rgba(30,43,69,.06), 0 8px 24px -12px rgba(30,43,69,.18);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0F1729; --surface:#182238; --surface-2:#1F2C46;
+      --ink:#EAEEF6; --muted:#9BA8C4; --line:#2C3A56;
+      --accent:#7FA6EA; --accent-ink:#DCE7FB; --accent-soft:#233457;
+      --sea:#5EC2EE; --sea-soft:#173548; --sea-ink:#BDE9FB;
+      --good:#7FC17F; --good-soft:#1B3324;
+      --warn:#E39A6E;
+      --sunset-1:#7A6432; --sunset-2:#8A5A3F; --sunset-3:#8A4A57;
+      --shadow: 0 1px 2px rgba(0,0,0,.35), 0 10px 30px -14px rgba(0,0,0,.65);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0F1729; --surface:#182238; --surface-2:#1F2C46;
+    --ink:#EAEEF6; --muted:#9BA8C4; --line:#2C3A56;
+    --accent:#7FA6EA; --accent-ink:#DCE7FB; --accent-soft:#233457;
+    --sea:#5EC2EE; --sea-soft:#173548; --sea-ink:#BDE9FB;
+    --good:#7FC17F; --good-soft:#1B3324;
+    --warn:#E39A6E;
+    --sunset-1:#7A6432; --sunset-2:#8A5A3F; --sunset-3:#8A4A57;
+    --shadow: 0 1px 2px rgba(0,0,0,.35), 0 10px 30px -14px rgba(0,0,0,.65);
+  }
+
+  * { box-sizing: border-box; }
+  html { color-scheme: light dark; }
+  body{ background: var(--bg); color: var(--ink); font-family:"IBM Plex Sans KR","Noto Sans JP","Noto Sans KR",-apple-system,sans-serif; line-height:1.6; }
+  .wrap{ max-width: 960px; margin:0 auto; padding: 28px 24px 80px; }
+
+  h1,h2,h3{ font-family:"Noto Serif KR","Noto Serif JP","IBM Plex Sans KR",serif; text-wrap:balance; margin:0; }
+  h1{ font-size:1.7rem; font-weight:700; letter-spacing:-0.01em; }
+  h2{ font-size:1.15rem; font-weight:700; }
+  h3{ font-size:.92rem; font-weight:700; }
+  p{ margin:0; }
+  .script{ font-family:"Caveat","Noto Serif KR",cursive; font-weight:700; color:var(--accent); font-size:1.15em; }
+
+  /* ---- Hero banner (echoes the official poster) ---- */
+  .hero{
+    position:relative; height:108px; border-radius:16px; overflow:hidden; margin-bottom:22px;
+    background: linear-gradient(115deg, #8FC6EE 0%, #BFE0F5 42%, var(--sunset-1) 78%, var(--sunset-2) 100%);
+    box-shadow: var(--shadow);
+  }
+  .hero .glow{ position:absolute; right:-30px; top:-40px; width:170px; height:170px; border-radius:50%;
+    background: radial-gradient(circle, rgba(255,255,255,.85), var(--sunset-1) 55%, transparent 75%); }
+  .hero svg{ position:absolute; left:0; right:0; bottom:0; width:100%; height:60%; }
+  .hero-brand{
+    position:relative; z-index:2; display:flex; align-items:center; gap:8px; height:100%; padding:0 18px;
+    color:#fff; font-weight:700; font-size:.82rem; letter-spacing:.03em; text-shadow: 0 1px 3px rgba(0,0,0,.25);
+  }
+  .hero-brand .mark{ font-family:"IBM Plex Mono",monospace; font-weight:700; border:1.5px solid rgba(255,255,255,.9); border-radius:6px; padding:2px 6px; font-size:.72rem; }
+
+  header{ padding-bottom:22px; border-bottom:1px solid var(--line); margin-bottom:26px; }
+  .top-row{ display:flex; justify-content:flex-end; margin-bottom:10px; }
+  .lang-switch{ display:inline-flex; border:1px solid var(--line); border-radius:999px; padding:3px; background:var(--surface); box-shadow:var(--shadow); flex-shrink:0; }
+  .lang-switch button{
+    border:none; background:transparent; padding:6px 14px; border-radius:999px; font-size:.8rem; font-weight:600;
+    color:var(--muted); cursor:pointer; font-family:inherit;
+  }
+  .lang-switch button[aria-pressed="true"]{ background:var(--accent); color:#fff; }
+
+  header .en{ color:var(--muted); font-size:.95rem; margin-top:4px; }
+  header .lead{ color:var(--muted); margin-top:12px; max-width:62ch; font-size:.92rem; }
+
+  .stats{ margin-top:18px; display:flex; flex-wrap:wrap; gap:10px; }
+  .stat{ background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:10px 14px; box-shadow:var(--shadow); }
+  .stat .k{ font-size:.66rem; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; }
+  .stat .v{ font-size:.95rem; font-weight:700; margin-top:2px; font-variant-numeric:tabular-nums; color:var(--accent-ink); }
+
+  section{ margin-bottom:38px; }
+  .section-head{ display:flex; align-items:baseline; gap:9px; margin-bottom:6px; }
+  .section-head .num{ font-family:"IBM Plex Mono",monospace; color:var(--sea-ink); font-weight:600; font-size:.78rem; }
+  .section-sub{ color:var(--muted); font-size:.83rem; margin: 0 0 14px; }
+
+  /* ---- Month calendars ---- */
+  .cal-row{ display:grid; grid-template-columns: repeat(3,1fr); gap:14px; align-items:start; }
+  @media (max-width:820px){ .cal-row{ grid-template-columns:1fr; } }
+  .cal{ background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:14px; box-shadow:var(--shadow); }
+  .cal-title{ font-weight:700; font-size:.88rem; margin-bottom:8px; color:var(--accent-ink); }
+  .cal-grid{ display:grid; grid-template-columns: repeat(7,1fr); gap:4px; }
+  .cal-dow{ text-align:center; font-size:.64rem; color:var(--muted); padding-bottom:3px; }
+  .cal-day{
+    aspect-ratio: 1 / 0.92; border-radius:7px; padding:4px 4px; font-size:.66rem; background:var(--surface-2);
+    display:flex; flex-direction:column; gap:1px; color:var(--muted); overflow:hidden;
+  }
+  .cal-day.blank{ background:transparent; }
+  .cal-day .d{ font-weight:700; font-variant-numeric:tabular-nums; color:var(--ink); font-size:.72rem; }
+  .cal-day .tag{ font-size:.58rem; line-height:1.2; font-weight:600; }
+  .cal-day.mark-onsite{ background: var(--accent-soft); }
+  .cal-day.mark-onsite .tag{ color: var(--accent-ink); }
+  .cal-day.mark-online{ background: var(--sea-soft); }
+  .cal-day.mark-online .tag{ color: var(--sea-ink); }
+  .cal-day.mark-today{ background: var(--surface-2); box-shadow: inset 0 0 0 2px var(--accent); }
+  .cal-day.mark-today .tag{ color: var(--accent-ink); }
+  .cal-day.mark-arrive{ background: var(--sea-soft); }
+  .cal-day.mark-arrive .tag{ color: var(--sea-ink); }
+  .cal-day.mark-event{ background: linear-gradient(150deg, var(--sunset-1), var(--sunset-2) 55%, var(--sunset-3)); box-shadow: inset 0 0 0 2px var(--accent); }
+  .cal-day.mark-event .d, .cal-day.mark-event .tag{ color:#5A2E1A; }
+  .cal-day.mark-fellow{ background: var(--good-soft); }
+  .cal-day.mark-fellow .tag{ color: var(--good); }
+  .cal-day.mark-depart{ background: var(--sea-soft); }
+  .cal-day.mark-depart .tag{ color: var(--sea-ink); }
+
+  .cal-legend{ display:flex; flex-wrap:wrap; gap:14px; margin-top:14px; font-size:.78rem; color:var(--muted); }
+  .cal-legend span{ display:inline-flex; align-items:center; gap:6px; }
+  .dot{ width:9px; height:9px; border-radius:50%; display:inline-block; }
+  .dot.today{ background:var(--surface-2); box-shadow: inset 0 0 0 2px var(--accent); }
+  .dot.onsite{ background:var(--accent); }
+  .dot.online{ background:var(--sea); }
+  .dot.event{ background: linear-gradient(135deg, var(--sunset-2), var(--sunset-3)); }
+  .dot.fellow{ background:var(--good); }
+
+  /* ---- 4-day agenda ---- */
+  .agenda{ display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+  @media (max-width:720px){ .agenda{ grid-template-columns:1fr 1fr; } }
+  .day-col{ background:var(--surface); border:1px solid var(--line); border-radius:14px; overflow:hidden; box-shadow:var(--shadow); display:flex; flex-direction:column; }
+  .day-head{ padding:10px 12px; font-weight:700; font-size:.85rem; color:#fff; }
+  .day-head .sub{ font-weight:500; font-size:.7rem; opacity:.9; }
+  .day-col.arrive .day-head{ background: var(--sea); }
+  .day-col.event .day-head{ background: linear-gradient(120deg, var(--sunset-2), var(--sunset-3)); color:#5A2E1A; }
+  .day-col.event .day-head .sub{ opacity:.75; }
+  .day-col.fellow .day-head{ background:var(--good); }
+  .day-col.depart .day-head{ background:var(--sea); }
+  .day-body{ padding:10px 12px; display:flex; flex-direction:column; gap:9px; flex:1; }
+  .ev{ border-left:3px solid var(--line); padding-left:9px; }
+  .ev .t{ font-family:"IBM Plex Mono",monospace; font-size:.7rem; color:var(--muted); font-variant-numeric:tabular-nums; }
+  .ev .t .tbd{ color:var(--warn); }
+  .ev .d{ font-size:.8rem; margin-top:1px; }
+  .ev.hi{ border-left-color: var(--accent); }
+  .ev.hi .d{ font-weight:700; }
+
+  /* ---- Checklist ---- */
+  .progress-bar{ display:flex; align-items:center; gap:10px; margin-bottom:16px; background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:10px 14px; box-shadow:var(--shadow); }
+  .progress-track{ flex:1; height:8px; border-radius:99px; background:var(--surface-2); overflow:hidden; }
+  .progress-fill{ height:100%; background:var(--accent); width:0%; transition:width .2s; }
+  .progress-label{ font-size:.78rem; color:var(--muted); white-space:nowrap; font-variant-numeric:tabular-nums; }
+
+  .cat-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  @media (max-width:720px){ .cat-grid{ grid-template-columns:1fr; } }
+  .cat{ background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow); }
+  .cat-head{ display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:8px; }
+  .cat-head .owner{ font-size:.66rem; color:var(--muted); white-space:nowrap; }
+  ul.tasks{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:6px; }
+  ul.tasks li{ display:flex; align-items:flex-start; gap:8px; }
+  ul.tasks li input[type=checkbox]{ margin-top:3px; width:16px; height:16px; accent-color:var(--accent); flex-shrink:0; cursor:pointer; }
+  ul.tasks li label{ font-size:.84rem; cursor:pointer; }
+  ul.tasks li.checked label{ color:var(--muted); text-decoration:line-through; text-decoration-color:var(--line); }
+
+  .venue{ display:flex; flex-wrap:wrap; gap:18px; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow); font-size:.87rem; }
+  .venue dt{ font-size:.66rem; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; }
+  .venue dd{ margin:2px 0 0; font-weight:600; }
+
+  footer{ margin-top:46px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:.78rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="glow"></div>
+    <svg viewBox="0 0 800 90" preserveAspectRatio="none">
+      <path d="M0,80 L800,80" stroke="rgba(255,255,255,.55)" stroke-width="2"/>
+      <path d="M40,80 Q190,22 340,80" stroke="rgba(255,255,255,.6)" stroke-width="2" fill="none"/>
+      <path d="M420,80 Q570,22 720,80" stroke="rgba(255,255,255,.6)" stroke-width="2" fill="none"/>
+      <rect x="187" y="14" width="6" height="68" fill="rgba(255,255,255,.85)"/>
+      <rect x="567" y="14" width="6" height="68" fill="rgba(255,255,255,.85)"/>
+      <path d="M0,90 L0,88 Q120,78 260,88 T520,88 T800,86 L800,90 Z" fill="rgba(95,169,104,.55)"/>
+    </svg>
+    <div class="hero-brand"><span class="mark">WN</span> WORSHIP NATIONS × BRIGHT HOPE</div>
+  </div>
+
+  <header>
+    <div class="top-row">
+      <div class="lang-switch" role="group" aria-label="language toggle">
+        <button id="btn-ko" onclick="applyLang('ko')" aria-pressed="true">한국어</button>
+        <button id="btn-ja" onclick="applyLang('ja')" aria-pressed="false">日本語</button>
+      </div>
+    </div>
+    <h1 data-i18n="h1">부산 일본어 찬양집회 준비 플랜</h1>
+    <div class="en">Bright Hope Worship <span class="script">in Busan</span></div>
+    <p class="lead" data-i18n="lead">후쿠오카 사역자·청소년 찬양팀 21명을 부산으로 초청하는 한일 연합 찬양집회. 9월부터 11월까지의 전체 준비 일정입니다.</p>
+    <div class="stats">
+      <div class="stat"><div class="k" data-i18n="stat1k">집회일</div><div class="v" data-i18n="stat1v">11.7(토) 15:00–19:00</div></div>
+      <div class="stat"><div class="k" data-i18n="stat2k">장소</div><div class="v" data-i18n="stat2v">부산 영주교회 본당</div></div>
+      <div class="stat"><div class="k" data-i18n="stat3k">방문 인원</div><div class="v" data-i18n="stat3v">21명 · 3박4일</div></div>
+    </div>
+  </header>
+
+  <section>
+    <div class="section-head"><span class="num">01</span><h2 data-i18n="sec1title">준비 캘린더 (9월 – 11월)</h2></div>
+    <div class="section-sub" data-i18n="sec1sub">확정되지 않은 준비 일정은 수요일(현장모임) · 목요일(온라인 가능)로 배정했습니다.</div>
+
+    <div class="cal-row">
+      <div class="cal">
+        <div class="cal-title" data-i18n="monthSep">2026년 9월</div>
+        <div class="cal-grid" id="cal-sep">
+          <div class="cal-dow"></div><div class="cal-dow"></div><div class="cal-dow"></div><div class="cal-dow"></div><div class="cal-dow"></div><div class="cal-dow"></div><div class="cal-dow"></div>
+          <div class="cal-day blank"></div><div class="cal-day blank"></div>
+          <div class="cal-day"><span class="d">1</span></div><div class="cal-day"><span class="d">2</span></div><div class="cal-day"><span class="d">3</span></div><div class="cal-day"><span class="d">4</span></div><div class="cal-day"><span class="d">5</span></div>
+          <div class="cal-day"><span class="d">6</span></div>
+          <div class="cal-day mark-today"><span class="d">7</span><span class="tag" data-i18n="m_sep7">오늘·착수</span></div>
+          <div class="cal-day"><span class="d">8</span></div><div class="cal-day"><span class="d">9</span></div>
+          <div class="cal-day mark-online"><span class="d">10</span><span class="tag" data-i18n="m_sep10">💻 공문 발송</span></div>
+          <div class="cal-day"><span class="d">11</span></div><div class="cal-day"><span class="d">12</span></div>
+          <div class="cal-day"><span class="d">13</span></div><div class="cal-day"><span class="d">14</span></div><div class="cal-day"><span class="d">15</span></div><div class="cal-day"><span class="d">16</span></div>
+          <div class="cal-day mark-online"><span class="d">17</span><span class="tag" data-i18n="m_sep17">💻 모집 시작</span></div>
+          <div class="cal-day"><span class="d">18</span></div><div class="cal-day"><span class="d">19</span></div>
+          <div class="cal-day"><span class="d">20</span></div><div class="cal-day"><span class="d">21</span></div><div class="cal-day"><span class="d">22</span></div><div class="cal-day"><span class="d">23</span></div>
+          <div class="cal-day mark-online"><span class="d">24</span><span class="tag" data-i18n="m_sep24">💻 항공·숙소 조율</span></div>
+          <div class="cal-day"><span class="d">25</span></div><div class="cal-day"><span class="d">26</span></div>
+          <div class="cal-day"><span class="d">27</span></div><div class="cal-day"><span class="d">28</span></div><div class="cal-day"><span class="d">29</span></div>
+          <div class="cal-day mark-onsite"><span class="d">30</span><span class="tag" data-i18n="m_sep30">📍 라인업 확정</span></div>
+        </div>
+      </div>
+
+      <div class="cal">
+        <div class="cal-title" data-i18n="monthOct">2026년 10월</div>
+        <div class="cal-grid" id="cal-oct">
+          <div class="cal-dow"></div><div class="cal-dow"></div><div class="cal-dow"></div><div class="cal-dow"></div><div class="cal-dow"></div><div class="cal-dow"></div><div class="cal-dow"></div>
+          <div class="cal-day blank"></div><div class="cal-day blank"></div><div class="cal-day blank"></div><div class="cal-day blank"></div>
+          <div class="cal-day"><span class="d">1</span></div><div class="cal-day"><span class="d">2</span></div><div class="cal-day"><span class="d">3</span></div>
+          <div class="cal-day"><span class="d">4</span></div><div class="cal-day"><span class="d">5</span></div><div class="cal-day"><span class="d">6</span></div><div class="cal-day"><span class="d">7</span></div>
+          <div class="cal-day mark-online"><span class="d">8</span><span class="tag" data-i18n="m_oct8">💻 항공권·숙소 확정</span></div>
+          <div class="cal-day"><span class="d">9</span></div><div class="cal-day"><span class="d">10</span></div>
+          <div class="cal-day"><span class="d">11</span></div><div class="cal-day"><span class="d">12</span></div><div class="cal-day"><span class="d">13</span></div>
+          <div class="cal-day mark-onsite"><span class="d">14</span><span class="tag" data-i18n="m_oct14">📍 홍보·리허설 협의</span></div>
+          <div class="cal-day"><span class="d">15</span></div><div class="cal-day"><span class="d">16</span></div><div class="cal-day"><span class="d">17</span></div>
+          <div class="cal-day"><span class="d">18</span></div><div class="cal-day"><span class="d">19</span></div><div class="cal-day"><span class="d">20</span></div>
+          <div class="cal-day mark-onsite"><span class="d">21</span><span class="tag" data-i18n="m_oct21">📍 큐시트·최종 점검</span></div>
+          <div class="cal-day"><span class="d">22</span></div><div class="cal-day"><span class="d">23</span></div><div class="cal-day"><span class="d">24</span></div>
+          <div class="cal-day"><span class="d">25</span></div><div class="cal-day"><span class="d">26</span></div><div class="cal-day"><span class="d">27</span></div><div class="cal-day"><span class="d">28</span></div><div class="cal-day"><span class="d">29</span></div><div class="cal-day"><span class="d">30</span></div><div class="cal-day"><span class="d">31</span></div>
+        </div>
+      </div>
+
+      <div class="cal">
+        <div class="cal-title" data-i18n="monthNov">2026년 11월</div>
+        <div class="cal-grid" id="cal-nov">
+          <div class="cal-dow"></div><div class="cal-dow"></div><div class="cal-dow"></div><div class="cal-dow"></div><div class="cal-dow"></div><div class="cal-dow"></div><div class="cal-dow"></div>
+          <div class="cal-day"><span class="d">1</span></div><div class="cal-day"><span class="d">2</span></div><div class="cal-day"><span class="d">3</span></div><div class="cal-day"><span class="d">4</span></div><div class="cal-day"><span class="d">5</span></div>
+          <div class="cal-day mark-arrive"><span class="d">6</span><span class="tag" data-i18n="m_nov6">후쿠오카팀 도착</span></div>
+          <div class="cal-day mark-event"><span class="d">7</span><span class="tag" data-i18n="m_nov7">집회 15–19시</span></div>
+          <div class="cal-day mark-fellow"><span class="d">8</span><span class="tag" data-i18n="m_nov8">주일예배·교류</span></div>
+          <div class="cal-day mark-depart"><span class="d">9</span><span class="tag" data-i18n="m_nov9">출국</span></div>
+          <div class="cal-day"><span class="d">10</span></div><div class="cal-day"><span class="d">11</span></div><div class="cal-day"><span class="d">12</span></div><div class="cal-day"><span class="d">13</span></div><div class="cal-day"><span class="d">14</span></div>
+          <div class="cal-day"><span class="d">15</span></div><div class="cal-day"><span class="d">16</span></div><div class="cal-day"><span class="d">17</span></div><div class="cal-day"><span class="d">18</span></div><div class="cal-day"><span class="d">19</span></div><div class="cal-day"><span class="d">20</span></div><div class="cal-day"><span class="d">21</span></div>
+          <div class="cal-day"><span class="d">22</span></div><div class="cal-day"><span class="d">23</span></div><div class="cal-day"><span class="d">24</span></div><div class="cal-day"><span class="d">25</span></div><div class="cal-day"><span class="d">26</span></div><div class="cal-day"><span class="d">27</span></div><div class="cal-day"><span class="d">28</span></div>
+          <div class="cal-day"><span class="d">29</span></div><div class="cal-day"><span class="d">30</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cal-legend">
+      <span><i class="dot today"></i><span data-i18n="leg_today">오늘</span></span>
+      <span><i class="dot onsite"></i><span data-i18n="leg_onsite">현장모임 (수)</span></span>
+      <span><i class="dot online"></i><span data-i18n="leg_online">온라인 가능 (목)</span></span>
+      <span><i class="dot event"></i><span data-i18n="leg_event">집회 당일</span></span>
+      <span><i class="dot fellow"></i><span data-i18n="leg_fellow">교류·연합예배</span></span>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="num">02</span><h2 data-i18n="sec2title">11월 방문 4일 상세 일정</h2></div>
+    <div class="section-sub" data-i18n="sec2sub">시간이 미정인 항목은 브라이트호프와 항공편·일정 협의 후 확정됩니다.</div>
+    <div class="agenda">
+      <div class="day-col arrive">
+        <div class="day-head"><span data-i18n="d1h">11.6 금</span><div class="sub" data-i18n="d1s">도착일</div></div>
+        <div class="day-body">
+          <div class="ev"><div class="t" data-i18n="tbd"><span class="tbd">미정</span></div><div class="d" data-i18n="a1">김해공항 도착 · 픽업</div></div>
+          <div class="ev"><div class="t" data-i18n="tbd"><span class="tbd">미정</span></div><div class="d" data-i18n="a2">숙소 체크인</div></div>
+          <div class="ev"><div class="t" data-i18n="evening">저녁</div><div class="d" data-i18n="a3">환영 식사 · 상견례</div></div>
+        </div>
+      </div>
+      <div class="day-col event">
+        <div class="day-head"><span data-i18n="d2h">11.7 토</span><div class="sub" data-i18n="d2s">집회 당일</div></div>
+        <div class="day-body">
+          <div class="ev"><div class="t" data-i18n="morning">오전</div><div class="d" data-i18n="a4">음향 세팅 · 리허설</div></div>
+          <div class="ev hi"><div class="t">15:00–19:00</div><div class="d" data-i18n="a5">Bright Hope Worship IN Busan (영주교회 본당)</div></div>
+          <div class="ev"><div class="t" data-i18n="evening">저녁</div><div class="d" data-i18n="a6">참가팀 교제 식사</div></div>
+        </div>
+      </div>
+      <div class="day-col fellow">
+        <div class="day-head"><span data-i18n="d3h">11.8 일</span><div class="sub" data-i18n="d3s">교류일</div></div>
+        <div class="day-body">
+          <div class="ev"><div class="t" data-i18n="morning">오전</div><div class="d" data-i18n="a7">부산 지역 교회 주일예배 참여 (제안)</div></div>
+          <div class="ev"><div class="t" data-i18n="afternoon">오후</div><div class="d" data-i18n="a8">자유 교제 · 부산 시내 (선택)</div></div>
+        </div>
+      </div>
+      <div class="day-col depart">
+        <div class="day-head"><span data-i18n="d4h">11.9 월</span><div class="sub" data-i18n="d4s">출국일</div></div>
+        <div class="day-body">
+          <div class="ev"><div class="t" data-i18n="tbd"><span class="tbd">미정</span></div><div class="d" data-i18n="a9">숙소 체크아웃</div></div>
+          <div class="ev"><div class="t" data-i18n="tbd"><span class="tbd">미정</span></div><div class="d" data-i18n="a10">김해공항 이동 · 출국</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="num">03</span><h2 data-i18n="sec3title">준비 체크리스트</h2></div>
+    <div class="progress-bar">
+      <div class="progress-track"><div class="progress-fill" id="pfill"></div></div>
+      <div class="progress-label" id="plabel">0 / 30</div>
+    </div>
+    <div class="cat-grid">
+      <div class="cat">
+        <div class="cat-head"><h3 data-i18n="cat1">팀 소통 체계</h3><span class="owner" data-i18n="own1">워십네이션스</span></div>
+        <ul class="tasks">
+          <li><input type="checkbox" id="c1"><label for="c1" data-i18n="c1">공식 소통 채널 개설</label></li>
+          <li><input type="checkbox" id="c2"><label for="c2" data-i18n="c2">정기 화상미팅 주기 확정</label></li>
+          <li><input type="checkbox" id="c3"><label for="c3" data-i18n="c3">역할 분담표 작성</label></li>
+          <li><input type="checkbox" id="c4"><label for="c4" data-i18n="c4">일본어 통역 담당자 지정</label></li>
+        </ul>
+      </div>
+      <div class="cat">
+        <div class="cat-head"><h3 data-i18n="cat2">부산 팀 모집</h3><span class="owner" data-i18n="own2">워십네이션스·영주교회</span></div>
+        <ul class="tasks">
+          <li><input type="checkbox" id="c5"><label for="c5" data-i18n="c5">협조 공문 발송</label></li>
+          <li><input type="checkbox" id="c6"><label for="c6" data-i18n="c6">참가 신청서 양식 제작</label></li>
+          <li><input type="checkbox" id="c7"><label for="c7" data-i18n="c7">참가 신청 접수</label></li>
+          <li><input type="checkbox" id="c8"><label for="c8" data-i18n="c8">최종 라인업 확정</label></li>
+        </ul>
+      </div>
+      <div class="cat">
+        <div class="cat-head"><h3 data-i18n="cat3">프로그램·찬양</h3><span class="owner" data-i18n="own3">공동</span></div>
+        <ul class="tasks">
+          <li><input type="checkbox" id="c9"><label for="c9" data-i18n="c9">큐시트 설계</label></li>
+          <li><input type="checkbox" id="c10"><label for="c10" data-i18n="c10">세트리스트 확정 (키 공유)</label></li>
+          <li><input type="checkbox" id="c11"><label for="c11" data-i18n="c11">일본어 가사/통역 준비</label></li>
+          <li><input type="checkbox" id="c12"><label for="c12" data-i18n="c12">리허설 시간 협의</label></li>
+        </ul>
+      </div>
+      <div class="cat">
+        <div class="cat-head"><h3 data-i18n="cat4">이동·숙박·식사</h3><span class="owner" data-i18n="own4">브라이트호프→워십네이션스</span></div>
+        <ul class="tasks">
+          <li><input type="checkbox" id="c13"><label for="c13" data-i18n="c13">항공편 확정</label></li>
+          <li><input type="checkbox" id="c14"><label for="c14" data-i18n="c14">공항 픽업·샌딩 차량 섭외</label></li>
+          <li><input type="checkbox" id="c15"><label for="c15" data-i18n="c15">숙소 확보 (3박)</label></li>
+          <li><input type="checkbox" id="c16"><label for="c16" data-i18n="c16">체류 기간 식사 계획</label></li>
+        </ul>
+      </div>
+      <div class="cat">
+        <div class="cat-head"><h3 data-i18n="cat5">현장 운영·장비</h3><span class="owner" data-i18n="own5">워십네이션스</span></div>
+        <ul class="tasks">
+          <li><input type="checkbox" id="c17"><label for="c17" data-i18n="c17">음향·악기 사양 확인</label></li>
+          <li><input type="checkbox" id="c18"><label for="c18" data-i18n="c18">무대 비품·현수막 준비</label></li>
+          <li><input type="checkbox" id="c19"><label for="c19" data-i18n="c19">촬영 담당자 섭외</label></li>
+          <li><input type="checkbox" id="c20"><label for="c20" data-i18n="c20">현장 통역 방식 결정</label></li>
+        </ul>
+      </div>
+      <div class="cat">
+        <div class="cat-head"><h3 data-i18n="cat6">홍보</h3><span class="owner" data-i18n="own6">워십네이션스</span></div>
+        <ul class="tasks">
+          <li><input type="checkbox" id="c21"><label for="c21" data-i18n="c21">주보 광고·포스터 제작</label></li>
+          <li><input type="checkbox" id="c22"><label for="c22" data-i18n="c22">SNS 홍보 게시</label></li>
+        </ul>
+      </div>
+      <div class="cat">
+        <div class="cat-head"><h3 data-i18n="cat7">재정</h3><span class="owner" data-i18n="own7">워십네이션스</span></div>
+        <ul class="tasks">
+          <li><input type="checkbox" id="c23"><label for="c23" data-i18n="c23">예산안 수립</label></li>
+          <li><input type="checkbox" id="c24"><label for="c24" data-i18n="c24">후원 모금 계획 (필요 시)</label></li>
+          <li><input type="checkbox" id="c25"><label for="c25" data-i18n="c25">정산 담당자 지정</label></li>
+        </ul>
+      </div>
+      <div class="cat">
+        <div class="cat-head"><h3 data-i18n="cat8">안전·행정</h3><span class="owner" data-i18n="own8">공동</span></div>
+        <ul class="tasks">
+          <li><input type="checkbox" id="c26"><label for="c26" data-i18n="c26">명단·여권정보 취합</label></li>
+          <li><input type="checkbox" id="c27"><label for="c27" data-i18n="c27">여행자보험 확인</label></li>
+          <li><input type="checkbox" id="c28"><label for="c28" data-i18n="c28">비상 대응 계획</label></li>
+        </ul>
+      </div>
+      <div class="cat">
+        <div class="cat-head"><h3 data-i18n="cat9">사후</h3><span class="owner" data-i18n="own9">워십네이션스</span></div>
+        <ul class="tasks">
+          <li><input type="checkbox" id="c29"><label for="c29" data-i18n="c29">감사 인사·후기 공유</label></li>
+          <li><input type="checkbox" id="c30"><label for="c30" data-i18n="c30">차기 사역과 연결점 정리</label></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="num">04</span><h2 data-i18n="sec4title">장소</h2></div>
+    <div class="venue">
+      <div><dt data-i18n="v1k">장소</dt><dd data-i18n="v1v">부산 영주교회 본당</dd></div>
+      <div><dt data-i18n="v2k">주소</dt><dd>부산광역시 중구 대영로 226번안길 6</dd></div>
+      <div><dt data-i18n="v3k">주차</dt><dd data-i18n="v3v">봉래초등학교 주차장 (주말 무료)</dd></div>
+      <div><dt data-i18n="v4k">주최</dt><dd data-i18n="v4v">일본선교연구소·워십네이션스·브라이트호프</dd></div>
+    </div>
+  </section>
+
+  <footer data-i18n="footer">Worship Nations × Bright Hope · 작성 기준일 2026.09.07 — 협조 공문(2026.08.18) 기반, 세부 일정은 두 팀 협의에 따라 계속 업데이트됩니다.</footer>
+</div>
+
+<script>
+(function(){
+  var DICT = {
+    ko: {
+      h1: "부산 일본어 찬양집회 준비 플랜",
+      lead: "후쿠오카 사역자·청소년 찬양팀 21명을 부산으로 초청하는 한일 연합 찬양집회. 9월부터 11월까지의 전체 준비 일정입니다.",
+      stat1k: "집회일", stat1v: "11.7(토) 15:00–19:00",
+      stat2k: "장소", stat2v: "부산 영주교회 본당",
+      stat3k: "방문 인원", stat3v: "21명 · 3박4일",
+      sec1title: "준비 캘린더 (9월 – 11월)",
+      sec1sub: "확정되지 않은 준비 일정은 수요일(현장모임) · 목요일(온라인 가능)로 배정했습니다.",
+      monthSep: "2026년 9월", monthOct: "2026년 10월", monthNov: "2026년 11월",
+      m_sep7: "오늘·착수",
+      m_sep10: "💻 공문 발송", m_sep17: "💻 모집 시작", m_sep24: "💻 항공·숙소 조율", m_sep30: "📍 라인업 확정",
+      m_oct8: "💻 항공권·숙소 확정", m_oct14: "📍 홍보·리허설 협의", m_oct21: "📍 큐시트·최종 점검",
+      m_nov6: "후쿠오카팀 도착", m_nov7: "집회 15–19시", m_nov8: "주일예배·교류", m_nov9: "출국",
+      leg_today: "오늘", leg_onsite: "현장모임 (수)", leg_online: "온라인 가능 (목)", leg_event: "집회 당일", leg_fellow: "교류·연합예배",
+      sec2title: "11월 방문 4일 상세 일정",
+      sec2sub: "시간이 미정인 항목은 브라이트호프와 항공편·일정 협의 후 확정됩니다.",
+      d1h: "11.6 금", d1s: "도착일", d2h: "11.7 토", d2s: "집회 당일", d3h: "11.8 일", d3s: "교류일", d4h: "11.9 월", d4s: "출국일",
+      tbd: "미정", morning: "오전", afternoon: "오후", evening: "저녁",
+      a1: "김해공항 도착 · 픽업", a2: "숙소 체크인", a3: "환영 식사 · 상견례",
+      a4: "음향 세팅 · 리허설", a5: "Bright Hope Worship IN Busan (영주교회 본당)", a6: "참가팀 교제 식사",
+      a7: "부산 지역 교회 주일예배 참여 (제안)", a8: "자유 교제 · 부산 시내 (선택)",
+      a9: "숙소 체크아웃", a10: "김해공항 이동 · 출국",
+      sec3title: "준비 체크리스트",
+      cat1: "팀 소통 체계", own1: "워십네이션스",
+      cat2: "부산 팀 모집", own2: "워십네이션스·영주교회",
+      cat3: "프로그램·찬양", own3: "공동",
+      cat4: "이동·숙박·식사", own4: "브라이트호프→워십네이션스",
+      cat5: "현장 운영·장비", own5: "워십네이션스",
+      cat6: "홍보", own6: "워십네이션스",
+      cat7: "재정", own7: "워십네이션스",
+      cat8: "안전·행정", own8: "공동",
+      cat9: "사후", own9: "워십네이션스",
+      c1: "공식 소통 채널 개설", c2: "정기 화상미팅 주기 확정", c3: "역할 분담표 작성", c4: "일본어 통역 담당자 지정",
+      c5: "협조 공문 발송", c6: "참가 신청서 양식 제작", c7: "참가 신청 접수", c8: "최종 라인업 확정",
+      c9: "큐시트 설계", c10: "세트리스트 확정 (키 공유)", c11: "일본어 가사/통역 준비", c12: "리허설 시간 협의",
+      c13: "항공편 확정", c14: "공항 픽업·샌딩 차량 섭외", c15: "숙소 확보 (3박)", c16: "체류 기간 식사 계획",
+      c17: "음향·악기 사양 확인", c18: "무대 비품·현수막 준비", c19: "촬영 담당자 섭외", c20: "현장 통역 방식 결정",
+      c21: "주보 광고·포스터 제작", c22: "SNS 홍보 게시",
+      c23: "예산안 수립", c24: "후원 모금 계획 (필요 시)", c25: "정산 담당자 지정",
+      c26: "명단·여권정보 취합", c27: "여행자보험 확인", c28: "비상 대응 계획",
+      c29: "감사 인사·후기 공유", c30: "차기 사역과 연결점 정리",
+      sec4title: "장소",
+      v1k: "장소", v1v: "부산 영주교회 본당", v2k: "주소", v3k: "주차", v3v: "봉래초등학교 주차장 (주말 무료)",
+      v4k: "주최", v4v: "일본선교연구소·워십네이션스·브라이트호프",
+      footer: "Worship Nations × Bright Hope · 작성 기준일 2026.09.07 — 협조 공문(2026.08.18) 기반, 세부 일정은 두 팀 협의에 따라 계속 업데이트됩니다.",
+      progress: function(done,total){ return done + " / " + total + " 완료"; }
+    },
+    ja: {
+      h1: "釜山日本語賛美集会 準備プラン",
+      lead: "福岡の宣教師・青少年賛美チーム21名を釜山に迎える、日韓合同賛美集会。9月から11月までの準備スケジュール全体です。",
+      stat1k: "集会日", stat1v: "11/7(土) 15:00–19:00",
+      stat2k: "会場", stat2v: "釜山ヨンジュ教会 本堂",
+      stat3k: "訪問人数", stat3v: "21名 · 3泊4日",
+      sec1title: "準備カレンダー(9月 – 11月)",
+      sec1sub: "未定の準備日程は、水曜日(現場会議)・木曜日(オンライン可)に割り当てました。",
+      monthSep: "2026年9月", monthOct: "2026年10月", monthNov: "2026年11月",
+      m_sep7: "本日·開始",
+      m_sep10: "💻 公文発送", m_sep17: "💻 募集開始", m_sep24: "💻 航空便·宿泊調整", m_sep30: "📍 ラインアップ確定",
+      m_oct8: "💻 航空券·宿泊確定", m_oct14: "📍 広報·リハーサル協議", m_oct21: "📍 キューシート·最終確認",
+      m_nov6: "福岡チーム到着", m_nov7: "集会 15–19時", m_nov8: "主日礼拝·交流", m_nov9: "出国",
+      leg_today: "本日", leg_onsite: "現場会議(水)", leg_online: "オンライン可(木)", leg_event: "集会当日", leg_fellow: "交流·合同礼拝",
+      sec2title: "11月訪問 4日間 詳細スケジュール",
+      sec2sub: "時間が未定の項目は、ブライトホープとの航空便·日程協議後に確定します。",
+      d1h: "11/6 金", d1s: "到着日", d2h: "11/7 土", d2s: "集会当日", d3h: "11/8 日", d3s: "交流日", d4h: "11/9 月", d4s: "出国日",
+      tbd: "未定", morning: "午前", afternoon: "午後", evening: "夕方",
+      a1: "金海空港到着 · 出迎え", a2: "宿泊先チェックイン", a3: "歓迎食事会 · 顔合わせ",
+      a4: "音響セッティング · リハーサル", a5: "Bright Hope Worship IN Busan(ヨンジュ教会 本堂)", a6: "参加チーム交流食事会",
+      a7: "釜山地域教会 主日礼拝参加(提案)", a8: "自由交流 · 釜山市内観光(任意)",
+      a9: "宿泊先チェックアウト", a10: "金海空港移動 · 出国",
+      sec3title: "準備チェックリスト",
+      cat1: "チーム連携体制", own1: "ワーシップネイションズ",
+      cat2: "釜山チーム募集", own2: "ワーシップネイションズ·ヨンジュ教会",
+      cat3: "プログラム·賛美", own3: "共同",
+      cat4: "移動·宿泊·食事", own4: "ブライトホープ→ワーシップネイションズ",
+      cat5: "現場運営·機材", own5: "ワーシップネイションズ",
+      cat6: "広報", own6: "ワーシップネイションズ",
+      cat7: "財政", own7: "ワーシップネイションズ",
+      cat8: "安全·行政", own8: "共同",
+      cat9: "事後対応", own9: "ワーシップネイションズ",
+      c1: "公式連絡チャンネルの開設", c2: "定例オンライン会議の頻度確定", c3: "役割分担表の作成", c4: "日本語通訳担当者の指定",
+      c5: "協力公文の発送", c6: "参加申込書フォームの作成", c7: "参加申込みの受付", c8: "最終ラインアップの確定",
+      c9: "キューシートの設計", c10: "セットリスト確定(キー共有)", c11: "日本語歌詞·通訳の準備", c12: "リハーサル時間の調整",
+      c13: "航空便の確定", c14: "空港送迎車両の手配", c15: "宿泊先の確保(3泊)", c16: "滞在期間中の食事計画",
+      c17: "音響·楽器仕様の確認", c18: "ステージ備品·横断幕の準備", c19: "撮影担当者の手配", c20: "現場通訳方式の決定",
+      c21: "週報広告·ポスター制作", c22: "SNS広報投稿",
+      c23: "予算案の策定", c24: "支援金募金計画(必要時)", c25: "精算担当者の指定",
+      c26: "名簿·パスポート情報の取りまとめ", c27: "海外旅行保険の確認", c28: "緊急時対応計画",
+      c29: "感謝の挨拶·報告の共有", c30: "次期ミニストリーとの接続点整理",
+      sec4title: "会場",
+      v1k: "会場", v1v: "釜山ヨンジュ教会 本堂", v2k: "住所", v3k: "駐車場", v3v: "ポンネ小学校駐車場(週末無料)",
+      v4k: "主催", v4v: "日本宣教研究所·ワーシップネイションズ·ブライトホープ",
+      footer: "Worship Nations × Bright Hope · 作成基準日 2026.09.07 — 協力公文(2026.08.18)に基づく。詳細スケジュールは両チームの協議により随時更新されます。",
+      progress: function(done,total){ return done + " / " + total + " 完了"; }
+    }
+  };
+
+  var currentLang = 'ko';
+  var boxes = document.querySelectorAll('ul.tasks input[type=checkbox]');
+  var fill = document.getElementById('pfill');
+  var label = document.getElementById('plabel');
+  var dowKo = ['일','월','화','수','목','금','토'];
+  var dowJa = ['日','月','火','水','木','金','土'];
+
+  function updateProgress(){
+    var total = boxes.length, done = 0;
+    boxes.forEach(function(cb){ if (cb.checked) done++; });
+    fill.style.width = (total ? (done/total*100) : 0) + '%';
+    label.textContent = DICT[currentLang].progress(done, total);
+  }
+
+  window.applyLang = function(lang){
+    currentLang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      if (DICT[lang][key] !== undefined) {
+        if (el.querySelector('.tbd')) { el.querySelector('.tbd').textContent = DICT[lang][key]; }
+        else { el.textContent = DICT[lang][key]; }
+      }
+    });
+    var dow = lang === 'ja' ? dowJa : dowKo;
+    ['cal-sep','cal-oct','cal-nov'].forEach(function(id){
+      document.querySelectorAll('#' + id + ' .cal-dow').forEach(function(el,i){ el.textContent = dow[i]; });
+    });
+    document.getElementById('btn-ko').setAttribute('aria-pressed', lang === 'ko');
+    document.getElementById('btn-ja').setAttribute('aria-pressed', lang === 'ja');
+    try { localStorage.setItem('brighthope-busan-lang', lang); } catch(e){}
+    updateProgress();
+  };
+
+  try {
+    var KEY = 'brighthope-busan-checklist';
+    var saved = JSON.parse(localStorage.getItem(KEY) || '{}');
+    boxes.forEach(function(cb){
+      if (saved[cb.id]) { cb.checked = true; cb.closest('li').classList.add('checked'); }
+      cb.addEventListener('change', function(){
+        cb.closest('li').classList.toggle('checked', cb.checked);
+        var state = JSON.parse(localStorage.getItem(KEY) || '{}');
+        state[cb.id] = cb.checked;
+        localStorage.setItem(KEY, JSON.stringify(state));
+        updateProgress();
+      });
+    });
+  } catch(e) { /* localStorage unavailable — checklist still usable */ }
+
+  var startLang = 'ko';
+  try { startLang = localStorage.getItem('brighthope-busan-lang') || 'ko'; } catch(e){}
+  applyLang(startLang);
+})();
+</script>
+</body>
+</html>
