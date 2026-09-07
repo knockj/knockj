@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bright Hope Worship IN Busan | 참가 안내</title>
+<title>Bright Hope Busan 준비 플랜</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700&family=Noto+Serif+JP:wght@600;700&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Caveat:wght@700&display=swap">
 <style>
   :root{
@@ -366,41 +366,223 @@
     </div>
   </section>
 
-  <section id="public-section" data-public-only>
-    <div class="section-head"><span class="num">01</span><h2 data-i18n="publicTitle">참가 안내 · 함께 예배할 분들을 초청합니다</h2></div>
-    <div class="section-sub" data-i18n="publicSub">한국의 뜨거운 찬양을 일본의 청소년들과 나누고, 부산의 사역팀은 일본 선교를 향한 새로운 마음을 품는 시간입니다.</div>
-    <div class="panel">
-      <div class="invite-audience">
-        <span data-i18n="aud1">부산 지역 찬양팀</span>
-        <span data-i18n="aud2">청소년부 · 청년부</span>
-        <span data-i18n="aud3">선교 단체</span>
-        <span data-i18n="aud4">일본 선교에 관심 있는 모든 분</span>
-      </div>
-      <div class="invite-flow">
-        <span class="time">11.7(토) 15:00–19:00</span>
-        <span class="d" data-i18n="publicFlow">부산 영주교회 본당에서 진행되는 한일 연합 찬양과 예배, 그리고 이어지는 교류와 나눔의 시간입니다.</span>
-      </div>
-      <div class="invite-cta">
-        <a href="#qa-section" data-i18n="ctaContact">질문·참가 문의하기</a>
-        <a class="ghost" href="#venue-section" data-i18n="ctaVenue">장소·오시는 길 보기</a>
-      </div>
-    </div>
-  </section>
+  
 
   <section id="prayer-section">
-    <div class="section-head"><span class="num">02</span><h2 data-i18n="prayerTitle">함께 기도해요</h2></div>
+    <div class="section-head"><span class="num">01</span><h2 data-i18n="prayerTitle">함께 기도해요</h2></div>
     <div class="section-sub" data-i18n="prayerSub">행정 준비만큼 영적 준비도 중요합니다. 아래 기도 제목으로 함께해주세요 — 버튼을 누르면 모두에게 실시간으로 공유됩니다.</div>
     <div class="prayer-grid" id="prayer-grid"></div>
   </section>
 
-  
+  <section data-team-only>
+    <div class="section-head"><span class="num">02</span><h2 data-i18n="sec1title">준비 캘린더 (9월 – 11월)</h2></div>
+    <div class="section-sub" data-i18n="sec1sub">확정되지 않은 준비 일정은 수요일(현장모임) · 목요일(온라인 가능)로 배정했습니다.</div>
+    <div class="next-milestone" id="next-milestone" hidden></div>
 
-  
+    <div class="cal-row-sep">
+      <div class="cal cal-large">
+        <div class="cal-title" data-i18n="monthSep">2026년 9월</div>
+        <div class="cal-grid" id="cal-sep">
+          <div class="cal-dow"></div><div class="cal-dow"></div><div class="cal-dow"></div><div class="cal-dow"></div><div class="cal-dow"></div><div class="cal-dow"></div><div class="cal-dow"></div>
+          <div class="cal-day blank"></div><div class="cal-day blank"></div>
+          <div class="cal-day"><span class="d">1</span></div><div class="cal-day"><span class="d">2</span></div><div class="cal-day"><span class="d">3</span></div>
+          <div class="cal-day mark-online" data-key="m_sep4" data-cat="online" data-month="9" data-day="4" tabindex="0" role="button" onclick="openDayModal(this)" onkeydown="if(event.key==='Enter')openDayModal(this)"><span class="d">4</span><span class="tag" data-i18n="m_sep4">✅ 공문 발송</span></div>
+          <div class="cal-day"><span class="d">5</span></div>
+          <div class="cal-day"><span class="d">6</span></div>
+          <div class="cal-day mark-today" data-key="m_sep7" data-cat="today" data-month="9" data-day="7" tabindex="0" role="button" onclick="openDayModal(this)" onkeydown="if(event.key==='Enter')openDayModal(this)"><span class="d">7</span><span class="tag" data-i18n="m_sep7">오늘·착수</span></div>
+          <div class="cal-day"><span class="d">8</span></div>
+          <div class="cal-day mark-online" data-key="m_sep9" data-cat="online" data-month="9" data-day="9" tabindex="0" role="button" onclick="openDayModal(this)" onkeydown="if(event.key==='Enter')openDayModal(this)"><span class="d">9</span><span class="tag" data-i18n="m_sep9">💻 킥오프 미팅</span></div>
+          <div class="cal-day mark-online" data-key="m_sep10" data-cat="online" data-month="9" data-day="10" tabindex="0" role="button" onclick="openDayModal(this)" onkeydown="if(event.key==='Enter')openDayModal(this)"><span class="d">10</span><span class="tag" data-i18n="m_sep10">💻 모집 시작</span></div>
+          <div class="cal-day"><span class="d">11</span></div><div class="cal-day"><span class="d">12</span></div>
+          <div class="cal-day"><span class="d">13</span></div><div class="cal-day"><span class="d">14</span></div><div class="cal-day"><span class="d">15</span></div><div class="cal-day"><span class="d">16</span></div>
+          <div class="cal-day mark-online" data-key="m_sep17" data-cat="online" data-month="9" data-day="17" tabindex="0" role="button" onclick="openDayModal(this)" onkeydown="if(event.key==='Enter')openDayModal(this)"><span class="d">17</span><span class="tag" data-i18n="m_sep17">💻 항공·숙소 조율</span></div>
+          <div class="cal-day"><span class="d">18</span></div><div class="cal-day"><span class="d">19</span></div>
+          <div class="cal-day"><span class="d">20</span></div><div class="cal-day"><span class="d">21</span></div><div class="cal-day"><span class="d">22</span></div>
+          <div class="cal-day mark-onsite" data-key="m_sep23" data-cat="onsite" data-month="9" data-day="23" tabindex="0" role="button" onclick="openDayModal(this)" onkeydown="if(event.key==='Enter')openDayModal(this)"><span class="d">23</span><span class="tag" data-i18n="m_sep23">📍 라인업 확정</span></div>
+          <div class="cal-day"><span class="d">24</span></div>
+          <div class="cal-day"><span class="d">25</span></div>
+          <div class="cal-day mark-fest" data-key="m_sep26" data-cat="fest" data-month="9" data-day="26" tabindex="0" role="button" onclick="openDayModal(this)" onkeydown="if(event.key==='Enter')openDayModal(this)"><span class="d">26</span><span class="tag" data-i18n="m_sep26">🎪 Gospel Festa</span></div>
+          <div class="cal-day"><span class="d">27</span></div><div class="cal-day"><span class="d">28</span></div><div class="cal-day"><span class="d">29</span></div>
+          <div class="cal-day"><span class="d">30</span></div>
+        </div>
+      </div>
+    </div>
 
-  
+    <div class="cal-row">
+      <div class="cal">
+        <div class="cal-title" data-i18n="monthOct">2026년 10월</div>
+        <div class="cal-grid" id="cal-oct">
+          <div class="cal-dow"></div><div class="cal-dow"></div><div class="cal-dow"></div><div class="cal-dow"></div><div class="cal-dow"></div><div class="cal-dow"></div><div class="cal-dow"></div>
+          <div class="cal-day blank"></div><div class="cal-day blank"></div><div class="cal-day blank"></div><div class="cal-day blank"></div>
+          <div class="cal-day mark-online" data-key="m_oct1" data-cat="online" data-month="10" data-day="1" tabindex="0" role="button" onclick="openDayModal(this)" onkeydown="if(event.key==='Enter')openDayModal(this)"><span class="d">1</span><span class="tag" data-i18n="m_oct1">💻 항공권·숙소 확정</span></div>
+          <div class="cal-day"><span class="d">2</span></div><div class="cal-day"><span class="d">3</span></div>
+          <div class="cal-day"><span class="d">4</span></div><div class="cal-day"><span class="d">5</span></div><div class="cal-day"><span class="d">6</span></div>
+          <div class="cal-day mark-onsite" data-key="m_oct7" data-cat="onsite" data-month="10" data-day="7" tabindex="0" role="button" onclick="openDayModal(this)" onkeydown="if(event.key==='Enter')openDayModal(this)"><span class="d">7</span><span class="tag" data-i18n="m_oct7">📍 홍보·리허설 협의</span></div>
+          <div class="cal-day"><span class="d">8</span></div>
+          <div class="cal-day"><span class="d">9</span></div><div class="cal-day"><span class="d">10</span></div>
+          <div class="cal-day"><span class="d">11</span></div><div class="cal-day"><span class="d">12</span></div><div class="cal-day"><span class="d">13</span></div>
+          <div class="cal-day mark-onsite" data-key="m_oct14" data-cat="onsite" data-month="10" data-day="14" tabindex="0" role="button" onclick="openDayModal(this)" onkeydown="if(event.key==='Enter')openDayModal(this)"><span class="d">14</span><span class="tag" data-i18n="m_oct14">📍 큐시트·최종 점검</span></div>
+          <div class="cal-day"><span class="d">15</span></div><div class="cal-day"><span class="d">16</span></div><div class="cal-day"><span class="d">17</span></div>
+          <div class="cal-day"><span class="d">18</span></div><div class="cal-day"><span class="d">19</span></div><div class="cal-day"><span class="d">20</span></div>
+          <div class="cal-day"><span class="d">21</span></div>
+          <div class="cal-day"><span class="d">22</span></div><div class="cal-day"><span class="d">23</span></div><div class="cal-day"><span class="d">24</span></div>
+          <div class="cal-day"><span class="d">25</span></div><div class="cal-day"><span class="d">26</span></div><div class="cal-day"><span class="d">27</span></div><div class="cal-day"><span class="d">28</span></div><div class="cal-day"><span class="d">29</span></div><div class="cal-day"><span class="d">30</span></div><div class="cal-day"><span class="d">31</span></div>
+        </div>
+      </div>
+
+      <div class="cal">
+        <div class="cal-title" data-i18n="monthNov">2026년 11월</div>
+        <div class="cal-grid" id="cal-nov">
+          <div class="cal-dow"></div><div class="cal-dow"></div><div class="cal-dow"></div><div class="cal-dow"></div><div class="cal-dow"></div><div class="cal-dow"></div><div class="cal-dow"></div>
+          <div class="cal-day"><span class="d">1</span></div><div class="cal-day"><span class="d">2</span></div><div class="cal-day"><span class="d">3</span></div><div class="cal-day"><span class="d">4</span></div><div class="cal-day"><span class="d">5</span></div>
+          <div class="cal-day mark-arrive" data-key="m_nov6" data-cat="arrive" data-month="11" data-day="6" tabindex="0" role="button" onclick="openDayModal(this)" onkeydown="if(event.key==='Enter')openDayModal(this)"><span class="d">6</span><span class="tag" data-i18n="m_nov6">후쿠오카팀 도착</span></div>
+          <div class="cal-day mark-event" data-key="m_nov7" data-cat="event" data-month="11" data-day="7" tabindex="0" role="button" onclick="openDayModal(this)" onkeydown="if(event.key==='Enter')openDayModal(this)"><span class="d">7</span><span class="tag" data-i18n="m_nov7">집회 15–19시</span></div>
+          <div class="cal-day mark-fellow" data-key="m_nov8" data-cat="fellow" data-month="11" data-day="8" tabindex="0" role="button" onclick="openDayModal(this)" onkeydown="if(event.key==='Enter')openDayModal(this)"><span class="d">8</span><span class="tag" data-i18n="m_nov8">주일예배·교류</span></div>
+          <div class="cal-day mark-depart" data-key="m_nov9" data-cat="depart" data-month="11" data-day="9" tabindex="0" role="button" onclick="openDayModal(this)" onkeydown="if(event.key==='Enter')openDayModal(this)"><span class="d">9</span><span class="tag" data-i18n="m_nov9">출국</span></div>
+          <div class="cal-day"><span class="d">10</span></div><div class="cal-day"><span class="d">11</span></div><div class="cal-day"><span class="d">12</span></div><div class="cal-day"><span class="d">13</span></div><div class="cal-day"><span class="d">14</span></div>
+          <div class="cal-day"><span class="d">15</span></div><div class="cal-day"><span class="d">16</span></div><div class="cal-day"><span class="d">17</span></div><div class="cal-day"><span class="d">18</span></div><div class="cal-day"><span class="d">19</span></div><div class="cal-day"><span class="d">20</span></div><div class="cal-day"><span class="d">21</span></div>
+          <div class="cal-day"><span class="d">22</span></div><div class="cal-day"><span class="d">23</span></div>
+          <div class="cal-day mark-fest" data-key="m_nov24" data-cat="fest" data-month="11" data-day="24" tabindex="0" role="button" onclick="openDayModal(this)" onkeydown="if(event.key==='Enter')openDayModal(this)"><span class="d">24</span><span class="tag" data-i18n="m_nov24">🎪 후쿠오카 유스 페스티벌</span></div>
+          <div class="cal-day"><span class="d">25</span></div><div class="cal-day"><span class="d">26</span></div><div class="cal-day"><span class="d">27</span></div><div class="cal-day"><span class="d">28</span></div>
+          <div class="cal-day"><span class="d">29</span></div><div class="cal-day"><span class="d">30</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cal-legend">
+      <span><i class="dot today"></i><span data-i18n="leg_today">오늘</span></span>
+      <span><i class="dot onsite"></i><span data-i18n="leg_onsite">현장모임 (수)</span></span>
+      <span><i class="dot online"></i><span data-i18n="leg_online">온라인 가능 (목)</span></span>
+      <span><i class="dot event"></i><span data-i18n="leg_event">집회 당일</span></span>
+      <span><i class="dot fellow"></i><span data-i18n="leg_fellow">교류·연합예배</span></span>
+      <span><i class="dot fest"></i><span data-i18n="leg_fest">외부 행사</span></span>
+    </div>
+  </section>
+
+  <section data-team-only>
+    <div class="section-head"><span class="num">03</span><h2 data-i18n="sec2title">11월 방문 4일 상세 일정</h2></div>
+    <div class="section-sub" data-i18n="sec2sub">시간이 미정인 항목은 브라이트호프와 항공편·일정 협의 후 확정됩니다.</div>
+    <div class="agenda">
+      <div class="day-col arrive">
+        <div class="day-head"><span data-i18n="d1h">11.6 금</span><div class="sub" data-i18n="d1s">도착일</div></div>
+        <div class="day-body">
+          <div class="ev"><div class="t" data-i18n="tbd"><span class="tbd">미정</span></div><div class="d" data-i18n="a1">김해공항 도착 · 픽업</div></div>
+          <div class="ev"><div class="t" data-i18n="tbd"><span class="tbd">미정</span></div><div class="d" data-i18n="a2">숙소 체크인</div></div>
+          <div class="ev"><div class="t" data-i18n="evening">저녁</div><div class="d" data-i18n="a3">환영 식사 · 상견례</div></div>
+        </div>
+      </div>
+      <div class="day-col event">
+        <div class="day-head"><span data-i18n="d2h">11.7 토</span><div class="sub" data-i18n="d2s">집회 당일</div></div>
+        <div class="day-body">
+          <div class="ev"><div class="t" data-i18n="morning">오전</div><div class="d" data-i18n="a4">음향 세팅 · 리허설</div></div>
+          <div class="ev hi"><div class="t">15:00–19:00</div><div class="d" data-i18n="a5">Bright Hope Worship IN Busan (영주교회 본당)</div></div>
+          <div class="ev"><div class="t" data-i18n="evening">저녁</div><div class="d" data-i18n="a6">참가팀 교제 식사</div></div>
+        </div>
+      </div>
+      <div class="day-col fellow">
+        <div class="day-head"><span data-i18n="d3h">11.8 일</span><div class="sub" data-i18n="d3s">교류일</div></div>
+        <div class="day-body">
+          <div class="ev"><div class="t" data-i18n="morning">오전</div><div class="d" data-i18n="a7">부산 지역 교회 주일예배 참여 (제안)</div></div>
+          <div class="ev"><div class="t" data-i18n="afternoon">오후</div><div class="d" data-i18n="a8">자유 교제 · 부산 시내 (선택)</div></div>
+        </div>
+      </div>
+      <div class="day-col depart">
+        <div class="day-head"><span data-i18n="d4h">11.9 월</span><div class="sub" data-i18n="d4s">출국일</div></div>
+        <div class="day-body">
+          <div class="ev"><div class="t" data-i18n="tbd"><span class="tbd">미정</span></div><div class="d" data-i18n="a9">숙소 체크아웃</div></div>
+          <div class="ev"><div class="t" data-i18n="tbd"><span class="tbd">미정</span></div><div class="d" data-i18n="a10">김해공항 이동 · 출국</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-team-only>
+    <div class="section-head"><span class="num">04</span><h2 data-i18n="sec3title">준비 체크리스트</h2></div>
+    <div class="progress-bar">
+      <div class="progress-track"><div class="progress-fill" id="pfill"></div></div>
+      <div class="progress-label" id="plabel">0 / 30</div>
+    </div>
+    <div class="cat-grid">
+      <div class="cat">
+        <div class="cat-head"><h3 data-i18n="cat1">팀 소통 체계</h3><span class="owner" data-i18n="own1">워십네이션스</span></div>
+        <ul class="tasks">
+          <li><input type="checkbox" id="c1"><label for="c1" data-i18n="c1">공식 소통 채널 개설</label></li>
+          <li><input type="checkbox" id="c2"><label for="c2" data-i18n="c2">정기 화상미팅 주기 확정</label></li>
+          <li><input type="checkbox" id="c3"><label for="c3" data-i18n="c3">역할 분담표 작성</label></li>
+          <li><input type="checkbox" id="c4"><label for="c4" data-i18n="c4">일본어 통역 담당자 지정</label></li>
+        </ul>
+      </div>
+      <div class="cat">
+        <div class="cat-head"><h3 data-i18n="cat2">부산 팀 모집</h3><span class="owner" data-i18n="own2">워십네이션스·영주교회</span></div>
+        <ul class="tasks">
+          <li><input type="checkbox" id="c5"><label for="c5" data-i18n="c5">협조 공문 발송</label></li>
+          <li><input type="checkbox" id="c6"><label for="c6" data-i18n="c6">참가 신청서 양식 제작</label></li>
+          <li><input type="checkbox" id="c7"><label for="c7" data-i18n="c7">참가 신청 접수</label></li>
+          <li><input type="checkbox" id="c8"><label for="c8" data-i18n="c8">최종 라인업 확정</label></li>
+        </ul>
+      </div>
+      <div class="cat">
+        <div class="cat-head"><h3 data-i18n="cat3">프로그램·찬양</h3><span class="owner" data-i18n="own3">공동</span></div>
+        <ul class="tasks">
+          <li><input type="checkbox" id="c9"><label for="c9" data-i18n="c9">큐시트 설계</label></li>
+          <li><input type="checkbox" id="c10"><label for="c10" data-i18n="c10">세트리스트 확정 (키 공유)</label></li>
+          <li><input type="checkbox" id="c11"><label for="c11" data-i18n="c11">일본어 가사/통역 준비</label></li>
+          <li><input type="checkbox" id="c12"><label for="c12" data-i18n="c12">리허설 시간 협의</label></li>
+        </ul>
+      </div>
+      <div class="cat">
+        <div class="cat-head"><h3 data-i18n="cat4">이동·숙박·식사</h3><span class="owner" data-i18n="own4">브라이트호프→워십네이션스</span></div>
+        <ul class="tasks">
+          <li><input type="checkbox" id="c13"><label for="c13" data-i18n="c13">항공편 확정</label></li>
+          <li><input type="checkbox" id="c14"><label for="c14" data-i18n="c14">공항 픽업·샌딩 차량 섭외</label></li>
+          <li><input type="checkbox" id="c15"><label for="c15" data-i18n="c15">숙소 확보 (3박)</label></li>
+          <li><input type="checkbox" id="c16"><label for="c16" data-i18n="c16">체류 기간 식사 계획</label></li>
+        </ul>
+      </div>
+      <div class="cat">
+        <div class="cat-head"><h3 data-i18n="cat5">현장 운영·장비</h3><span class="owner" data-i18n="own5">워십네이션스</span></div>
+        <ul class="tasks">
+          <li><input type="checkbox" id="c17"><label for="c17" data-i18n="c17">음향·악기 사양 확인</label></li>
+          <li><input type="checkbox" id="c18"><label for="c18" data-i18n="c18">무대 비품·현수막 준비</label></li>
+          <li><input type="checkbox" id="c19"><label for="c19" data-i18n="c19">촬영 담당자 섭외</label></li>
+          <li><input type="checkbox" id="c20"><label for="c20" data-i18n="c20">현장 통역 방식 결정</label></li>
+        </ul>
+      </div>
+      <div class="cat">
+        <div class="cat-head"><h3 data-i18n="cat6">홍보</h3><span class="owner" data-i18n="own6">워십네이션스</span></div>
+        <ul class="tasks">
+          <li><input type="checkbox" id="c21"><label for="c21" data-i18n="c21">주보 광고·포스터 제작</label></li>
+          <li><input type="checkbox" id="c22"><label for="c22" data-i18n="c22">SNS 홍보 게시</label></li>
+        </ul>
+      </div>
+      <div class="cat">
+        <div class="cat-head"><h3 data-i18n="cat7">재정</h3><span class="owner" data-i18n="own7">워십네이션스</span></div>
+        <ul class="tasks">
+          <li><input type="checkbox" id="c23"><label for="c23" data-i18n="c23">예산안 수립</label></li>
+          <li><input type="checkbox" id="c24"><label for="c24" data-i18n="c24">후원 모금 계획 (필요 시)</label></li>
+          <li><input type="checkbox" id="c25"><label for="c25" data-i18n="c25">정산 담당자 지정</label></li>
+        </ul>
+      </div>
+      <div class="cat">
+        <div class="cat-head"><h3 data-i18n="cat8">안전·행정</h3><span class="owner" data-i18n="own8">공동</span></div>
+        <ul class="tasks">
+          <li><input type="checkbox" id="c26"><label for="c26" data-i18n="c26">명단·여권정보 취합</label></li>
+          <li><input type="checkbox" id="c27"><label for="c27" data-i18n="c27">여행자보험 확인</label></li>
+          <li><input type="checkbox" id="c28"><label for="c28" data-i18n="c28">비상 대응 계획</label></li>
+        </ul>
+      </div>
+      <div class="cat">
+        <div class="cat-head"><h3 data-i18n="cat9">사후</h3><span class="owner" data-i18n="own9">워십네이션스</span></div>
+        <ul class="tasks">
+          <li><input type="checkbox" id="c29"><label for="c29" data-i18n="c29">감사 인사·후기 공유</label></li>
+          <li><input type="checkbox" id="c30"><label for="c30" data-i18n="c30">차기 사역과 연결점 정리</label></li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
   <section id="venue-section">
-    <div class="section-head"><span class="num">03</span><h2 data-i18n="sec4title">장소</h2></div>
+    <div class="section-head"><span class="num">05</span><h2 data-i18n="sec4title">장소</h2></div>
     <div class="venue">
       <div><dt data-i18n="v1k">장소</dt><dd data-i18n="v1v">부산 영주교회 본당</dd></div>
       <div><dt data-i18n="v2k">주소</dt><dd>부산광역시 중구 대영로 226번안길 6</dd></div>
@@ -410,7 +592,7 @@
   </section>
 
   <section id="qa-section">
-    <div class="section-head"><span class="num">04</span><h2 data-i18n="sec5title">질문 및 코멘트</h2></div>
+    <div class="section-head"><span class="num">06</span><h2 data-i18n="sec5title">질문 및 코멘트</h2></div>
     <div class="section-sub" data-i18n="sec5sub">워십네이션스·브라이트호프 팀 누구나 질문이나 의견을 남길 수 있는 공식 소통 공간입니다. 특정 날짜에 대한 질문은 캘린더에서 해당 날짜를 클릭해 남겨주세요.</div>
     <div class="qa-board" id="qa-board-general">
       <form class="qa-form" id="qa-form-general" onsubmit="return submitComment(event,'general')">
@@ -431,7 +613,7 @@
   </section>
 
   <section id="testimony-section">
-    <div class="section-head"><span class="num">05</span><h2 data-i18n="testimonyTitle">간증·나눔</h2></div>
+    <div class="section-head"><span class="num">07</span><h2 data-i18n="testimonyTitle">간증·나눔</h2></div>
     <div class="section-sub" data-i18n="testimonySub">집회가 끝난 뒤에도 이 공간은 계속됩니다. 하나님께서 하신 일과 만남의 열매를 나눠주세요 — 이 만남이 일회성 행사가 아니라 다음 세대를 위한 선교적 관계의 시작이 되기를 소망합니다.</div>
     <div class="testimony-grid">
       <div class="qa-board">
