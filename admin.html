@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관리자 — 질문·코멘트 관리</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+  :root{
+    --bg:#F4F9FC; --surface:#FFFFFF; --surface-2:#E9F1F9;
+    --ink:#1E2B45; --muted:#5D6B85; --line:#DCE6F0;
+    --accent:#4F7FD6; --accent-ink:#2E4E8F; --accent-soft:#E1EAFB;
+    --sea:#3FAEDB; --sea-soft:#DFF1FA; --sea-ink:#1F6A8C;
+    --danger:#C0392B; --danger-soft:#FBE3E0;
+    --warn:#C9784A;
+    --shadow: 0 1px 2px rgba(30,43,69,.06), 0 8px 24px -12px rgba(30,43,69,.18);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0F1729; --surface:#182238; --surface-2:#1F2C46;
+      --ink:#EAEEF6; --muted:#9BA8C4; --line:#2C3A56;
+      --accent:#7FA6EA; --accent-ink:#DCE7FB; --accent-soft:#233457;
+      --sea:#5EC2EE; --sea-soft:#173548; --sea-ink:#BDE9FB;
+      --danger:#E36A5C; --danger-soft:#3A1F1C;
+      --warn:#E39A6E;
+      --shadow: 0 1px 2px rgba(0,0,0,.35), 0 10px 30px -14px rgba(0,0,0,.65);
+    }
+  }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  html { color-scheme: light dark; }
+  body{ margin:0; background:var(--bg); color:var(--ink); font-family:"IBM Plex Sans KR",-apple-system,sans-serif; line-height:1.6; }
+  .wrap{ max-width:760px; margin:0 auto; padding:28px 20px 80px; }
+  h1{ font-family:"Noto Serif KR",serif; font-size:1.3rem; font-weight:700; margin:0 0 4px; }
+  .sub{ color:var(--muted); font-size:.85rem; margin-bottom:24px; }
+
+  .login-card{
+    max-width:360px; margin:60px auto; background:var(--surface); border:1px solid var(--line); border-radius:14px;
+    padding:24px; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:10px;
+  }
+  .login-card h2{ font-size:1.05rem; margin:0 0 6px; }
+  .login-card input{
+    font-family:inherit; font-size:.88rem; padding:9px 11px; border:1px solid var(--line); border-radius:8px;
+    background:var(--bg); color:var(--ink);
+  }
+  .login-card button{
+    background:var(--accent); color:#fff; border:none; border-radius:999px; padding:10px 16px; font-size:.88rem;
+    font-weight:700; cursor:pointer; font-family:inherit; margin-top:4px;
+  }
+  .login-error{ color:var(--danger); font-size:.8rem; min-height:1.2em; }
+
+  .topbar{ display:flex; align-items:center; justify-content:space-between; margin-bottom:18px; gap:10px; flex-wrap:wrap; }
+  .signout{
+    background:var(--surface-2); color:var(--muted); border:1px solid var(--line); border-radius:999px; padding:7px 14px;
+    font-size:.78rem; font-weight:600; cursor:pointer; font-family:inherit;
+  }
+  .refresh-note{ font-size:.76rem; color:var(--muted); }
+
+  .filter-row{ display:flex; gap:8px; margin-bottom:16px; flex-wrap:wrap; }
+  .filter-row button{
+    border:1px solid var(--line); background:var(--surface); color:var(--muted); border-radius:999px; padding:6px 13px;
+    font-size:.78rem; font-weight:600; cursor:pointer; font-family:inherit;
+  }
+  .filter-row button.active{ background:var(--accent); color:#fff; border-color:var(--accent); }
+
+  .item{ background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow); margin-bottom:12px; }
+  .item-head{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:6px; }
+  .name{ font-weight:700; font-size:.88rem; }
+  .badge{ font-size:.62rem; font-weight:700; padding:2px 9px; border-radius:999px; white-space:nowrap; }
+  .badge.team-wn{ background:var(--accent-soft); color:var(--accent-ink); }
+  .badge.team-bh{ background:var(--sea-soft); color:var(--sea-ink); }
+  .badge.team-etc{ background:var(--surface-2); color:var(--muted); }
+  .scope-tag{ font-size:.62rem; font-weight:600; padding:2px 9px; border-radius:999px; background:var(--surface-2); color:var(--muted); }
+  .time{ font-size:.7rem; color:var(--muted); margin-left:auto; font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .text{ font-size:.9rem; line-height:1.55; white-space:pre-wrap; word-break:break-word; margin-bottom:10px; }
+
+  .reply-box{ background:var(--accent-soft); border-radius:8px; padding:9px 11px; margin-bottom:10px; }
+  .reply-label{ font-size:.62rem; font-weight:700; color:var(--accent-ink); margin-bottom:2px; }
+  .reply-text{ font-size:.83rem; line-height:1.5; white-space:pre-wrap; word-break:break-word; }
+
+  .actions{ display:flex; gap:8px; flex-wrap:wrap; align-items:flex-start; }
+  .reply-form{ flex:1; min-width:220px; display:flex; gap:8px; }
+  .reply-form textarea{
+    flex:1; font-family:inherit; font-size:.83rem; padding:7px 9px; border:1px solid var(--line); border-radius:8px;
+    background:var(--bg); color:var(--ink); resize:vertical; min-height:36px;
+  }
+  .btn{ border:none; border-radius:999px; padding:7px 14px; font-size:.78rem; font-weight:700; cursor:pointer; font-family:inherit; white-space:nowrap; }
+  .btn-reply{ background:var(--accent); color:#fff; }
+  .btn-delete{ background:var(--danger-soft); color:var(--danger); }
+  .btn:disabled{ opacity:.5; cursor:default; }
+  .empty{ color:var(--muted); font-size:.85rem; padding:20px; text-align:center; }
+  .status-line{ font-size:.78rem; color:var(--warn); margin-bottom:10px; min-height:1.1em; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div id="login-view">
+    <div class="login-card">
+      <h2>관리자 로그인</h2>
+      <div class="sub" style="margin-bottom:6px;">Firebase 콘솔 → Authentication에서 만든 관리자 계정으로 로그인하세요.</div>
+      <input type="email" id="login-email" placeholder="이메일" autocomplete="username">
+      <input type="password" id="login-pw" placeholder="비밀번호" autocomplete="current-password">
+      <button id="login-btn">로그인</button>
+      <div class="login-error" id="login-error"></div>
+    </div>
+  </div>
+
+  <div id="admin-view" hidden>
+    <div class="topbar">
+      <div>
+        <h1>질문·코멘트 관리</h1>
+        <div class="sub" id="signed-in-as"></div>
+      </div>
+      <button class="signout" id="signout-btn">로그아웃</button>
+    </div>
+
+    <div class="filter-row" id="filter-row">
+      <button data-filter="all" class="active">전체</button>
+      <button data-filter="general">공지 게시판</button>
+      <button data-filter="day">날짜별 코멘트</button>
+    </div>
+
+    <div class="status-line" id="status-line"></div>
+    <div id="list"></div>
+  </div>
+
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/12.18.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.18.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore-compat.js"></script>
+<script>
+(function(){
+  // 메인 페이지(index.html)와 동일한 Firebase 프로젝트 설정입니다.
+  var FIREBASE_CONFIG = {
+    apiKey: "AIzaSyD_Lgg4s2pCd1MELxMoxzwHXC6tYs-n1Z8",
+    authDomain: "brighthope-busan.firebaseapp.com",
+    projectId: "brighthope-busan",
+    storageBucket: "brighthope-busan.firebasestorage.app",
+    messagingSenderId: "758750632091",
+    appId: "1:758750632091:web:7204c0e51189eae5504e3e",
+    measurementId: "G-FTX9QW2MQM"
+  };
+
+  if (!firebase.apps.length) { firebase.initializeApp(FIREBASE_CONFIG); }
+  var auth = firebase.auth();
+  var db = firebase.firestore();
+
+  var TEAM_LABEL = { wn: '워십네이션스', bh: '브라이트호프', etc: '기타' };
+  var SCOPE_LABEL = {
+    general: '공지 게시판',
+    m_sep7: '9/7 오늘·착수', m_sep10: '9/10 공문 발송', m_sep17: '9/17 모집 시작',
+    m_sep24: '9/24 항공·숙소 조율', m_sep30: '9/30 라인업 확정',
+    m_oct8: '10/8 항공권·숙소 확정', m_oct14: '10/14 홍보·리허설 협의', m_oct21: '10/21 큐시트·최종 점검',
+    m_nov6: '11/6 후쿠오카팀 도착', m_nov7: '11/7 집회 당일', m_nov8: '11/8 주일예배·교류', m_nov9: '11/9 출국'
+  };
+
+  var currentFilter = 'all';
+  var unsubList = null;
+
+  function scopeLabel(scope){ return SCOPE_LABEL[scope] || scope; }
+  function formatTs(ts){
+    try { return new Date(ts).toLocaleString('ko-KR', { year:'numeric', month:'numeric', day:'numeric', hour:'2-digit', minute:'2-digit' }); }
+    catch(e){ return ''; }
+  }
+
+  function renderList(docs){
+    var list = document.getElementById('list');
+    list.innerHTML = '';
+    var filtered = docs.filter(function(d){
+      if (currentFilter === 'all') return true;
+      if (currentFilter === 'general') return d.data.scope === 'general';
+      if (currentFilter === 'day') return d.data.scope !== 'general';
+      return true;
+    });
+    if (!filtered.length) {
+      var empty = document.createElement('div');
+      empty.className = 'empty';
+      empty.textContent = '표시할 코멘트가 없습니다.';
+      list.appendChild(empty);
+      return;
+    }
+    filtered.forEach(function(entry){
+      var id = entry.id, d = entry.data;
+      var item = document.createElement('div');
+      item.className = 'item';
+
+      var head = document.createElement('div');
+      head.className = 'item-head';
+      var nameEl = document.createElement('span'); nameEl.className = 'name'; nameEl.textContent = d.name || '';
+      var teamKey = (d.team === 'wn' || d.team === 'bh') ? d.team : 'etc';
+      var badge = document.createElement('span'); badge.className = 'badge team-' + teamKey; badge.textContent = TEAM_LABEL[teamKey];
+      var scopeTag = document.createElement('span'); scopeTag.className = 'scope-tag'; scopeTag.textContent = scopeLabel(d.scope);
+      var timeEl = document.createElement('span'); timeEl.className = 'time'; timeEl.textContent = formatTs(d.ts);
+      head.appendChild(nameEl); head.appendChild(badge); head.appendChild(scopeTag); head.appendChild(timeEl);
+
+      var textEl = document.createElement('div'); textEl.className = 'text'; textEl.textContent = d.text || '';
+
+      item.appendChild(head);
+      item.appendChild(textEl);
+
+      if (d.reply) {
+        var replyBox = document.createElement('div'); replyBox.className = 'reply-box';
+        var replyLabel = document.createElement('div'); replyLabel.className = 'reply-label'; replyLabel.textContent = '운영팀 답변 완료';
+        var replyText = document.createElement('div'); replyText.className = 'reply-text'; replyText.textContent = d.reply;
+        replyBox.appendChild(replyLabel); replyBox.appendChild(replyText);
+        item.appendChild(replyBox);
+      }
+
+      var actions = document.createElement('div'); actions.className = 'actions';
+      var replyForm = document.createElement('div'); replyForm.className = 'reply-form';
+      var replyInput = document.createElement('textarea');
+      replyInput.placeholder = d.reply ? '답변 수정하기' : '답장 입력';
+      replyInput.value = d.reply || '';
+      replyInput.rows = 1;
+      var replyBtn = document.createElement('button'); replyBtn.className = 'btn btn-reply'; replyBtn.textContent = d.reply ? '답변 수정' : '답장 저장';
+      replyBtn.onclick = function(){
+        var text = replyInput.value.trim();
+        if (!text) return;
+        replyBtn.disabled = true;
+        db.collection('comments').doc(id).update({ reply: text.slice(0, 500), replyAt: Date.now() })
+          .catch(function(err){ setStatus('답장 저장 실패: ' + err.message); })
+          .then(function(){ replyBtn.disabled = false; });
+      };
+      replyForm.appendChild(replyInput); replyForm.appendChild(replyBtn);
+
+      var deleteBtn = document.createElement('button'); deleteBtn.className = 'btn btn-delete'; deleteBtn.textContent = '삭제';
+      deleteBtn.onclick = function(){
+        if (!window.confirm('이 코멘트를 완전히 삭제할까요? 되돌릴 수 없습니다.')) return;
+        deleteBtn.disabled = true;
+        db.collection('comments').doc(id).delete()
+          .catch(function(err){ setStatus('삭제 실패: ' + err.message); deleteBtn.disabled = false; });
+      };
+
+      actions.appendChild(replyForm);
+      actions.appendChild(deleteBtn);
+      item.appendChild(actions);
+
+      list.appendChild(item);
+    });
+  }
+
+  function setStatus(msg){
+    document.getElementById('status-line').textContent = msg || '';
+  }
+
+  function subscribeAll(){
+    if (unsubList) { unsubList(); unsubList = null; }
+    unsubList = db.collection('comments').orderBy('ts', 'desc').limit(500).onSnapshot(
+      function(snap){
+        var docs = snap.docs.map(function(s){ return { id: s.id, data: s.data() }; });
+        renderList(docs);
+      },
+      function(err){ setStatus('불러오기 실패: ' + err.message); }
+    );
+  }
+
+  document.getElementById('filter-row').addEventListener('click', function(ev){
+    var btn = ev.target.closest('button[data-filter]');
+    if (!btn) return;
+    currentFilter = btn.getAttribute('data-filter');
+    Array.prototype.forEach.call(document.querySelectorAll('#filter-row button'), function(b){
+      b.classList.toggle('active', b === btn);
+    });
+    subscribeAll();
+  });
+
+  document.getElementById('login-btn').addEventListener('click', function(){
+    var email = document.getElementById('login-email').value.trim();
+    var pw = document.getElementById('login-pw').value;
+    var errEl = document.getElementById('login-error');
+    errEl.textContent = '';
+    if (!email || !pw) { errEl.textContent = '이메일과 비밀번호를 입력하세요.'; return; }
+    auth.signInWithEmailAndPassword(email, pw).catch(function(err){
+      errEl.textContent = '로그인 실패: ' + err.message;
+    });
+  });
+  document.getElementById('login-pw').addEventListener('keydown', function(e){
+    if (e.key === 'Enter') { document.getElementById('login-btn').click(); }
+  });
+  document.getElementById('signout-btn').addEventListener('click', function(){
+    auth.signOut();
+  });
+
+  auth.onAuthStateChanged(function(user){
+    if (user) {
+      document.getElementById('login-view').hidden = true;
+      document.getElementById('admin-view').hidden = false;
+      document.getElementById('signed-in-as').textContent = user.email + ' 님으로 로그인됨';
+      subscribeAll();
+    } else {
+      document.getElementById('admin-view').hidden = true;
+      document.getElementById('login-view').hidden = false;
+      if (unsubList) { unsubList(); unsubList = null; }
+    }
+  });
+})();
+</script>
+</body>
+</html>
