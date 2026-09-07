@@ -237,6 +237,9 @@
   .qa-team-badge.team-etc{ background:var(--surface-2); color:var(--muted); }
   .qa-time{ font-size:.66rem; color:var(--muted); margin-left:auto; font-variant-numeric:tabular-nums; white-space:nowrap; }
   .qa-text{ font-size:.83rem; line-height:1.5; white-space:pre-wrap; word-break:break-word; }
+  .qa-reply{ margin-top:8px; padding:8px 10px; background:var(--accent-soft); border-radius:8px; }
+  .qa-reply-label{ font-size:.62rem; font-weight:700; color:var(--accent-ink); margin-bottom:2px; }
+  .qa-reply-text{ font-size:.8rem; line-height:1.5; color:var(--ink); white-space:pre-wrap; word-break:break-word; }
   .qa-empty{ font-size:.8rem; color:var(--muted); padding:8px 2px; }
   .qa-unavailable{ font-size:.8rem; color:var(--muted); background:var(--surface-2); border-radius:10px; padding:12px 14px; line-height:1.5; }
   .modal-qa{ margin-top:16px; padding-top:14px; border-top:1px solid var(--line); }
@@ -604,6 +607,7 @@
       qaError: "전송에 실패했습니다. 잠시 후 다시 시도해주세요.",
       qaModalTitle: "이 일정에 대한 질문·코멘트",
       qaUnavailable: "질문·코멘트 기능을 사용하려면 연동 설정이 필요합니다. claude.ai 아티팩트 페이지에서는 별도 설정 없이 바로 이용할 수 있습니다. 깃허브 등에 배포한 사본이라면 FIREBASE_SETUP.md 안내에 따라 Firebase 연동을 설정해주세요.",
+      qaReplyLabel: "운영팀 답변",
       footer: "Worship Nations × Bright Hope · 작성 기준일 2026.09.07 — 협조 공문(2026.08.18) 기반, 세부 일정은 두 팀 협의에 따라 계속 업데이트됩니다.",
       progress: function(done,total){ return done + " / " + total + " 완료"; }
     },
@@ -660,6 +664,7 @@
       qaError: "送信に失敗しました。しばらくしてから再度お試しください。",
       qaModalTitle: "この日程についての質問・コメント",
       qaUnavailable: "質問・コメント機能を使うには連携設定が必要です。claude.aiのアーティファクトページでは追加設定なしでそのままご利用いただけます。GitHubなどに公開したコピーの場合は、FIREBASE_SETUP.mdの案内に従ってFirebase連携を設定してください。",
+      qaReplyLabel: "運営チームからの返信",
       footer: "Worship Nations × Bright Hope · 作成基準日 2026.09.07 — 協力公文(2026.08.18)に基づく。詳細スケジュールは両チームの協議により随時更新されます。",
       progress: function(done,total){ return done + " / " + total + " 完了"; }
     }
@@ -767,6 +772,19 @@
       textDiv.textContent = String(d.text || '').slice(0, 1000);
       item.appendChild(head);
       item.appendChild(textDiv);
+      if (d.reply) {
+        var replyBox = document.createElement('div');
+        replyBox.className = 'qa-reply';
+        var replyLabel = document.createElement('div');
+        replyLabel.className = 'qa-reply-label';
+        replyLabel.textContent = DICT[currentLang].qaReplyLabel;
+        var replyText = document.createElement('div');
+        replyText.className = 'qa-reply-text';
+        replyText.textContent = String(d.reply).slice(0, 1000);
+        replyBox.appendChild(replyLabel);
+        replyBox.appendChild(replyText);
+        item.appendChild(replyBox);
+      }
       container.appendChild(item);
     });
   }
