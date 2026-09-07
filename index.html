@@ -14,6 +14,7 @@
     --sea:#3FAEDB; --sea-soft:#DFF1FA; --sea-ink:#1F6A8C;
     --good:#5FA968; --good-soft:#E5F3E5;
     --warn:#C9784A;
+    --fest:#9B7FD1; --fest-soft:#EFE8FA; --fest-ink:#6B4FA8;
     --sunset-1:#FCE49A; --sunset-2:#F6B387; --sunset-3:#F0A0AE;
     --shadow: 0 1px 2px rgba(30,43,69,.06), 0 8px 24px -12px rgba(30,43,69,.18);
   }
@@ -25,6 +26,7 @@
       --sea:#5EC2EE; --sea-soft:#173548; --sea-ink:#BDE9FB;
       --good:#7FC17F; --good-soft:#1B3324;
       --warn:#E39A6E;
+      --fest:#B9A0E8; --fest-soft:#2C2350; --fest-ink:#D9CBF5;
       --sunset-1:#7A6432; --sunset-2:#8A5A3F; --sunset-3:#8A4A57;
       --shadow: 0 1px 2px rgba(0,0,0,.35), 0 10px 30px -14px rgba(0,0,0,.65);
     }
@@ -36,6 +38,7 @@
     --sea:#5EC2EE; --sea-soft:#173548; --sea-ink:#BDE9FB;
     --good:#7FC17F; --good-soft:#1B3324;
     --warn:#E39A6E;
+    --fest:#B9A0E8; --fest-soft:#2C2350; --fest-ink:#D9CBF5;
     --sunset-1:#7A6432; --sunset-2:#8A5A3F; --sunset-3:#8A4A57;
     --shadow: 0 1px 2px rgba(0,0,0,.35), 0 10px 30px -14px rgba(0,0,0,.65);
   }
@@ -94,10 +97,19 @@
   .section-sub{ color:var(--muted); font-size:.83rem; margin: 0 0 14px; }
 
   /* ---- Month calendars ---- */
+  .cal-row-sep{ margin-bottom:14px; }
   .cal-row{ display:grid; grid-template-columns: repeat(3,1fr); gap:14px; align-items:start; }
   @media (max-width:820px){ .cal-row{ grid-template-columns:1fr; } }
   .cal{ background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:14px; box-shadow:var(--shadow); }
   .cal-title{ font-weight:700; font-size:.88rem; margin-bottom:8px; color:var(--accent-ink); }
+  .cal.cal-large{ padding:20px; }
+  .cal.cal-large .cal-title{ font-size:1.1rem; margin-bottom:12px; }
+  .cal.cal-large .cal-grid{ gap:7px; }
+  .cal.cal-large .cal-dow{ font-size:.8rem; padding-bottom:5px; }
+  .cal.cal-large .cal-day{ font-size:.85rem; padding:7px 6px; }
+  .cal.cal-large .cal-day .d{ font-size:.98rem; }
+  .cal.cal-large .cal-day .tag{ font-size:.74rem; }
+  .cal.cal-large .cal-day[data-key]::after{ font-size:.74rem; }
   .cal-grid{ display:grid; grid-template-columns: repeat(7,1fr); gap:4px; }
   .cal-dow{ text-align:center; font-size:.64rem; color:var(--muted); padding-bottom:3px; }
   .cal-day{
@@ -131,6 +143,8 @@
   .cal-day.mark-fellow .tag{ color: var(--good); }
   .cal-day.mark-depart{ background: var(--sea-soft); }
   .cal-day.mark-depart .tag{ color: var(--sea-ink); }
+  .cal-day.mark-fest{ background: var(--fest-soft); }
+  .cal-day.mark-fest .tag{ color: var(--fest-ink); }
 
   .cal-legend{ display:flex; flex-wrap:wrap; gap:14px; margin-top:14px; font-size:.78rem; color:var(--muted); }
   .cal-legend span{ display:inline-flex; align-items:center; gap:6px; }
@@ -140,6 +154,7 @@
   .dot.online{ background:var(--sea); }
   .dot.event{ background: linear-gradient(135deg, var(--sunset-2), var(--sunset-3)); }
   .dot.fellow{ background:var(--good); }
+  .dot.fest{ background:var(--fest); }
 
   /* ---- 4-day agenda ---- */
   .agenda{ display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
@@ -281,8 +296,8 @@
     <div class="section-head"><span class="num">01</span><h2 data-i18n="sec1title">준비 캘린더 (9월 – 11월)</h2></div>
     <div class="section-sub" data-i18n="sec1sub">확정되지 않은 준비 일정은 수요일(현장모임) · 목요일(온라인 가능)로 배정했습니다.</div>
 
-    <div class="cal-row">
-      <div class="cal">
+    <div class="cal-row-sep">
+      <div class="cal cal-large">
         <div class="cal-title" data-i18n="monthSep">2026년 9월</div>
         <div class="cal-grid" id="cal-sep">
           <div class="cal-dow"></div><div class="cal-dow"></div><div class="cal-dow"></div><div class="cal-dow"></div><div class="cal-dow"></div><div class="cal-dow"></div><div class="cal-dow"></div>
@@ -298,12 +313,15 @@
           <div class="cal-day"><span class="d">18</span></div><div class="cal-day"><span class="d">19</span></div>
           <div class="cal-day"><span class="d">20</span></div><div class="cal-day"><span class="d">21</span></div><div class="cal-day"><span class="d">22</span></div><div class="cal-day"><span class="d">23</span></div>
           <div class="cal-day mark-online" data-key="m_sep24" data-cat="online" data-month="9" data-day="24" tabindex="0" role="button" onclick="openDayModal(this)" onkeydown="if(event.key==='Enter')openDayModal(this)"><span class="d">24</span><span class="tag" data-i18n="m_sep24">💻 항공·숙소 조율</span></div>
-          <div class="cal-day"><span class="d">25</span></div><div class="cal-day"><span class="d">26</span></div>
+          <div class="cal-day"><span class="d">25</span></div>
+          <div class="cal-day mark-fest" data-key="m_sep26" data-cat="fest" data-month="9" data-day="26" tabindex="0" role="button" onclick="openDayModal(this)" onkeydown="if(event.key==='Enter')openDayModal(this)"><span class="d">26</span><span class="tag" data-i18n="m_sep26">🎪 Gospel Festa</span></div>
           <div class="cal-day"><span class="d">27</span></div><div class="cal-day"><span class="d">28</span></div><div class="cal-day"><span class="d">29</span></div>
           <div class="cal-day mark-onsite" data-key="m_sep30" data-cat="onsite" data-month="9" data-day="30" tabindex="0" role="button" onclick="openDayModal(this)" onkeydown="if(event.key==='Enter')openDayModal(this)"><span class="d">30</span><span class="tag" data-i18n="m_sep30">📍 라인업 확정</span></div>
         </div>
       </div>
+    </div>
 
+    <div class="cal-row">
       <div class="cal">
         <div class="cal-title" data-i18n="monthOct">2026년 10월</div>
         <div class="cal-grid" id="cal-oct">
@@ -334,7 +352,9 @@
           <div class="cal-day mark-depart" data-key="m_nov9" data-cat="depart" data-month="11" data-day="9" tabindex="0" role="button" onclick="openDayModal(this)" onkeydown="if(event.key==='Enter')openDayModal(this)"><span class="d">9</span><span class="tag" data-i18n="m_nov9">출국</span></div>
           <div class="cal-day"><span class="d">10</span></div><div class="cal-day"><span class="d">11</span></div><div class="cal-day"><span class="d">12</span></div><div class="cal-day"><span class="d">13</span></div><div class="cal-day"><span class="d">14</span></div>
           <div class="cal-day"><span class="d">15</span></div><div class="cal-day"><span class="d">16</span></div><div class="cal-day"><span class="d">17</span></div><div class="cal-day"><span class="d">18</span></div><div class="cal-day"><span class="d">19</span></div><div class="cal-day"><span class="d">20</span></div><div class="cal-day"><span class="d">21</span></div>
-          <div class="cal-day"><span class="d">22</span></div><div class="cal-day"><span class="d">23</span></div><div class="cal-day"><span class="d">24</span></div><div class="cal-day"><span class="d">25</span></div><div class="cal-day"><span class="d">26</span></div><div class="cal-day"><span class="d">27</span></div><div class="cal-day"><span class="d">28</span></div>
+          <div class="cal-day"><span class="d">22</span></div><div class="cal-day"><span class="d">23</span></div>
+          <div class="cal-day mark-fest" data-key="m_nov24" data-cat="fest" data-month="11" data-day="24" tabindex="0" role="button" onclick="openDayModal(this)" onkeydown="if(event.key==='Enter')openDayModal(this)"><span class="d">24</span><span class="tag" data-i18n="m_nov24">🎪 후쿠오카 유스 페스티벌</span></div>
+          <div class="cal-day"><span class="d">25</span></div><div class="cal-day"><span class="d">26</span></div><div class="cal-day"><span class="d">27</span></div><div class="cal-day"><span class="d">28</span></div>
           <div class="cal-day"><span class="d">29</span></div><div class="cal-day"><span class="d">30</span></div>
         </div>
       </div>
@@ -346,6 +366,7 @@
       <span><i class="dot online"></i><span data-i18n="leg_online">온라인 가능 (목)</span></span>
       <span><i class="dot event"></i><span data-i18n="leg_event">집회 당일</span></span>
       <span><i class="dot fellow"></i><span data-i18n="leg_fellow">교류·연합예배</span></span>
+      <span><i class="dot fest"></i><span data-i18n="leg_fest">외부 행사</span></span>
     </div>
   </section>
 
@@ -565,9 +586,11 @@
       monthSep: "2026년 9월", monthOct: "2026년 10월", monthNov: "2026년 11월",
       m_sep7: "오늘·착수",
       m_sep10: "💻 공문 발송", m_sep17: "💻 모집 시작", m_sep24: "💻 항공·숙소 조율", m_sep30: "📍 라인업 확정",
+      m_sep26: "🎪 고스펠 페스타",
       m_oct8: "💻 항공권·숙소 확정", m_oct14: "📍 홍보·리허설 협의", m_oct21: "📍 큐시트·최종 점검",
       m_nov6: "후쿠오카팀 도착", m_nov7: "집회 15–19시", m_nov8: "주일예배·교류", m_nov9: "출국",
-      leg_today: "오늘", leg_onsite: "현장모임 (수)", leg_online: "온라인 가능 (목)", leg_event: "집회 당일", leg_fellow: "교류·연합예배",
+      m_nov24: "🎪 후쿠오카 유스 아티스트 페스티벌",
+      leg_today: "오늘", leg_onsite: "현장모임 (수)", leg_online: "온라인 가능 (목)", leg_event: "집회 당일", leg_fellow: "교류·연합예배", leg_fest: "외부 행사",
       sec2title: "11월 방문 4일 상세 일정",
       sec2sub: "시간이 미정인 항목은 브라이트호프와 항공편·일정 협의 후 확정됩니다.",
       d1h: "11.6 금", d1s: "도착일", d2h: "11.7 토", d2s: "집회 당일", d3h: "11.8 일", d3s: "교류일", d4h: "11.9 월", d4s: "출국일",
@@ -622,9 +645,11 @@
       monthSep: "2026年9月", monthOct: "2026年10月", monthNov: "2026年11月",
       m_sep7: "本日·開始",
       m_sep10: "💻 公文発送", m_sep17: "💻 募集開始", m_sep24: "💻 航空便·宿泊調整", m_sep30: "📍 ラインアップ確定",
+      m_sep26: "🎪 ゴスペルフェスタ",
       m_oct8: "💻 航空券·宿泊確定", m_oct14: "📍 広報·リハーサル協議", m_oct21: "📍 キューシート·最終確認",
       m_nov6: "福岡チーム到着", m_nov7: "集会 15–19時", m_nov8: "主日礼拝·交流", m_nov9: "出国",
-      leg_today: "本日", leg_onsite: "現場会議(水)", leg_online: "オンライン可(木)", leg_event: "集会当日", leg_fellow: "交流·合同礼拝",
+      m_nov24: "🎪 福岡ユースアーティストフェスティバル",
+      leg_today: "本日", leg_onsite: "現場会議(水)", leg_online: "オンライン可(木)", leg_event: "集会当日", leg_fellow: "交流·合同礼拝", leg_fest: "外部イベント",
       sec2title: "11月訪問 4日間 詳細スケジュール",
       sec2sub: "時間が未定の項目は、ブライトホープとの航空便·日程協議後に確定します。",
       d1h: "11/6 金", d1s: "到着日", d2h: "11/7 土", d2s: "集会当日", d3h: "11/8 日", d3s: "交流日", d4h: "11/9 月", d4s: "出国日",
@@ -677,13 +702,15 @@
       m_sep17: "부산 측 참가 인원(찬양팀·스태프) 모집을 시작합니다.",
       m_sep24: "후쿠오카팀 항공편 옵션과 부산 체류 기간 숙소 후보를 조율합니다.",
       m_sep30: "현장 모임을 통해 부산 측 참가 라인업(찬양팀 구성)을 확정합니다.",
+      m_sep26: "카시마 에이블홀(鹿島エイブルホール) 13:00–16:00. 브라이트호프(BH)가 참가하며, 블레싱힐 미니스트리(BM)가 음향 장비 제공 및 현장 지원을 담당합니다. (워십네이션스 준비 일정과는 별도의 외부 행사입니다.)",
       m_oct8: "후쿠오카팀 항공권 예매와 숙소 예약을 완료합니다.",
       m_oct14: "현장 모임에서 집회 홍보물 제작과 리허설 일정을 협의합니다.",
       m_oct21: "찬양 큐시트, 음향·현장 운영 계획을 최종 점검합니다.",
       m_nov6: "후쿠오카 사역자·청소년 찬양팀 21명이 김해공항으로 도착, 숙소 체크인 후 환영 식사를 갖습니다.",
       m_nov7: "Bright Hope Worship IN Busan — 부산 영주교회 본당에서 오후 3시부터 7시까지 진행되는 한일 연합 찬양집회 당일입니다.",
       m_nov8: "부산 지역 교회 주일예배 참여를 제안하고, 이후 양 팀이 자유롭게 교제하는 시간을 갖습니다.",
-      m_nov9: "숙소 체크아웃 후 김해공항으로 이동, 후쿠오카팀이 출국합니다."
+      m_nov9: "숙소 체크아웃 후 김해공항으로 이동, 후쿠오카팀이 출국합니다.",
+      m_nov24: "후쿠오카 시민회관(福岡市民会館). 브라이트호프(BH)가 참가하며, 블레싱힐 미니스트리(BM)가 음향 장비 제공 및 오퍼레이션 지원을 담당합니다. (워십네이션스 준비 일정과는 별도의 외부 행사입니다.)"
     },
     ja: {
       m_sep7: "釜山集会の準備開始。ワーシップネイションズとブライトホープ間の公式連絡チャンネルを開設し、9〜11月の全体スケジュールを共有します。",
@@ -691,18 +718,20 @@
       m_sep17: "釜山側の参加者(賛美チーム・スタッフ)の募集を開始します。",
       m_sep24: "福岡チームの航空便オプションと釜山滞在中の宿泊候補を調整します。",
       m_sep30: "現場会議を通じて釜山側の参加ラインアップ(賛美チーム構成)を確定します。",
+      m_sep26: "鹿島エイブルホール 13:00–16:00。ブライトホープ(BH)が参加し、ブレッシングヒル・ミニストリー(BM)が音響機材の提供と現場サポートを担当します。(ワーシップネイションズの準備スケジュールとは別の外部イベントです。)",
       m_oct8: "福岡チームの航空券予約と宿泊先の予約を完了します。",
       m_oct14: "現場会議で集会の広報物制作とリハーサル日程を協議します。",
       m_oct21: "賛美キューシート、音響・現場運営計画を最終確認します。",
       m_nov6: "福岡の宣教師・青少年賛美チーム21名が金海空港に到着、宿泊先チェックイン後に歓迎食事会を行います。",
       m_nov7: "Bright Hope Worship IN Busan — 釜山ヨンジュ教会本堂にて午後3時から7時まで行われる日韓合同賛美集会の当日です。",
       m_nov8: "釜山地域教会の主日礼拝参加を提案し、その後両チームが自由に交流する時間を持ちます。",
-      m_nov9: "宿泊先チェックアウト後、金海空港へ移動し福岡チームが出国します。"
+      m_nov9: "宿泊先チェックアウト後、金海空港へ移動し福岡チームが出国します。",
+      m_nov24: "福岡市民会館。ブライトホープ(BH)が参加し、ブレッシングヒル・ミニストリー(BM)が音響機材の提供とオペレーションサポートを担当します。(ワーシップネイションズの準備スケジュールとは別の外部イベントです。)"
     }
   };
   var CAT_LABEL = {
-    ko: { today:"오늘", onsite:"📍 현장모임", online:"💻 온라인 가능", event:"🎤 집회 당일", arrive:"✈️ 도착", fellow:"🤝 교류·연합예배", depart:"✈️ 출국" },
-    ja: { today:"本日", onsite:"📍 現場会議", online:"💻 オンライン可", event:"🎤 集会当日", arrive:"✈️ 到着", fellow:"🤝 交流·合同礼拝", depart:"✈️ 出国" }
+    ko: { today:"오늘", onsite:"📍 현장모임", online:"💻 온라인 가능", event:"🎤 집회 당일", arrive:"✈️ 도착", fellow:"🤝 교류·연합예배", depart:"✈️ 출국", fest:"🎪 외부 행사" },
+    ja: { today:"本日", onsite:"📍 現場会議", online:"💻 オンライン可", event:"🎤 集会当日", arrive:"✈️ 到着", fellow:"🤝 交流·合同礼拝", depart:"✈️ 出国", fest:"🎪 外部イベント" }
   };
 
   var currentLang = 'ko';
