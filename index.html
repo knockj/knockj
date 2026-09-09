@@ -133,8 +133,11 @@
   .cal-day.mark-onsite .tag{ color: var(--accent-ink); }
   .cal-day.mark-online{ background: var(--sea-soft); }
   .cal-day.mark-online .tag{ color: var(--sea-ink); }
-  .cal-day.mark-today{ background: var(--surface-2); box-shadow: inset 0 0 0 2px var(--accent); }
-  .cal-day.mark-today .tag{ color: var(--accent-ink); }
+  .cal-day.mark-launch{ background: var(--accent-soft); }
+  .cal-day.mark-launch .tag{ color: var(--accent-ink); }
+  .cal-day.js-today{ box-shadow: inset 0 0 0 2px var(--accent); }
+  .cal-day.js-today-plain{ background: var(--surface-2); }
+  .cal-day.js-today-plain .tag{ color: var(--accent-ink); }
   .cal-day.mark-arrive{ background: var(--sea-soft); }
   .cal-day.mark-arrive .tag{ color: var(--sea-ink); }
   .cal-day.mark-event{ background: linear-gradient(150deg, var(--sunset-1), var(--sunset-2) 55%, var(--sunset-3)); box-shadow: inset 0 0 0 2px var(--accent); }
@@ -389,7 +392,7 @@
           <div class="cal-day mark-online" data-key="m_sep4" data-cat="online" data-month="9" data-day="4" tabindex="0" role="button" onclick="openDayModal(this)" onkeydown="if(event.key==='Enter')openDayModal(this)"><span class="d">4</span><span class="tag" data-i18n="m_sep4">✅ 공문 발송</span></div>
           <div class="cal-day"><span class="d">5</span></div>
           <div class="cal-day"><span class="d">6</span></div>
-          <div class="cal-day mark-today" data-key="m_sep7" data-cat="today" data-month="9" data-day="7" tabindex="0" role="button" onclick="openDayModal(this)" onkeydown="if(event.key==='Enter')openDayModal(this)"><span class="d">7</span><span class="tag" data-i18n="m_sep7">오늘·착수</span></div>
+          <div class="cal-day mark-launch" data-key="m_sep7" data-cat="launch" data-month="9" data-day="7" tabindex="0" role="button" onclick="openDayModal(this)" onkeydown="if(event.key==='Enter')openDayModal(this)"><span class="d">7</span><span class="tag" data-i18n="m_sep7">✅ 착수</span></div>
           <div class="cal-day"><span class="d">8</span></div>
           <div class="cal-day mark-online" data-key="m_sep9" data-cat="online" data-month="9" data-day="9" tabindex="0" role="button" onclick="openDayModal(this)" onkeydown="if(event.key==='Enter')openDayModal(this)"><span class="d">9</span><span class="tag" data-i18n="m_sep9">💻 킥오프 미팅</span></div>
           <div class="cal-day mark-online" data-key="m_sep10" data-cat="online" data-month="9" data-day="10" tabindex="0" role="button" onclick="openDayModal(this)" onkeydown="if(event.key==='Enter')openDayModal(this)"><span class="d">10</span><span class="tag" data-i18n="m_sep10">💻 모집 시작</span></div>
@@ -585,7 +588,7 @@
     <div class="section-head"><span class="num">05</span><h2 data-i18n="sec4title">장소</h2></div>
     <div class="venue">
       <div><dt data-i18n="v1k">장소</dt><dd data-i18n="v1v">부산 영주교회 본당</dd></div>
-      <div><dt data-i18n="v2k">주소</dt><dd>부산광역시 중구 대영로 226번안길 6</dd></div>
+      <div><dt data-i18n="v2k">주소</dt><dd data-i18n="v2v">부산광역시 중구 대영로 226번안길 6</dd></div>
       <div><dt data-i18n="v3k">주차</dt><dd data-i18n="v3v">봉래초등학교 주차장 (주말 무료)</dd></div>
       <div><dt data-i18n="v4k">주최</dt><dd data-i18n="v4v">일본선교연구소·워십네이션스·브라이트호프</dd></div>
     </div>
@@ -722,7 +725,7 @@
       sec1title: "준비 캘린더 (9월 – 11월)",
       sec1sub: "확정되지 않은 준비 일정은 수요일(현장모임) · 목요일(온라인 가능)로 배정했습니다.",
       monthSep: "2026년 9월", monthOct: "2026년 10월", monthNov: "2026년 11월",
-      m_sep7: "오늘·착수",
+      m_sep7: "✅ 착수",
       m_sep4: "✅ 공문 발송", m_sep9: "💻 킥오프 미팅", m_sep10: "💻 모집 시작", m_sep17: "💻 항공·숙소 조율", m_sep23: "📍 라인업 확정",
       m_sep26: "🎪 고스펠 페스타",
       m_oct1: "💻 항공권·숙소 확정", m_oct7: "📍 홍보·리허설 협의", m_oct14: "📍 큐시트·최종 점검",
@@ -757,7 +760,7 @@
       c26: "명단·여권정보 취합", c27: "여행자보험 확인", c28: "비상 대응 계획",
       c29: "감사 인사·후기 공유", c30: "차기 사역과 연결점 정리",
       sec4title: "장소",
-      v1k: "장소", v1v: "부산 영주교회 본당", v2k: "주소", v3k: "주차", v3v: "봉래초등학교 주차장 (주말 무료)",
+      v1k: "장소", v1v: "부산 영주교회 본당", v2k: "주소", v2v: "부산광역시 중구 대영로 226번안길 6", v3k: "주차", v3v: "봉래초등학교 주차장 (주말 무료)",
       v4k: "주최", v4v: "일본선교연구소·워십네이션스·브라이트호프",
       sec5title: "질문 및 코멘트",
       sec5sub: "워십네이션스·브라이트호프 팀 누구나 질문이나 의견을 남길 수 있는 공식 소통 공간입니다. 특정 날짜에 대한 질문은 캘린더에서 해당 날짜를 클릭해 남겨주세요.",
@@ -807,7 +810,7 @@
       sec1title: "準備カレンダー(9月 – 11月)",
       sec1sub: "未定の準備日程は、水曜日(現場会議)・木曜日(オンライン可)に割り当てました。",
       monthSep: "2026年9月", monthOct: "2026年10月", monthNov: "2026年11月",
-      m_sep7: "本日·開始",
+      m_sep7: "✅ 開始",
       m_sep4: "✅ 公文発送", m_sep9: "💻 キックオフミーティング", m_sep10: "💻 募集開始", m_sep17: "💻 航空便·宿泊調整", m_sep23: "📍 ラインアップ確定",
       m_sep26: "🎪 ゴスペルフェスタ",
       m_oct1: "💻 航空券·宿泊確定", m_oct7: "📍 広報·リハーサル協議", m_oct14: "📍 キューシート·最終確認",
@@ -842,7 +845,7 @@
       c26: "名簿·パスポート情報の取りまとめ", c27: "海外旅行保険の確認", c28: "緊急時対応計画",
       c29: "感謝の挨拶·報告の共有", c30: "次期ミニストリーとの接続点整理",
       sec4title: "会場",
-      v1k: "会場", v1v: "釜山ヨンジュ教会 本堂", v2k: "住所", v3k: "駐車場", v3v: "ポンネ小学校駐車場(週末無料)",
+      v1k: "会場", v1v: "釜山ヨンジュ教会 本堂", v2k: "住所", v2v: "부산광역시 중구 대영로 226번안길 6 (プサングァンヨクシ チュング テヨンノ226ボナンギル 6)", v3k: "駐車場", v3v: "ポンネ小学校駐車場(週末無料)",
       v4k: "主催", v4v: "日本宣教研究所·ワーシップネイションズ·ブライトホープ",
       sec5title: "質問・コメント",
       sec5sub: "ワーシップネイションズ・ブライトホープ、どちらのチームでも質問やご意見を残せる公式連絡の場です。特定の日程についての質問は、カレンダーでその日をクリックして残してください。",
@@ -901,8 +904,8 @@
   };
 
   var CAT_LABEL = {
-    ko: { today:"오늘", onsite:"📍 현장모임", online:"💻 온라인 가능", event:"🎤 집회 당일", arrive:"✈️ 도착", fellow:"🤝 교류·연합예배", depart:"✈️ 출국", fest:"🎪 외부 행사" },
-    ja: { today:"本日", onsite:"📍 現場会議", online:"💻 オンライン可", event:"🎤 集会当日", arrive:"✈️ 到着", fellow:"🤝 交流·合同礼拝", depart:"✈️ 出国", fest:"🎪 外部イベント" }
+    ko: { today:"오늘", launch:"✅ 준비 시작", onsite:"📍 현장모임", online:"💻 온라인 가능", event:"🎤 집회 당일", arrive:"✈️ 도착", fellow:"🤝 교류·연합예배", depart:"✈️ 출국", fest:"🎪 외부 행사" },
+    ja: { today:"本日", launch:"✅ 準備開始", onsite:"📍 現場会議", online:"💻 オンライン可", event:"🎤 集会当日", arrive:"✈️ 到着", fellow:"🤝 交流·合同礼拝", depart:"✈️ 出国", fest:"🎪 外部イベント" }
   };
 
   var PRAYER_ITEMS = ['p1','p2','p3','p4','p5'];
@@ -1343,6 +1346,7 @@
     if (lastTestimonyDocs !== null) { renderTestimonyList(lastTestimonyDocs); }
     renderPrayerGrid();
     renderNextMilestone();
+    markTodayCell();
   };
 
   /* ---- D-day counter ---- */
@@ -1385,6 +1389,36 @@
     el.hidden = false;
   }
 
+  /* ---- Live "today" highlight on the calendar (computed fresh each call, not hardcoded to a fixed date) ---- */
+  function markTodayCell(){
+    document.querySelectorAll('.cal-day.js-today').forEach(function(cell){
+      cell.classList.remove('js-today', 'js-today-plain');
+      var injected = cell.querySelector('.js-today-tag');
+      if (injected) injected.remove();
+    });
+    var now = new Date();
+    var kst;
+    try { kst = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Seoul' })); }
+    catch(e) { kst = now; }
+    var y = kst.getFullYear(), m = kst.getMonth() + 1, d = kst.getDate();
+    var gridId = { 9: 'cal-sep', 10: 'cal-oct', 11: 'cal-nov' }[m];
+    if (y !== 2026 || !gridId) return;
+    var grid = document.getElementById(gridId);
+    if (!grid) return;
+    grid.querySelectorAll('.cal-day:not(.blank)').forEach(function(cell){
+      var dEl = cell.querySelector('.d');
+      if (!dEl || parseInt(dEl.textContent, 10) !== d) return;
+      cell.classList.add('js-today');
+      if (!cell.querySelector('.tag')) {
+        cell.classList.add('js-today-plain');
+        var tag = document.createElement('span');
+        tag.className = 'tag js-today-tag';
+        tag.textContent = (DICT[currentLang] && DICT[currentLang].leg_today) || '';
+        cell.appendChild(tag);
+      }
+    });
+  }
+
   try {
     var KEY = 'brighthope-busan-checklist';
     var saved = JSON.parse(localStorage.getItem(KEY) || '{}');
@@ -1404,6 +1438,19 @@
   try { startLang = localStorage.getItem('brighthope-busan-lang') || 'ja'; } catch(e){}
   applyLang(startLang);
   renderDday();
+
+  /* ---- Keep date-dependent UI (D-day, next milestone, calendar "today" mark) fresh
+     without needing a page reload — recompute periodically and whenever the tab
+     becomes visible again (e.g. a browser tab left open overnight). ---- */
+  function refreshDateDependentUI(){
+    renderDday();
+    renderNextMilestone();
+    markTodayCell();
+  }
+  setInterval(refreshDateDependentUI, 30 * 60 * 1000);
+  document.addEventListener('visibilitychange', function(){
+    if (!document.hidden) refreshDateDependentUI();
+  });
 })();
 </script>
 </body>
